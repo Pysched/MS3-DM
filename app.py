@@ -23,6 +23,12 @@ def index():
     return render_template("index.html")
 
 
+# Book Club Page
+@app.route('/book_club')
+def book_club():
+    return render_template("book_club.html")
+
+
 # Browse Page
 @app.route('/browse')
 def browse():
