@@ -47,6 +47,12 @@ def register():
     return render_template("register.html")
 
 
+# Account Page
+@app.route('/account')
+def account():
+    return render_template("account.html")
+
+
 # Add Item Page
 @app.route('/add_item')
 def add_item():
