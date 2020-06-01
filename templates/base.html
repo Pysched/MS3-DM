@@ -24,6 +24,8 @@
 {% include "sections/nav.html" %}
 <!-- End Navigation -->
 
+<!-- User Session Reference -->
+{% if session.user %}, {{ session['user']}}{% endif %}
 <!-- Main Content -->   
 {% block content %} {% endblock %}
 

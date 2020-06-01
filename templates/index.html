@@ -2,7 +2,8 @@
 {% extends 'base.html' %}
 {% block content %}
 <main>
-    <h3>Home Page</h3>
+    <h3>Home Page
+    Welcome{% if session.user %}, {{ session['user']|capitalize }}{% endif %}</h3>
 </main>
 {% endblock %}
 
