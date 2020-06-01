@@ -38,9 +38,34 @@ def browse():
 
 
 # Login Page
-@app.route('/login')
+@app.route('/login', methods=['GET'])
 def login():
-    return render_template("login.html")
+    # Check is the user in the db and in a session
+    if 'user' in session:
+        user_reg = users.find_one({"username": session['user']})
+        # If the user is in the db redirect to the users account
+        if user_reg:
+            return redirect(url_for('account', user=user_reg['username']))
+    else:
+        # If the user is not in the db, redirect them back to the login page
+        return render_template("login.html")
+
+
+# User auth - check login details versus the db details
+@app.route('/user_auth', methods=['POST'])
+def user_auth():
+    form = request.form.to_dict()
+    user_reg = users.find_one({"usename": form['username']})
+    # Database check for user
+    if user_auth:
+        # Hashed password - Real Password check
+        if check_password_hash(user_reg['password'], form['password']):
+            # Add user to session
+            session['user'] == form['username']
+            return redirect(url_for('account', username=user_reg['username']))
+        else:
+            flash("Wrong username or password, please enter again!")
+            return redirect(url_for('login'))
 
 
 # Register Page
