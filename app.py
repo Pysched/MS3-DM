@@ -59,7 +59,7 @@ def user_auth():
     # Check for user in database
     if user_reg:
         # If passwords match (hashed / real password)
-        if check_password_hash(user_reg['password'], form['password']):
+        if check_password_hash(user_reg['password'], form['user_password']):
             # Log user in (add to session)
             session['user'] = form['username']
             # If the user is admin redirect him to admin area
@@ -67,7 +67,7 @@ def user_auth():
                 return redirect(url_for('admin'))
             else:
                 flash("You were logged in!")
-                return redirect(url_for('account', username=user_reg['username']))
+                return redirect(url_for('index', username=user_reg['username']))
         else:
             flash("Wrong password or user name!")
             return redirect(url_for('login'))
@@ -86,11 +86,11 @@ def register():
     if request.method == 'POST':
         form = request.form.to_dict()
         # Check if the password and password1 actual;y match
-        if form['password'] == form['password1']:
+        if form['new_password'] == form['new_password1']:
             # Find user in db
-            user = users.find_one({"username": form['username']})
+            user = users.find_one({"username": form['new_username']})
             if user:
-                flash(f"{form['username']} already exists!")
+                flash(f"{form['new_username']} already exists!")
                 return redirect(url_for('register'))
             # If user does not exist register new user
             else:
@@ -99,13 +99,13 @@ def register():
                 # Create new user with hashed password
                 users.insert_one(
                     {
-                        'username': form['username'],
-                        'email': form['email'],
+                        'username': form['new_username'],
+                        'email': form['new_email'],
                         'password': hash_pass
                     }
                 )
                 # Check if user is in db
-                user_reg = users.find_one({"username": form['username']})
+                user_reg = users.find_one({"username": form['new_username']})
                 if user_reg:
                     # Add to session
                     session['user'] = user_reg['username']
