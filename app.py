@@ -67,34 +67,48 @@ def user_auth():
             flash("Wrong username or password, please enter again!")
             return redirect(url_for('login'))
 
+    else:
+        flash("You are not currently registered")
+        return redirect(url_for('register'))
+
 
 # Register Page
-@app.route('/register', methods=['GEt', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
+    # Check if user is not logged in already
+    if 'user' in session:
+        flash('You are already sign in!')
+        return redirect(url_for('index'))
     if request.method == 'POST':
         form = request.form.to_dict()
+        # Check if the password and password1 actual;y match
         if form['password'] == form['password1']:
+            # Find user in db
             user = users.find_one({"username": form['username']})
             if user:
-                flash(f"{form['username']} is already registered")
+                flash(f"{form['new_username']} already exists!")
                 return redirect(url_for('register'))
+            # If user does not exist register new user
             else:
+                # Hash password
                 hash_pass = generate_password_hash(form['password'])
-                users.insert_one({
-                    'username': form['username'],
-                    'email': form['email'],
-                    'password': hash_pass
-                })
-
-                user_reg = users.find_one({"username": form["username"]})
+                # Create new user with hashed password
+                users.insert_one(
+                    {
+                        'username': form['username'],
+                        'email': form['email'],
+                        'password': hash_pass
+                    }
+                )
+                # Check if user is in db
+                user_reg = users.find_one({"username": form['new_username']})
                 if user_reg:
+                    # Add to session
                     session['user'] = user_reg['username']
-                    return redirect(url_for('account',
-                    user=user_reg['username']))
-
+                    return redirect(url_for('profile', user=user_reg['username']))
                 else:
                     flash("There was a problem saving your profile")
-                return redirect(url_for('register'))
+                    return redirect(url_for('register'))
 
         else:
             flash("Passwords dont match!")
@@ -104,9 +118,16 @@ def register():
 
 
 # Account Page
-@app.route('/account')
-def account():
-    return render_template("account.html")
+@app.route('/account/<username>', methods=["GET", "POST"])
+def profile(username): 
+    # Check if user is logged in
+    if 'user' in session:
+        # If so get the user and pass him to template for now
+        user_reg = users.find_one({"username": username})
+        return render_template('profile.html', user=user_reg)
+    else:
+        flash("You must be logged in!")
+        return redirect(url_for('index'))
 
 
 # Add Item Page
