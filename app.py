@@ -56,19 +56,23 @@ def login():
 def user_auth():
     form = request.form.to_dict()
     user_reg = users.find_one({"username": form['username']})
-    # Database check for user
-    if user_auth:
-        # Hashed password - Real Password check
+    # Check for user in database
+    if user_reg:
+        # If passwords match (hashed / real password)
         if check_password_hash(user_reg['password'], form['password']):
-            # Add user to session
-            session['user'] == form['username']
-            return redirect(url_for('account', username=user_reg['username']))
+            # Log user in (add to session)
+            session['user'] = form['username']
+            # If the user is admin redirect him to admin area
+            if session['user'] == "admin":
+                return redirect(url_for('admin'))
+            else:
+                flash("You were logged in!")
+                return redirect(url_for('account', username=user_reg['username']))
         else:
-            flash("Wrong username or password, please enter again!")
+            flash("Wrong password or user name!")
             return redirect(url_for('login'))
-
     else:
-        flash("You are not currently registered")
+        flash("You must be registered!")
         return redirect(url_for('register'))
 
 
@@ -86,7 +90,7 @@ def register():
             # Find user in db
             user = users.find_one({"username": form['username']})
             if user:
-                flash(f"{form['new_username']} already exists!")
+                flash(f"{form['username']} already exists!")
                 return redirect(url_for('register'))
             # If user does not exist register new user
             else:
@@ -101,11 +105,11 @@ def register():
                     }
                 )
                 # Check if user is in db
-                user_reg = users.find_one({"username": form['new_username']})
+                user_reg = users.find_one({"username": form['username']})
                 if user_reg:
                     # Add to session
                     session['user'] = user_reg['username']
-                    return redirect(url_for('profile', user=user_reg['username']))
+                    return redirect(url_for('account', user=user_reg['username']))
                 else:
                     flash("There was a problem saving your profile")
                     return redirect(url_for('register'))
@@ -119,12 +123,12 @@ def register():
 
 # Account Page
 @app.route('/account/<username>', methods=["GET", "POST"])
-def profile(username): 
+def profile(username):
     # Check if user is logged in
     if 'user' in session:
         # If so get the user and pass him to template for now
         user_reg = users.find_one({"username": username})
-        return render_template('profile.html', user=user_reg)
+        return render_template('account.html', user=user_reg)
     else:
         flash("You must be logged in!")
         return redirect(url_for('index'))
