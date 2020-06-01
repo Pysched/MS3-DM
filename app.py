@@ -135,7 +135,7 @@ def logout():
 def profile(username): 
     # Check if user is logged in
     if 'user' in session:
-        # If so get the user and pass him to template for now
+        # if the user is in session return profile.html
         user_in_db = users.find_one({"username": username})
         return render_template('profile.html', user=user_in_db)
     else:

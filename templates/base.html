@@ -24,13 +24,13 @@
 {% include "sections/nav.html" %}
 <!-- End Navigation -->
 
-<!-- User Session Reference -->
+
 
 <!-- Main Content -->   
 {% block content %}
-    <!-- User Session Reference -->
-    {% if session.user %} {{ session['user'] }}{% endif %}
+
 {% endblock %}
+<!-- End Main Content --> 
 
 <!-- Flash Messages -->
 <div id="alerts" class="container-fluid">
