@@ -121,6 +121,15 @@ def register():
     return render_template("register.html")
 
 
+# Log out
+@app.route('/logout')
+def logout():
+    # Clear the session
+    session.clear()
+    flash('You were logged out!')
+    return redirect(url_for('index'))
+
+
 # Account Page
 @app.route('/account/<username>', methods=["GET", "POST"])
 def profile(username):
