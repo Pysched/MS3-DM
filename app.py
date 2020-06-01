@@ -23,6 +23,12 @@ def index():
     return render_template("index.html")
 
 
+# Browse Page
+@app.route('/browse')
+def browse():
+    return render_template("browse.html")
+
+
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP', '0.0.0.0'), port=int(os.environ.get("PORT", "5000")), debug=True)
