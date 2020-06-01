@@ -25,9 +25,12 @@
 <!-- End Navigation -->
 
 <!-- User Session Reference -->
-{% if session.user %}, {{ session['user']}}{% endif %}
+
 <!-- Main Content -->   
-{% block content %} {% endblock %}
+{% block content %}
+    <!-- User Session Reference -->
+    {% if session.user %} {{ session['user'] }}{% endif %}
+{% endblock %}
 
 <!-- Flash Messages -->
 <div id="alerts" class="container-fluid">

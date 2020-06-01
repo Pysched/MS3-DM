@@ -3,7 +3,7 @@
 {% block content %}
 <main>
     <h3>Home Page
-    Welcome{% if session.user %}, {{ session['user']|capitalize }}{% endif %}</h3>
+    Welcome {{ user.username}}</h3>
 </main>
 {% endblock %}
 
