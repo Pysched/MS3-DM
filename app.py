@@ -55,7 +55,7 @@ def login():
 @app.route('/user_auth', methods=['POST'])
 def user_auth():
     form = request.form.to_dict()
-    user_reg = users.find_one({"usename": form['username']})
+    user_reg = users.find_one({"username": form['username']})
     # Database check for user
     if user_auth:
         # Hashed password - Real Password check
@@ -69,8 +69,37 @@ def user_auth():
 
 
 # Register Page
-@app.route('/register')
+@app.route('/register', methods=['GEt', 'POST'])
 def register():
+    if request.method == 'POST':
+        form = request.form.to_dict()
+        if form['password'] == form['password1']:
+            user = users.find_one({"username": form['username']})
+            if user:
+                flash(f"{form['username']} is already registered")
+                return redirect(url_for('register'))
+            else:
+                hash_pass = generate_password_hash(form['password'])
+                users.insert_one({
+                    'username': form['username'],
+                    'email': form['email'],
+                    'password': hash_pass
+                })
+
+                user_reg = users.find_one({"username": form["username"]})
+                if user_reg:
+                    session['user'] = user_reg['username']
+                    return redirect(url_for('account',
+                    user=user_reg['username']))
+
+                else:
+                    flash("There was a problem saving your profile")
+                return redirect(url_for('register'))
+
+        else:
+            flash("Passwords dont match!")
+            return redirect(url_for('register'))
+
     return render_template("register.html")
 
 
