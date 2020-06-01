@@ -20,14 +20,14 @@
 
   <ul class="sidenav" id="mobile-nav">
     <li><a href="{{ url_for('index') }}">Home</a></li>
-    <li><a href="#">Book Club</a></li>
-    <li><a href="#">Browse</a></li>
+    <li><a href="{{ url_for('book_club') }}">Book Club</a></li>
+    <li><a href="{{ url_for('browse') }}">Browse</a></li>
 
-    <li><a href="#">Login</a></li>
-    <li><a href="#">Register</a></li>
+    <li><a href="{{ url_for('login') }}">Login</a></li>
+    <li><a href="{{ url_for('register') }}">Register</a></li>
 
-    <li><a href="#">Add Item</a></li>
-    <li><a href="#">Logout</a></li>
+    <li><a href="{{ url_for('add_item') }}">Add Item</a></li>
+    <li><a href="#">Log out</a></li>
   </ul>
 <!-- End Navbar -->
 
