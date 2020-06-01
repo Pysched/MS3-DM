@@ -13,10 +13,14 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# Database reference
 
+category = mongo.db.categories
+# Home Page route
 @app.route('/')
+@app.route('/index')
 def index():
-    return "Hello World"
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
