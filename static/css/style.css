@@ -1,21 +1,62 @@
-/* -- Whole page styling -- */
+/* -- Page styling -- */
 * {
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
 
+/* -- Materialize styling for features -- */
  body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-  main {
+main {
     flex: 1 0 auto;
   }
 
 
+  /* -- Messages Styling -- */
+
+  @keyframes showMessages{
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 55px;
+    opacity: 1;
+  }
+}
+  @keyframes hideMessages{
+  0%{opacity:100%;}
+  50%{opacity:50%;}
+  100%{opacity:0%;}
+}
+
+.messages{
+    margin-left:24%;
+}
+
+#message {
+    visibility: hidden;
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: fixed;
+    z-index: 300;
+    background-color: red;
+    color: #fff;
+  }
+
+  #message.show{
+      visibility: visible;
+      animation: showMessages 0.5s, hideMessages 0.5s 3.5s;
+  }
 
   /* -- Register Page -- */
   .register-page{
