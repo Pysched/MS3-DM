@@ -95,7 +95,7 @@ def register():
             # If user does not exist register new user
             else:
                 # Hash password
-                hash_pass = generate_password_hash(form['password'])
+                hash_pass = generate_password_hash(form['new_password'])
                 # Create new user with hashed password
                 users.insert_one(
                     {
@@ -109,7 +109,7 @@ def register():
                 if user_reg:
                     # Add to session
                     session['user'] = user_reg['username']
-                    return redirect(url_for('account', user=user_reg['username']))
+                    return redirect(url_for('index'))
                 else:
                     flash("There was a problem saving your profile")
                     return redirect(url_for('register'))
@@ -132,7 +132,7 @@ def logout():
 
 # Account Page
 @app.route('/profile/<username>', methods=["GET", "POST"])
-def profile(username): 
+def profile(username):
     # Check if user is logged in
     if 'user' in session:
         # if the user is in session return profile.html
