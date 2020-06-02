@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <!-- Navbar -->
   <nav>
     <div class="nav-wrapper">
       <a href="{{ url_for('index') }}" class="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('book_club') }}">Book Club</a></li>
@@ -22,16 +21,20 @@
     </div>
   </nav>
 
+<ul class="sidenav" id="mobile-demo">
+   <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('book_club') }}">Book Club</a></li>
+        <li><a href="{{ url_for('browse') }}">Browse</a></li>
+
+        {% if session.user %}
+        <li><a href="{{ url_for('profile', username=session['user']) }}">Account</a></li>
+        <li><a href="{{ url_for('add_item') }}">Add Item</a></li>
+        <li><a href="{{ url_for('logout') }}">Log out</a></li>
+        {% else %}
+        
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        {% endif %}
+  </ul>
  
 <!-- End Navbar -->
-
-<!-- Javascript for Materialize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-<!-- Jquery for Materialize Navbar-->
-<script>
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-  </script>

@@ -14,51 +14,45 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Link for custom css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <title>MS3</title>
 </head>
 <body>
+    <header>
+    <!-- Navigation -->
+    {% include "sections/nav.html" %}
+    <!-- End Navigation -->
+    </header>
 
-<!-- Navigation -->
-{% include "sections/nav.html" %}
-<!-- End Navigation -->
+    <!-- Messages -->
+    {% include "sections/messages.html" %}
+    <!-- End Messages -->
+
+    <!-- Main Content -->   
+    <main class="container">
+    {% block content %}
+
+    {% endblock %}
+    </main>
+    <!-- End Main Content --> 
+
+    <!-- Footer -->
+    <footer>
+    {% include "sections/footer.html" %}
+    </footer>
+    <!-- End footer -->
 
 
 
-<!-- Main Content -->   
-{% block content %}
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-{% endblock %}
-<!-- End Main Content --> 
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-<!-- Flash Messages -->
-<div id="alerts" class="container-fluid">
-				<div class="row justify-content-around">
-					<div id="messages">
-						{% with messages = get_flashed_messages() %}
-						{% if messages %}
-						{% for message in messages %}
-						<p class="text-center">{{ message }}</p>
-						{% endfor %}
-						{% endif %}
-						{% endwith %}
-					</div>
-				</div>
-			</div>
-<!-- Footer -->
-{% include "sections/footer.html" %}
-<!-- End footer -->
-
-<!-- Javascript for Materialize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-<!-- Jquery for Materialize Navbar-->
-<script>
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-  </script>
 </body>
 </html>

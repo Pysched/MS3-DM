@@ -66,13 +66,13 @@ def user_auth():
             if session['user'] == "admin":
                 return redirect(url_for('admin'))
             else:
-                flash("You were logged in!")
+                flash(Markup("You were logged in!"))
                 return redirect(url_for('index', username=user_reg['username']))
         else:
-            flash("Wrong password or user name!")
+            flash(Markup("Wrong password or user name!"))
             return redirect(url_for('login'))
     else:
-        flash("You must be registered!")
+        flash(Markup("You must be registered!"))
         return redirect(url_for('register'))
 
 
@@ -90,7 +90,7 @@ def register():
             # Find user in db
             user = users.find_one({"username": form['new_username']})
             if user:
-                flash(f"{form['new_username']} already exists!")
+                flash(Markup(f"{form['new_username']} already exists!"))
                 return redirect(url_for('register'))
             # If user does not exist register new user
             else:
@@ -111,11 +111,11 @@ def register():
                     session['user'] = user_reg['username']
                     return redirect(url_for('index'))
                 else:
-                    flash("There was a problem saving your profile")
+                    flash(Markup("There was a problem saving your profile"))
                     return redirect(url_for('register'))
 
         else:
-            flash("Passwords dont match!")
+            flash(Markup("Passwords dont match!"))
             return redirect(url_for('register'))
 
     return render_template("register.html")
