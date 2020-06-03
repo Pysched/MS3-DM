@@ -24,6 +24,6 @@ function flashed_messages() {
 	$("#message").addClass("show");
     setTimeout(function () {
         $("#message").removeClass("show");
-    }, 3000);
+    }, 5000);
 }
 flashed_messages();

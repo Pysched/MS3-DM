@@ -24,7 +24,7 @@ items = mongo.db.items
 
 # Quick functions
 def find_user(username):
-    return users.find_one({"username"})
+    return users.find_one({"username": username})
 
 
 # Home Page route
@@ -47,43 +47,28 @@ def browse():
 
 
 # Login Page
-@app.route('/login', methods=['GET'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     # Check is the user in the db and in a session
-    if 'user' in session:
-        user_reg = users.find_one({"username": session['user']})
-        # If the user is in the db redirect to the users account
-        if user_reg:
-            return redirect(url_for('account', user=user_reg['username']))
-    else:
-        # If the user is not in the db, redirect them back to the login page
-        return render_template("login.html")
+    if request.method == "POST":
+        username = request.form.get('username')
+        password = request.form.get("user_password")
+        reg_user = find_user(username)
 
+        if reg_user and check_password_hash(reg_user["password"], password):
 
-# User auth - check login details versus the db details
-@app.route('/user_auth', methods=['POST'])
-def user_auth():
-    form = request.form.to_dict()
-    user_reg = users.find_one({"username": form['username']})
-    # Check for user in database
-    if user_reg:
-        # If passwords match (hashed / real password)
-        if check_password_hash(user_reg['password'], form['user_password']):
-            # Log user in (add to session)
-            session['user'] = form['username']
-            # If the user is admin redirect him to admin area
-            if session['user'] == "admin":
-                return redirect(url_for('admin'))
-            else:
-                flash(Markup("You were logged in!"))
-                return redirect(url_for('index', username=user_reg['username']))
+            flash(Markup("Hey, Welcome " 
+            + username.capitalize() + 
+            ", you are logged in"))
+            session["user"] = username
+            return redirect(url_for('index', username=session["user"]))
+
         else:
-            flash(Markup("Wrong password or user name!"))
-            return redirect(url_for('login'))
-    else:
-        flash(Markup("You must be registered!"))
-        return redirect(url_for('register'))
+            flash(Markup("Those details do not match our records, either try again or register for an account."))
+        return redirect(url_for('login'))
 
+    return render_template('login.html')
+  
 
 # Register Page
 @app.route('/register', methods=['GET', 'POST'])
