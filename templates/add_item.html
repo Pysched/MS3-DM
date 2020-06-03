@@ -1,8 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="container add_item">
+    <div class="row">
+        <h3 class="add_item_title">Add a new listing</h3>
+    </div>
+</div>
 
-    <h3>Add Item Page</h3>
+<div class="container item_form col s10">
+    <form action="{{ url_for('insert_item') }}" method="POST" enctype="multipart/form-data">
+
+    <div class="input-field col s8">
+        <input id="item_title" name="item_title" type="text" minlength="1" maxlength="30" placeholder="Title of publication" class="form-control validate" required>
+            <label for="item_title">
+            Title
+                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-30 characters" aria-hidden="true"></i>
+            </label>
+        </div>
+
+    <div class="input-field col s8">
+            <select id="item_type" name="item_type" class="form-control validate" required>
+                <option value="" disabled selected>Type of item</option>
+                {% for item in items %}
+                <option value="{{ item.item_type }}">{{ item.item_type }}</option>
+                {% endfor %}
+            </select>
+            <label for="prep_time">Item type</label>
+        </div>
+
+
+
+
+
+
+
+    </form>
+</div>
+
 
 
 {% endblock %}

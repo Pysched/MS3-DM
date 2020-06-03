@@ -1,9 +1,11 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash, Markup
 from flask_pymongo import PyMongo
+from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 import bcrypt
+
 
 app = Flask(__name__)
 
@@ -16,6 +18,13 @@ mongo = PyMongo(app)
 # Database reference
 users = mongo.db.users
 category = mongo.db.categories
+listings = mongo.db.listings
+items = mongo.db.items
+
+
+# Quick functions
+def find_user(username):
+    return users.find_one({"username"})
 
 
 # Home Page route
@@ -135,11 +144,10 @@ def logout():
 def profile(username):
     # Check if user is logged in
     if 'user' in session:
-        # if the user is in session return profile.html
+        # if the user is in session return profile.html for that user
         user_in_db = users.find_one({"username": username})
         return render_template('profile.html', user=user_in_db)
     else:
-        flash("You must be logged in!")
         return redirect(url_for('index'))
 
 
@@ -147,6 +155,35 @@ def profile(username):
 @app.route('/add_item')
 def add_item():
     return render_template("add_item.html")
+
+
+# Insert Item 
+@app.route('/insert_item', methods=["GET", "POST"])
+def insert_item():
+    '''
+    From the add_item page take the selected inputs for a new item and insert it into the database referencing the user that added it
+    '''
+    if request.method == 'POST':
+        # Get the current users session
+        user = session['user']
+        user_id = find_user(user)["_id"]
+
+        insert = {
+            "item_type": request.form.get("item_type"),
+            "item_title": request.form.get("item_title"),
+            "item_author": request.form.get("item_author"),
+            "item_read_time": request.form.get("item_read_time"),
+            "item_category": request.form.get("item_category"),
+            "item_rated": request.form.get("item_rated"),
+            "item_added_by": request.form.get("item_added_by")
+        }
+
+        new_listing = listings.insert_one(insert)
+
+        users.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$push": {"add_item": new_listing.inserted_id}}
+        )
 
 
 if __name__ == '__main__':
