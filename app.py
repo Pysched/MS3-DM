@@ -154,7 +154,7 @@ def profile(username):
 # Add Item Page
 @app.route('/add_item')
 def add_item():
-    return render_template("add_item.html")
+    return render_template("add_item.html", items=mongo.db.items.find())
 
 
 # Insert Item 
