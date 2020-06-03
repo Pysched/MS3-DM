@@ -16,7 +16,15 @@
             Title
                 <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-30 characters" aria-hidden="true"></i>
             </label>
-        </div>
+    </div>
+
+    <div class="input-field col s8">
+        <input id="item_author" name="item_author" type="text" minlength="1" maxlength="30" placeholder="Author of publication" class="form-control validate" required>
+            <label for="item_author">
+            Author
+                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-30 characters" aria-hidden="true"></i>
+            </label>
+    </div>
 
     <div class="input-field col s8">
             <select id="item_type" name="item_type" class="form-control validate" required>
@@ -25,8 +33,54 @@
                 <option value="{{ item.item_type }}">{{ item.item_type }}</option>
                 {% endfor %}
             </select>
-            <label for="prep_time">Item type</label>
+            <label for="item_type">Item type</label>
+    </div>
+
+    <div class="input-field col s8">
+            <select id="item_read_time" name="item_read_time" class="form-control validate" required>
+                <option value="" disabled selected>Reading time</option>
+                {% for read in reading %}
+                <option value="{{ read.item_read_time }}">{{ read.item_read_time }}</option>
+                {% endfor %}
+            </select>
+            <label for="read_time">Reading time</label>
+    </div>
+
+    <div class="input-field col s8">
+            <select id="item_category" name="item_category" class="form-control validate" required>
+                <option value="" disabled selected>Genre</option>
+                {% for book in book_cat %}
+                <option value="{{ book.item_category }}">{{ book.item_category }}</option>
+                {% endfor %}
+            </select>
+            <label for="item_category">Item Category</label>
+    </div>
+
+    <div class="input-field col s8">
+            <select id="item_rating" name="item_rating" class="form-control validate" required>
+                <option value="" disabled selected>Rating</option>
+                {% for rate in rating %}
+                <option value="{{ rate.item_rating }}">{{ rate.item_rating }}</option>
+                {% endfor %}
+            </select>
+            <label for="item_rating">Item Rating</label>
+    </div>
+
+
+    <div class="row center-align">
+        <div class="col s8">
+            <button class="btn waves-effect waves-light add-btn standard-btn icon-right" type="submit" name="add-item" aria-label="Add new item">
+                Add Listing
+                <i class="fas fa-plus-circle" aria-hidden="true"></i>
+            </button>
+            <a class="btn waves-effect waves-light standard-btn icon-right" href="{{ url_for('index') }}" aria-label="Cancel button">
+                Cancel
+                <i class="fas fa-times-circle" aria-hidden="true"></i>
+            </a>
         </div>
+    </div>
+
+    
 
 
 

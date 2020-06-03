@@ -154,10 +154,13 @@ def profile(username):
 # Add Item Page
 @app.route('/add_item')
 def add_item():
-    return render_template("add_item.html", items=mongo.db.items.find())
+    return render_template("add_item.html", items=mongo.db.items.find(), 
+    reading=mongo.db.item_read_time.find(),
+    book_cat=mongo.db.book_categories.find(), 
+    rating=mongo.db.item_rating.find())
 
 
-# Insert Item 
+# Insert Item
 @app.route('/insert_item', methods=["GET", "POST"])
 def insert_item():
     '''
@@ -174,7 +177,7 @@ def insert_item():
             "item_author": request.form.get("item_author"),
             "item_read_time": request.form.get("item_read_time"),
             "item_category": request.form.get("item_category"),
-            "item_rated": request.form.get("item_rated"),
+            "item_rating": request.form.get("item_rating"),
             "item_added_by": request.form.get("item_added_by")
         }
 
@@ -184,6 +187,11 @@ def insert_item():
             {"_id": ObjectId(user_id)},
             {"$push": {"add_item": new_listing.inserted_id}}
         )
+        flash(Markup("Success \
+                    " + user + ", \
+                    your listing has been added!"))
+
+        return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
