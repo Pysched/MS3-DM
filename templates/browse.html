@@ -1,4 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
     <h3>Browse</h3>
+
+    {% for list in listings %}
+  <div class="row">
+    <div class="col s4">
+      <div class="card">
+          <span class="card-title">Listing</span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <div class="card-content">
+            <p>Type: {{list.item_type}}</p>
+            <p>Rating: {{list.item_rating}}</p>
+            <p>Author: {{list.item_author}}</p>
+            <p>Genre: {{list.item_category}}</p>
+            <p>Title: {{list.item_title}}</p> 
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+            
+    {% endfor %}
 {% endblock %}

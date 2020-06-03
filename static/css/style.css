@@ -58,6 +58,15 @@ main {
       animation: showMessages 0.5s, hideMessages 0.5s 3.5s;
   }
 
+
+  /* -- Items -- */
+  .item{
+      width:150px;
+      border:2px solid red;
+      padding:2rem;
+
+  }
+
   /* -- Register Page -- */
   .register-page{
       margin-left:auto;

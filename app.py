@@ -41,9 +41,9 @@ def book_club():
 
 
 # Browse Page
-@app.route('/browse')
+@app.route('/browse', methods=['GET', 'POST'])
 def browse():
-    return render_template("browse.html")
+    return render_template("browse.html", listings=mongo.db.listings.find())
 
 
 # Login Page
@@ -154,7 +154,8 @@ def profile(username):
 # Add Item Page
 @app.route('/add_item')
 def add_item():
-    return render_template("add_item.html", items=mongo.db.items.find(), 
+    return render_template("add_item.html", 
+    items=mongo.db.items.find(), 
     reading=mongo.db.item_read_time.find(),
     book_cat=mongo.db.book_categories.find(), 
     rating=mongo.db.item_rating.find())
@@ -192,6 +193,16 @@ def insert_item():
                     your listing has been added!"))
 
         return redirect(url_for('index'))
+
+
+# Get Listings
+# @app.route('/get_listings')
+# def get_listings():
+#     if request.method == 'POST':
+#         return render_template('browse.html', listings=mongo.db.listings.find())
+
+
+
 
 
 if __name__ == '__main__':
