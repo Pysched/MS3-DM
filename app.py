@@ -146,12 +146,12 @@ def insert_item():
     # From the add_item page take the selected inputs for a new item and insert it into the database referencing the user that added it
     
     if request.method == 'POST':
-        # Get the current users session
+        # Get the current users session, and date from today function and display it as date number, month name and year 
         user = session['user'].lower()
         user_id = find_user(user)["_id"]
         today_date = date.today()
         curr_date = today_date.strftime("%d %B %Y")
-
+        # Insert the values from the form with the key values on the left into the listings collection, to be able to select items from the db add a boolean of false to item_removed, this will be used further fown the script to call all items with a False value
         insert = {
             "item_type": request.form.get("item_type"),
             "item_title": request.form.get("item_title"),
@@ -166,7 +166,7 @@ def insert_item():
         }
 
         new_listing = listings.insert_one(insert)
-
+        adding
         users.update_one(
             {"_id": ObjectId(user_id)},
             {"$push": {"add_item": new_listing.inserted_id}}
