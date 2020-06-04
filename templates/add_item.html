@@ -8,7 +8,7 @@
 </div>
 
 <div class="container item_form col s10">
-    <form action="{{ url_for('insert_item') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url_for('insert_item') }}" method="POST" >
 
     <div class="input-field col s8">
         <input id="item_title" name="item_title" type="text" minlength="1" maxlength="30" placeholder="Title of publication" class="form-control validate" required>

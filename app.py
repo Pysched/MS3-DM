@@ -160,13 +160,14 @@ def insert_item():
             "item_category": request.form.get("item_category"),
             "item_rating": request.form.get("item_rating"),
             "item_added_by": user_id,
+            "item_added_by_username": user,
             "item_added_date": curr_date,
             "item_likes": 0,
             "item_removed": False
         }
 
         new_listing = listings.insert_one(insert)
-        adding
+
         users.update_one(
             {"_id": ObjectId(user_id)},
             {"$push": {"add_item": new_listing.inserted_id}}
@@ -175,7 +176,7 @@ def insert_item():
                     " + user + ", \
                     your listing has been added!"))
 
-        return redirect(url_for('get_listings'))
+        return redirect(url_for('browse'))
 
 
 @app.route('/get_listings', methods=["GET, POST"])
