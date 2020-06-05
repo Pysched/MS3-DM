@@ -31,32 +31,84 @@ main {
   }
 }
   @keyframes hideMessages{
-  0%{opacity:100%;}
-  50%{opacity:50%;}
-  100%{opacity:0%;}
+ from {
+    top: 55px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
 }
 
-.messages{
-    margin-left:24%;
-}
+
 
 #message {
-    visibility: hidden;
-    width: 50%;
+    display:none;
+    width: 100%;
     margin-left:auto;
     margin-right:auto;
     padding-top: 15px;
     padding-bottom: 15px;
-    position: fixed;
-    z-index: 300;
-    background-color: red;
+    position: relative;
+    z-index: 500;
+    background-color: #E8C547;
     color: #fff;
   }
 
   #message.show{
-      visibility: visible;
+      display: block;
       animation: showMessages 0.5s, hideMessages 0.5s 3.5s;
   }
+
+  /* #message.hide{
+      visibility: visible;
+      animation: showMessages 0.5s, hideMessages 0.5s 3.5s;
+  } */
+
+  /* -- Nav -- */
+  .nav-wrapper{
+      background-color:#30323D  ;
+  }
+
+  .mynav{
+      position:relative;
+      z-index: 500;
+  }
+
+  a.brand-logo{
+      margin-left:50px;
+  }
+
+/* -- Home Page -- */
+.myslider{
+    margin:0;
+    padding:0;
+    margin-top:50px;
+}
+
+.caption{
+    margin-top:35px;
+}
+
+.darken {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+}
+
+/* -- Paragraphgs -- */
+.para-text{
+    margin:15px;
+}
+
+.bottom{
+    margin-bottom:35px;
+}
+
+
 
 
   /* -- Items -- */
@@ -67,14 +119,18 @@ main {
 
   }
 
+
   /* -- Register Page -- */
   .register-page{
       margin-left:auto;
       margin-right:auto;
   }
 
+
+
   /* -- Footer -- */
   .page-footer{
       bottom:0;
+      background-color:#4D5061    ;
   }
 

@@ -1,27 +1,66 @@
 <!-- Footer -->
-        <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col l4 s6">
+                <h5 class="white-text">Book Shelf</h5>
+                    <p class="grey-text text-lighten-4">Welcome to Book Shelf. An online community for book lovers, enthusiasts and anyone the enjoys a good read.</p>
+                    <p> This site encourages everyone to share their opinions in a respectful manner.</p>
+            </div>
+            <div class="col l4 s6">
+                <h5 class="white-text">Navigation</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('book_club') }}">Book Club</a></li>
+                    <li><a href="{{ url_for('browse') }}">Browse</a></li>
+
+                    {% if session.user %}
+
+                    <li>
+                    <a href="{{ url_for('profile', username=session['user']) }}">Account</a>
+                    </li>
+
+                    <li>
+                    <a href="{{ url_for('add_item') }}">Add Item</a>
+                    </li>
+
+                    <li>
+                    <a href="{{ url_for('logout') }}">Log out</a>
+                    </li>
+
+                    {% else %}
+
+                    <li>
+                    <a href="{{ url_for('login') }}">Login</a>
+                    </li>
+
+                    <li>
+                    <a href="{{ url_for('register') }}">Register</a>
+                    </li>
+                    {% endif %}
                 </ul>
-              </div>
             </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="col l4 s6">
+            <h5 class="white-text">Social</h5>
+            
+            <ul>
+                <li>
+                    <a href=""><i class="fab fa-linkedin" title="Sunny-Hebbar" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                </li>
+                <li>
+                </li>
+                <li>
+                </li>
+            </ul>
             </div>
-          </div>
-        </footer>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+        © 2020 Copyright Book Shelf
+        </div>
+    </div>
+</footer>
 <!-- End Footer -->

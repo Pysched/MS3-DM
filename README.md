@@ -311,6 +311,16 @@ To run my code locally, users can download a local copy of my code to their desk
 
 ### Media
 
+Images used in this project where sourced from royality free locations
+
+main site image - https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/
+
+book club image - https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg
+
+browse image -https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260
+
+join - https://image.freepik.com/free-photo/girl-holding-book-front-face_23-2147690566.jpg
+
 
 ### Acknowledgements
 

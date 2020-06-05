@@ -1,7 +1,9 @@
 <!-- Navbar -->
-  <nav>
-    <div class="nav-wrapper">
-      <a href="{{ url_for('index') }}" class="brand-logo">Logo</a>
+ 
+ <div class="mynav">
+  <nav class="nav-fixed">
+    <div class="nav-wrapper z-depth-5">
+      <a href="{{ url_for('index') }}" class="brand-logo">Book Shelf</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -20,6 +22,8 @@
       </ul>
     </div>
   </nav>
+
+</div>
 
 <ul class="sidenav" id="mobile-demo">
    <li><a href="{{ url_for('index') }}">Home</a></li>

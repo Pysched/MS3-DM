@@ -2,12 +2,12 @@
 $(document).ready(function () {
     flashed_messages();
     $('.sidenav').sidenav();
+    $('.slider').slider({fullwidth: true});
 });
 
 
 
 /* -- Js for Materialize init -- */
-
 function materializeInit() {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
@@ -26,4 +26,8 @@ function flashed_messages() {
         $("#message").removeClass("show");
     }, 5000);
 }
-flashed_messages();
+
+
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });

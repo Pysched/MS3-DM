@@ -1,0 +1,10 @@
+/* .container{
+    width:100%;
+} */
+
+@media(min-width:993px){
+    .welcome{
+        margin-left:15px;
+
+    }
+}

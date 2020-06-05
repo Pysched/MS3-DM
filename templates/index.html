@@ -1,6 +1,118 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="col s12">
-        <h1 class="page-title">Welcome{% if session.user %}, {{ session['user']|capitalize }}{% endif %}!</h1>
+
+    <!-- Messages -->
+    {% include "sections/messages.html" %}
+    <!-- End Messages -->
+
+<section class="myslider">
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="book shop image">
+                <div class="caption center-align white-text">
+                    <h3>Book Shelf</h3>
+                    <h5 class="light text-lighten-3">Your Community Book Shop</h5>
+                </div>
+            </li>
+            <li>
+                <img class="darken" src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg" alt="book club  image">
+                <div class="caption center-align white-text">
+                    <h3>Book Club</h3>
+                    <h5 class="light text-lighten-3">Join our Book Club</h5>
+                    <br>
+                    <form  action="/book_club">
+                        <button class="btn waves-effect waves-light" type="submit" >Meet up a join in the lively discussion! <br> Join or Create a new Book Club Meeting
+                        <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <img src="https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="book club  image">
+                <div class="caption center-align white-text">
+                    <h3>Collection</h3>
+                    <h5 class="light text-lighten-3">Browse our user add collections</h5>
+                    <br>
+                    <form method="POST" action="/browse">
+                        <button class="btn waves-effect waves-light" type="submit" >Browse the Listings 
+                        <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+            </li>
+             <li>
+                <img src="https://image.freepik.com/free-photo/girl-holding-book-front-face_23-2147690566.jpg" alt="book club image">
+                <div class="caption center-align white-text">
+                    <h3>Become Part of the Community</h3>
+                    <h5 class="light text-lighten-3">Add your own reviews and book listings</h5>
+                    <br>
+                    <form action="/register">
+                        <button class="btn waves-effect waves-light" type="submit" >Register
+                        <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                </div>
+            </li>
+        </ul>
     </div>
+</section>
+
+
+<div class="col s12 bottom ">
+    <h4 class="page-title">Welcome{% if session.user %} {{ session['user']|capitalize }}{% endif %}, to Book Shelf</h4>
+    <hr>
+    <p class="para-text">
+        Always wondered how that book mad friend of yours always has a new book ready to go? Or how they always find books that actually a great read? .. The secret.. They are Book Shelf Memebers!
+    </p>
+
+    <p class="para-text">
+        Our home, which has entrances anywhere you can find internet, or wiffy as they call it now, is a haven for local book lovers and visitors alike. Our community have expertise which reflects the wide variety of books listed and are more than willing to recommend and promote titles both local and international.</p>
+        <p class="para-text">
+        We are part of the book worlds vibrant cultural life hosting readings, lectures, launches and signings in an attractive literary setting.
+    </p>
+</div>
+
+<hr>
+
+<div class=" col s12 ">
+    <h4 class="section-title">Everyone's talking About...</h4>
+      
+        <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+            <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+            <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+            <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+            <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+        </div>
+           
+</div>
+<hr>
+<div class=" col s12 ">
+    <h4 class="section-title">Newest Releases</h4>
+       
+        <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+            <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+            <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+            <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+            <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+        </div>
+           
+</div>
+<hr>
+<div class=" col s12 ">
+    <h4 class="section-title">Newest Releases</h4>
+       
+        <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+            <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+            <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+            <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+            <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+        </div>
+           
+</div>
+
+
 {% endblock %}
