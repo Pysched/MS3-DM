@@ -21,6 +21,7 @@ category = mongo.db.categories
 listings = mongo.db.listings
 items = mongo.db.items
 meetings = mongo.db.meetings
+meeting_category = mongo.db.meeting_category
 
 
 # Quick functions
@@ -36,25 +37,59 @@ def index():
 
 
 # Book Club Page
-@app.route('/book_club')
+@app.route('/book_club', methods=['GET', 'POST'])
 def book_club():
-    return render_template("book_club.html")
+    return render_template("book_club.html", meetings=mongo.db.meetings.find(), meetings_category=mongo.db.meetings_category.find(),
+    book_category=mongo.db.book_categories.find())
 
 
-# Add Mbookclub meeting
-# @app.route('/add_meeting', methods=['GET', 'POST'])
-# def add_meeting():
-#     if request.method == "POST":
-#         meetings=meetings.mongo.db.find()
-#         meeting_name = request.form.get('meeting_name')
-#         meeting_date = request.form.get('meeting_date')
-#         meeting_time = request.form.get('meeting_time')
-#         reg_user = find_username(username)
-# Get meetings
+# Add Meetings
+@app.route('/add_meeting', methods=['GET', 'POST'])
+def add_meeting():
+    return render_template('add_meeting.html')
+
+
+# Add Meetings
+@app.route('/insert_meeting', methods=['GET', 'POST'])
+def insert_meeting():
+   
+    if request.method == 'POST':
+    
+        user = session['user'].lower()
+        user_id = find_user(user)["_id"]
+        today_date = date.today()
+        curr_date = today_date.strftime("%d %B %Y")
+        insert = {
+            "meeting_name": request.form.get("meeting_name"),
+            "meeting_date": request.form.get("meeting_date"),
+            "meeting_time": request.form.get("meeting_time"),
+            "meeting_description": request.form.get("meeting_description"),
+            "meeting_category": request.form.get("meeting_category"),
+            "meeting_book_category": request.form.get("meeting_category"),
+            "meeting_added_by": user_id,
+            "meeting_added_by_username": user,
+            "meeting_added_date": curr_date,
+            "item_removed": False
+        }
+
+        new_meetings = meetings.insert_one(insert)
+        users.update_one(
+            {"_id": ObjectId(user_id)},
+            {"$push": {"add_item": new_meetings.inserted_id}}
+        )
+        flash(Markup("Success \
+                    " + user + ", \
+                    your listing has been added!"))
+
+        return redirect(url_for('book_club'))
+
+
+# Get Meetings
 @app.route('/get_meetings', methods=['GET', 'POST'])
 def get_meetings():
     return render_template("get_meetings.html",
-    meetings=mongo.db.meetings.find())
+    listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find(),
+    meetings=mongo.db.meetings_category.find())
 
 
 # Browse Page
@@ -66,7 +101,7 @@ def browse():
 # Login Page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-# if the request method is post then return then login.html
+    # if the request method is post then return then login.html
     if request.method == "POST":
         ''' get the inserted values from the login form and assign them ids of username, password, reg_user'''
         username = request.form.get('username')

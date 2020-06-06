@@ -2,28 +2,21 @@
 <div class="col s8 meetings">
     <h4 class="title">Upcoming Book club Meetings</h4>
     <hr>
-    <br>
-  
-   <ul class="collapsible popout">
-   {% for meet in meetings %}
+    {% for meet in meetings_category %}
+        {% for meeting in meetings %}
+
+    <ul class="collapsible">
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{meet.meeting_name}}</div>
-      <div class="collapsible-body"><span>
-      <p>{{meet.meeting_date}}</p>
-      <p>{{meet.meeting_time}}</p>
-      <p>{{meet.meeting_description}}</p>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{meet.meeting_category}} -  {{meeting.meeting_date}} - {{meeting.meeting_time}}</div>
+      <div class="collapsible-body"><span>Meeting Description: {{meeting.meeting_description}}
       </span>
+      <p>Meeting Added By: {{meeting.meeting_added_by_username|capitalize}}</p>
+      <p>Meeting add on: {{meeting.meeting_added_date}}</p>
       </div>
-      {% endfor %}
     </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
+    
   </ul>
+        {% endfor %}
+    {% endfor %}
 
   </div>

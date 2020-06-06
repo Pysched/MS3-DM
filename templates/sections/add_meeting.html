@@ -1,42 +1,67 @@
 <div class="col s10 add_meeting">
 <h4>Add a book club Meeting</h4>
-<hr><br>  <div class="row">
-    <form class="col s6" action="/add_meeting" method="POST">
+
+{% if session.user %}
+<hr><br>  
+
+  <div class="row">
+    <form class="col s12" action="/insert_meeting" method="POST">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Placeholder" id="meeting_name"  name="meeting_name" type="text" class="validate">
-          <label for="first_name">Meeting Name</label>
+          <label for="meeting_name">Meeting Name</label>
         </div>
-      
-        <div class="col s6">  
-        <!-- Add a date from date picker -->
-        <input type="text" class="datepicker" id="meeting_date" name="meeting-date" placeholder="Click to select date"> Add a date</div>
-        <div class="col s6">
-        <!-- Add a time from time picker -->
-        <input type="text" class="timepicker" id="meeting_time" name="meeting-time" placeholder="Click to select time"> Add a time </div>
 
-        <div class="input-field col s8">
-        <input id="meeting_comment" name="meeting_comment" type="text" minlength="1" maxlength="500" placeholder="Add your comments" class="form-control " required>
-            <label for="meeting_comment">
+        
+
+<div class="input-field col s6">
+    <select id="meeting_book_category" name="meeting_book_category" class="form-control validate" required>
+    
+        <option value="" disabled selected>Choose Category</option>
+        {% for book in book_category %}
+            <option value="{{book.item_category}}">{{book.item_category}}</option>
+        {% endfor %}
+    </select>
+    <label for="meeting_book_category">Select Book Category</label>
+</div>
+
+
+         <!-- Add a date from date picker -->
+        <div class="input-field col s6">
+            <input type="text" class="datepicker" id="meeting_date" name="meeting_date" placeholder="Click to select date"> Add a date
+        </div>
+
+        <div class="input-field col s6">
+        <!-- Add a time from time picker -->
+        <input type="text" class="timepicker" id="meeting_time" name="meeting_time" placeholder="Click to select time"> Add a time </div>
+        
+      
+      <div class="input-field col s6">
+        <input id="meeting_description" name="meeting_description" type="text" minlength="1" maxlength="500" placeholder="Add your comments" class="form-control " required>
+            <label for="meeting_description">
             Comments
                 <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-500 characters" aria-hidden="true"></i>
             </label>
-    </div>
-        <div class="switch">
-            <label>
-             Off
-        <input type="checkbox" name="is_going">
-        <span class="lever"></span>
-         On
-        </label>
-  </div>
-        <div class="col s6">
+        </div>
+
+      </div>
+      
+     <div class="col s6">
         <button class="btn waves-effect waves-light" type="submit" >Add Meeting
         <i class="material-icons right">send</i>
         </button>
-        </div>
-        </div>
+      </div>
+      
     </form>
   </div>
-        
+
+  {% else %}
+
+  <h4>you need to be logged in to add a new Book club meeting</h4>
+  <form action="/login">
+                        <button class="btn waves-effect waves-light" type="submit" >Login
+                        <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+     {% endif %}   
 </div>
