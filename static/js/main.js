@@ -15,6 +15,8 @@ function materializeInit() {
     $('.modal').modal();
     $('.collapsible').collapsible();
     $('.tooltipped').tooltip();
+    $('.datepicker').datepicker();
+    $('.timepicker').timepicker();
 }
 materializeInit();
 
@@ -27,7 +29,17 @@ function flashed_messages() {
     }, 5000);
 }
 
-
+/* -- Carousel activation -- */
   $(document).ready(function(){
     $('.carousel').carousel();
+  });
+
+/* -- Date Picker Activation -- */
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+/* -- Time Picker -- */
+ $(document).ready(function(){
+    $('.timepicker').timepicker();
   });

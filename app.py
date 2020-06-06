@@ -20,6 +20,7 @@ users = mongo.db.users
 category = mongo.db.categories
 listings = mongo.db.listings
 items = mongo.db.items
+meetings = mongo.db.meetings
 
 
 # Quick functions
@@ -40,6 +41,22 @@ def book_club():
     return render_template("book_club.html")
 
 
+# Add Mbookclub meeting
+# @app.route('/add_meeting', methods=['GET', 'POST'])
+# def add_meeting():
+#     if request.method == "POST":
+#         meetings=meetings.mongo.db.find()
+#         meeting_name = request.form.get('meeting_name')
+#         meeting_date = request.form.get('meeting_date')
+#         meeting_time = request.form.get('meeting_time')
+#         reg_user = find_username(username)
+# Get meetings
+@app.route('/get_meetings', methods=['GET', 'POST'])
+def get_meetings():
+    return render_template("get_meetings.html",
+    meetings=mongo.db.meetings.find())
+
+
 # Browse Page
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
@@ -49,7 +66,7 @@ def browse():
 # Login Page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # if the request method is post then return then login.html 
+# if the request method is post then return then login.html
     if request.method == "POST":
         ''' get the inserted values from the login form and assign them ids of username, password, reg_user'''
         username = request.form.get('username')

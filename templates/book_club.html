@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container book_club">
-     <img class="responsive-img" src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg" alt="book club  image">
+<div class="col s12 book_club">
+     <img class="responsive-img" src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg" alt="book club  image" style="width:1090px;height:350px;object-fit:cover;">
 </div> 
-
-
+{% include "sections/get_meetings.html" %}
+{% include "sections/add_meeting.html" %}
 
 
 
