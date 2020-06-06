@@ -108,6 +108,19 @@ main {
     margin-bottom:35px;
 }
 
+/* -- Browse page -- */
+
+.browse_img{
+    width: 1100px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.browse-header{
+   margin: 0;
+    padding:0;
+}
+
 
 
 

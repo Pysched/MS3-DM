@@ -43,7 +43,7 @@ def book_club():
 # Browse Page
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
-    return render_template("browse.html", listings=mongo.db.listings.find())
+    return render_template("browse.html", listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find())
 
 
 # Login Page
@@ -188,7 +188,7 @@ def get_listings():
         user_submit = request.form.to_dict()
         listings = listings.find({"item_removed": False})
 
-    return render_template("browse.html", listings=listings.find())
+    return render_template("listings_cards.html", listings=listings.find())
 
 
 if __name__ == '__main__':
