@@ -7,7 +7,7 @@
             <div class="form-group">
            
                 <p>{{ user.username }}</p>
-                <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Edit</a>
+                <a class="waves-effect waves-light btn"><i class="material-icons right" href="{{ url_for('/edit_profile/<user_id>')}}">cloud</i>Edit</a>
                 <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Delete</a>
             </div>
             <div class="form-group">
@@ -26,65 +26,145 @@
             </div>  
         </form>
         <!-- Account Page -->
-<!--Account Management Buttons-->
-<div class="row recipe-card card z-depth-1 center-align">
-    <div class="col s12">
-        <h4 class="card-title">Account Management</h4>
-    </div>
-    <div class="col s12 m5 offset-m1 acc-management-wrapper">
-        <!--Change Password Modal Button-->
-        <a href="#change_password_modal" class="waves-effect waves-light btn modal-trigger change-pwd-btn large-btn icon-left"  aria-label="Change password modal">
-            <i class="fas fa-user-lock" aria-hidden="true"></i>
-            Change Password
-        </a>
-    </div>
-    <div class="col s12 m5 acc-management-wrapper">
-        <!--Delete Account Modal Button-->
-        <a href="#delete_account_modal" class="waves-effect waves-light btn modal-trigger delete-acc-btn large-btn icon-left" aria-label="Delete account modal">
-            <i class="fas fa-user-slash" aria-hidden="true"></i>
-            Delete Account
-        </a>
-    </div>
-</div>
 
-<div class="col s12 center-align">
-    <h4 class="title">Change Password</h4>
-    <form class="col s12" method="POST" action="{{ url_for('update_password', username=username) }}">
-        <div class="row modal-form-wrapper">
-            <!--Existing Password-->
-            <div class="input-field col s12">
-                <i class="fas fa-lock prefix" aria-hidden="true"></i>
-                <input id="existing_password" name="existing_password" type="password" class="form-control validate" minlength="6" maxlength="15" required>
-                <label for="existing_password">
-                    Existing Password
-                    <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="6-15 characters" aria-hidden="true"></i>
-                </label>
+
+
+  <ul class="collapsible">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Change Username</div>
+      <div class="collapsible-body">
+      
+      
+      
+      </div>
+    </li>
+
+
+
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons">place</i>
+      Change Email Address</div>
+      <div class="collapsible-body">
+                <div class="col s12 center-align">
+                <h4 class="title">Change Email Address</h4>
+                <form class="col s12" method="POST" action="{{ url_for('update_email', username=username) }}">
+                    <div class="row modal-form-wrapper">
+                        <!--Existing Email-->
+                        <div class="input-field col s12">
+                            <i class="fas fa-lock prefix" aria-hidden="true"></i>
+                            <input id="existing_email" name="existing_email" type="email" class="form-control validate"  required>
+                            <label for="existing_email">
+                                Existing Email
+                                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="6-15 characters" aria-hidden="true"></i>
+                            </label>
+                        </div>
+                        <!--New Email-->
+                        <div class="input-field col s12">
+                            <i class="fas fa-key prefix" aria-hidden="true"></i>
+                            <input id="changed_email" name="changed_email" type="email" class="form-control validate"  required>
+                            <label for="changed_email">
+                                New Email
+                                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="6-15 characters" aria-hidden="true"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row modal-btn-wrapper">
+                        <!--Change Email Button-->
+                        <button class="btn waves-effect waves-light modal-pwd-btn large-btn icon-right" type="submit" aria-label="Change password button">
+                            Change Email
+                            <i class="fas fa-user-lock" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
-            <!--New Password-->
-            <div class="input-field col s12">
-                <i class="fas fa-key prefix" aria-hidden="true"></i>
-                <input id="changed_password" name="changed_password" type="password" class="form-control validate" minlength="6" maxlength="15" required>
-                <label for="changed_password">
-                    New Password
-                    <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="6-15 characters" aria-hidden="true"></i>
-                </label>
+      </div>
+    </li>
+
+
+
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Change Password</div>
+      <div class="collapsible-body">
+        <div class="col s12 center-align">
+                <h4 class="title">Change Password</h4>
+                <form class="col s12" method="POST" action="{{ url_for('update_password', username=username) }}">
+                    <div class="row modal-form-wrapper">
+                        <!--Existing Password-->
+                        <div class="input-field col s12">
+                            <i class="fas fa-lock prefix" aria-hidden="true"></i>
+                            <input id="existing_password" name="existing_password" type="password" class="form-control validate" minlength="6" maxlength="15" required>
+                            <label for="existing_password">
+                                Existing Password
+                                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="6-15 characters" aria-hidden="true"></i>
+                            </label>
+                        </div>
+                        <!--New Password-->
+                        <div class="input-field col s12">
+                            <i class="fas fa-key prefix" aria-hidden="true"></i>
+                            <input id="changed_password" name="changed_password" type="password" class="form-control validate" minlength="6" maxlength="15" required>
+                            <label for="changed_password">
+                                New Password
+                                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="6-15 characters" aria-hidden="true"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row modal-btn-wrapper">
+                        <!--Change Password Button-->
+                        <button class="btn waves-effect waves-light modal-pwd-btn large-btn icon-right" type="submit" aria-label="Change password button">
+                            Change Password
+                            <i class="fas fa-user-lock" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+      </div>
+    </li>
+
+
+    <li>
+        <div class="collapsible-header"><i class="material-icons">whatshot</i>Delete Account</div>
+        <div class="collapsible-body">
+            <div class=" center-align">
+                <h4 class="title">Delete Account</h4>
+                <h6 class="">Are you sure you want to delete your account?</h6>
+                <p class="italic">
+                    All your listings and data will be permanently deleted if you go ahead!
+                    <br>
+                    Confirm your password to continue...
+                </p>
+                <form class="col s12" method="POST" action="{{ url_for('delete_account', username=username) }}">
+                    <div class="row modal-form-wrapper">
+                        <!--Existing Password-->
+                        <div class="input-field col s12">
+                            <i class="fas fa-lock prefix" aria-hidden="true"></i>
+                            <input id="confirm_password" name="confirm_password" type="password" class="form-control validate" minlength="6" maxlength="15" required>
+                            <label for="confirm_password">
+                                Confirm Password
+                                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="6-15 characters" aria-hidden="true"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row modal-btn-wrapper">
+                        <!--Change Password Button-->
+                        <button class="btn waves-effect waves-light modal-acc-btn large-btn icon-right" type="submit" aria-label="Delete account button">
+                            Delete Account
+                            <i class="fas fa-user-slash" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="row modal-btn-wrapper">
-            <!--Change Password Button-->
-            <button class="btn waves-effect waves-light modal-pwd-btn large-btn icon-right" type="submit" aria-label="Change password button">
-                Change Password
-                <i class="fas fa-user-lock" aria-hidden="true"></i>
-            </button>
-        </div>
-    </form>
-</div>
-<!--Delete Modal-->
-<div id="delete_account_modal" class="modal">
-    
-    {% include "sections/delete_account_modal.html" %}
-    
-</div>
+    </li>
+</ul>
+
+
+
+
+
+
+
+
 
 </div>
 {% endblock %}

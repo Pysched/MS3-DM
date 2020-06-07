@@ -30,10 +30,11 @@ def find_user(username):
 
 
 def find_listings(listings_id):
-    '''
-    Find listing details based on the listing_id
-    '''
     return listings.find_one({"_id": ObjectId(listings_id)})
+
+
+def find_meetings(meetings_id):
+    return meetings.find_one({"_id": ObjectId(meetings_id)})
 
 
 # Home Page route
@@ -97,6 +98,16 @@ def get_meetings():
     return render_template("get_meetings.html",
     listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find(),
     meetings=mongo.db.meetings_category.find())
+
+
+# Update Meetings
+@app.route('/edit_meeting/<_id>')
+def edit_meeting(_id):
+    meetings = get_meetings(_id)
+
+    return render_template(
+                        "edit_meeting.html",
+                        meetings=meetings)
 
 
 # Browse Page
@@ -246,9 +257,37 @@ def listing(listing_id):
     listings = find_listings(listing_id)
     listings.update_one({"_id": ObjectId(listing_id)},
                         {"%inc": {"views": 1}})
-    added_by = users.find_one({"_id": ObjectId(listing.get("item_added_by_username"))})["username"]
+    added_by = users.find_one({"_id": ObjectId(listing.get("item_added_by_username"))})["user"]
 
-    return render_template("listings_cards.html", listings=listings, added_by=added_by)
+    return render_template("listing.html", listings=listings, added_by=added_by)
+
+
+@app.route('/profile/<username>/update_email', methods=["POST"])
+def update_email(username):
+
+    user = session["user"].lower()
+    username = find_user(session["user"])
+    existing_email = request.form.get("existing_email")
+    changed_email = request.form.get("changed_email")
+
+    # If stored email matches the entry, the email will be changed
+    if existing_email(username["email"], existing_email):
+        flash(Markup("Thanks " + user.capitalize() + "your password has successfully been changed!"))
+        users.update_one(
+            {"email": user},
+            {"$set": {"email": changed_email}})
+    # If stored password doesn't match the entry, display generic flash message
+    else:
+        flash(Markup("Sorry" +
+                     user.capitalize() + ", your existing email doesn't match what we have! Please try again."))
+
+    return redirect(url_for('index', username=username))
+
+
+@app.route('/edit_profile/<user_id>')
+def edit_profile(user_id):
+    the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template('edit_profile.html', user=the_user)
 
 
 @app.route('/profile/<username>/update_password', methods=["POST"])
@@ -271,6 +310,37 @@ def update_password(username):
                      user.capitalize() + ", your existing password doesn't match what we have! Please try again."))
 
     return redirect(url_for('index', username=username))
+
+
+@app.route('/profile/<username>/delete_account', methods=["POST"])
+def delete_account(username):
+    
+    username = find_user(session["user"])
+    confirm_password = request.form.get("confirm_password")
+    user_upper = session["user"].capitalize()
+
+    # If stored password matches the entry, the password will be changed
+    if check_password_hash(username["password"], confirm_password):
+        # Find the user's added recipes
+        user_added_recipes = [recipe for recipe in username
+                              .get("added_recipes")]
+        # Update 'deleted' value to true for each recipe from recipes_coll
+        # Remove each recipe from all other users' liked list
+        for recipe in user_added_recipes:
+            listings.update_one({"_id": ObjectId(listing)},
+                                    {"$set": {"deleted": True}})
+        flash(Markup("Your account has been successfully deleted."))
+        # End the user's session
+        session.pop('user', None)
+        # Remove the user's details from the userLogin collection
+        users.remove({"_id": username.get("_id")})
+        # Redirect to index.html
+        return redirect(url_for('index'))
+    # If stored password doesn't match the entry, display generic flash message
+    else:
+        flash(Markup("Sorry " + user_upper +", your existing password doesn't match what we have. Please try again."))
+
+    return redirect(url_for('profile', username=username))
 
 
 if __name__ == '__main__':
