@@ -129,10 +129,6 @@ def browse():
     return render_template("browse.html", listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find())
 
 
-@app.route('/get_listing/<listing_id>', methods=["GET"])
-def get_listing(listing_id):
-    listing = mongo.db.listings.find({'_id': ObjectId(listing_id)})
-    return render_template('listings_cards.html', listing_id=mongo.db.listings)
 
 
 # Login Page
@@ -159,14 +155,15 @@ def login():
         return redirect(url_for('login'))
 
     return render_template('login.html')
-  
 
 # Register Page
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
 
-        '''# If the method is POST, then take the values from the form and assign them to new_nuser, new_pass and new_email, .lower() function is to prevent issues with case sensitive logins later on'''
+        '''
+        If the method is POST, then take the values from the form and assign them to new_nuser, new_pass and new_email, .lower() function is to prevent issues with case sensitive logins later on
+        '''
 
         new_user = request.form.get('new_user').lower()
         new_pass = request.form.get('new_pass')
@@ -220,14 +217,26 @@ def profile(username):
 
 
 # Edit Profile
-@app.route('/edit_profile/<user_id>')
+@app.route('/edit_profile/<user_id>', methods=["GET", "POST"])
 def edit_profile(user_id):
     the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     return render_template('edit_profile.html', user=the_user)
 
 
+# Update Profile
+@app.route('/update_profile/<user_id>', methods=["GET", "POST"])
+def update_profile(user_id):
+    users = mongo.db.users
+    
+    users.update({'_id': ObjectId(user_id)}, {
+        'username': request.form.get('new_user'),
+        'email': request.form.get('new_email'),
+    })
+    return redirect(url_for('profile', users=username))
+
+
 # Delete Profile
-@app.route('/delete_account/<user_id>')
+@app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
     mongo.db.user_id.remove({'_id': ObjectId(user_id)})
     return redirect(url_for('register'))

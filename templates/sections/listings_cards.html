@@ -1,4 +1,6 @@
- 
+{% extends 'base.html' %}
+{% block content %}
+<h3>Account Page</h3>
  <div class="col s12 m3 recipe-preview-card">
     <div class="card hoverable results-card z-depth-1">
         <a href="{{ url_for('get_listings') }}" >
@@ -15,17 +17,6 @@
         </div>
     </div>
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  {% for list in listings %}
   <div class="col s12">
@@ -51,3 +42,6 @@
   </div>
             
     {% endfor %}
+
+
+    {% endblock %}

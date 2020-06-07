@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h3>Register Page</h3>
+    <h3>Edit Profile Page</h3>
 
 
 {% include "sections/messages.html" %}
 <!-- Register Form -->
 <div class="container register-form">
   <div class="row">
-    <form class="col s12"  method="POST" action="/edit_profile">
+    <form class="col s12"  method="POST" action="{{ url_for('update_profile', user_id=user._id)}}">
       <div class="row">
         <div class="input-field col s6">
           <input placeholder="Please enter a username" name="new_user" id="new_user" type="text" class="validate">
@@ -20,20 +20,9 @@
           <label for="new_email">Email</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s6">
-          <input placeholder="Please enter a password" name="new_pass" id="new_pass" type="password" class="validate">
-          <label for="new_pass">Password</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-          <input placeholder="Please confirm your password" name="new_pass1" id="new_pass1" type="password" class="validate">
-          <label for="new_password1">Password Confirm</label>
-          </div>
-        </div>
+        
         <!-- Submit Button -->
-        <button class="btn btn-outline-success btn-lg btn-block" type="submit">Register</button>
+        <button class="btn btn-outline-success btn-lg btn-block" type="submit">Update</button>
         <!-- Submit Button -->
     </form>
   </div>
