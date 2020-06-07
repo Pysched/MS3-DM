@@ -9,15 +9,7 @@
     <h4 class="title">Browse Listings</h4>
     <hr>
 </section>
-
-
-
-
-
-
-
-
-
+<!-- Display Cards of each item -->
   <div class="row">
   {% for list in listings %}
     <div class="col s4 m4">
@@ -37,8 +29,8 @@
         <div class="card-action">
             <a href="#">Go to Listing</a>
             {% if session.user %}
-            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">thumb_up</i></a>
-            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">thumb_down</i></a>
+            <a class="waves-effect waves-light btn"><i class="material-icons right" href="#">cloud</i>Edit</a>
+                <a class="waves-effect waves-light btn"><i class="material-icons right" data-toggle="modal" data-target="#Modal">cloud</i>Delete</a>
             {% endif %}
         </div>
       </div>
@@ -46,6 +38,20 @@
     {% endfor %}
   </div>
    
+
+   <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Delete Item</h4>
+      <p>Click Agree to Delete Account</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 
     
         

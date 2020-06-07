@@ -13,6 +13,9 @@
       <p>Meeting Added By: {{meeting.meeting_added_by_username|capitalize}}</p>
       <p>Meeting add on: {{meeting.meeting_added_date}}</p>
       </div>
+      {% if user in session %}
+      <a class="waves-effect waves-light btn" ><i class="material-icons right">cloud</i>Edit</a>
+      {% endif %}
     </li>
     
   </ul>

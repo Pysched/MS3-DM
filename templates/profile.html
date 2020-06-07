@@ -8,7 +8,7 @@
            
                 <p>{{ user.username }}</p>
                 <a class="waves-effect waves-light btn"><i class="material-icons right" href="#">cloud</i>Edit</a>
-                <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Delete</a>
+                <a class="waves-effect waves-light btn"><i class="material-icons right" data-toggle="modal" data-target="#Modal">cloud</i>Delete</a>
             </div>
             <div class="form-group">
              
@@ -18,14 +18,30 @@
             </div>
             <div class="form-group">
                
-                <p></p>
+                <p>{{user.add_item}}</p>
             </div>
                 <div class="form-group">
                 
                 <p></p>
             </div>  
         </form>
+
+        
         <!-- Account Page -->
+
+        <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Delete Account</h4>
+      <p>Click Agree to Delete Account</p>
+    </div>
+    <div class="modal-footer">
+      <a href="{{ url_for('delete_account', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 
 
 

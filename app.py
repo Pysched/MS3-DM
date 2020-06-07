@@ -41,7 +41,7 @@ def find_meetings(meetings_id):
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html")
+    return render_template("index.html", listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find())
 
 
 # Book Club Page
@@ -101,19 +101,38 @@ def get_meetings():
 
 
 # Update Meetings
-@app.route('/edit_meeting/<_id>')
-def edit_meeting(_id):
-    meetings = get_meetings(_id)
+@app.route('/edit_meetings/<meeting_id>')
+def edit_meetings(meeting_id):
+    the_meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
+    return render_template("edit_meetings.html", meetings=the_meeting)
 
-    return render_template(
-                        "edit_meeting.html",
-                        meetings=meetings)
+
+# Update Meetings
+@app.route('/update_meetings/<meeting_id>', methods=["POST"])
+def update_meetings(meeting_id):
+    meetings = mongo.db.meetings
+    meetings.update({'_id': ObjectId(meeting_id)}, {
+        "meeting_name": request.form.get("meeting_name"),
+        "meeting_date": request.form.get("meeting_date"),
+        "meeting_time": request.form.get("meeting_time"),
+        "meeting_description": request.form.get("meeting_description"),
+        "meeting_category": request.form.get("meeting_category"),
+        "meeting_book_category": request.form.get("meeting_category")
+        })
+        
+    return redirect(url_for('index'))
 
 
 # Browse Page
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
     return render_template("browse.html", listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find())
+
+
+@app.route('/get_listing/<listing_id>', methods=["GET"])
+def get_listing(listing_id):
+    listing = mongo.db.listings.find({'_id': ObjectId(listing_id)})
+    return render_template('listings_cards.html', listing_id=mongo.db.listings)
 
 
 # Login Page
@@ -200,6 +219,20 @@ def profile(username):
         return redirect(url_for('index'))
 
 
+# Edit Profile
+@app.route('/edit_profile/<user_id>')
+def edit_profile(user_id):
+    the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template('edit_profile.html', user=the_user)
+
+
+# Delete Profile
+@app.route('/delete_account/<user_id>')
+def delete_account(user_id):
+    mongo.db.user_id.remove({'_id': ObjectId(user_id)})
+    return redirect(url_for('register'))
+
+
 # Add Item Page
 @app.route('/add_item')
 def add_item():
@@ -252,10 +285,14 @@ def insert_item():
         return redirect(url_for('browse'))
 
 
-@app.route('/edit_profile/<user_id>')
-def edit_profile(user_id):
-    the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    return render_template('edit_profile.html', user=the_user)
+# Delete Item
+@app.route('/remove_listing/<listings_id>')
+def remove_item(listings_id):
+    user = session['user'].lower()
+    mongo.db.listings.remove({'_id': ObjectId(listings_id)})
+    flash(Markup("Thanks " + user.capitalize() + " this listings has been successfully deleted!"))
+
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
