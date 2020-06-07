@@ -290,59 +290,6 @@ def edit_profile(user_id):
     return render_template('edit_profile.html', user=the_user)
 
 
-@app.route('/profile/<username>/update_password', methods=["POST"])
-def update_password(username):
-
-    user = session["user"].lower()
-    username = find_user(session["user"])
-    existing_password = request.form.get("existing_password")
-    changed_password = request.form.get("changed_password")
-
-    # If stored password matches the entry, the password will be changed
-    if check_password_hash(username["password"], existing_password):
-        flash(Markup("Thanks " + user.capitalize() + "your password has successfully been changed!"))
-        users.update_one(
-            {"username": user},
-            {"$set": {"password": generate_password_hash(changed_password)}})
-    # If stored password doesn't match the entry, display generic flash message
-    else:
-        flash(Markup("Sorry" +
-                     user.capitalize() + ", your existing password doesn't match what we have! Please try again."))
-
-    return redirect(url_for('index', username=username))
-
-
-@app.route('/profile/<username>/delete_account', methods=["POST"])
-def delete_account(username):
-    
-    username = find_user(session["user"])
-    confirm_password = request.form.get("confirm_password")
-    user_upper = session["user"].capitalize()
-
-    # If stored password matches the entry, the password will be changed
-    if check_password_hash(username["password"], confirm_password):
-        # Find the user's added recipes
-        user_added_recipes = [recipe for recipe in username
-                              .get("added_recipes")]
-        # Update 'deleted' value to true for each recipe from recipes_coll
-        # Remove each recipe from all other users' liked list
-        for recipe in user_added_recipes:
-            listings.update_one({"_id": ObjectId(listing)},
-                                    {"$set": {"deleted": True}})
-        flash(Markup("Your account has been successfully deleted."))
-        # End the user's session
-        session.pop('user', None)
-        # Remove the user's details from the userLogin collection
-        users.remove({"_id": username.get("_id")})
-        # Redirect to index.html
-        return redirect(url_for('index'))
-    # If stored password doesn't match the entry, display generic flash message
-    else:
-        flash(Markup("Sorry " + user_upper +", your existing password doesn't match what we have. Please try again."))
-
-    return redirect(url_for('profile', username=username))
-
-
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP', '0.0.0.0'), port=int(os.environ.get("PORT", "5000")), debug=True)
