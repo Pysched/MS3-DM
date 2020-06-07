@@ -252,38 +252,6 @@ def insert_item():
         return redirect(url_for('browse'))
 
 
-@app.route('/listing/<listing_id>')
-def listing(listing_id):
-    listings = find_listings(listing_id)
-    listings.update_one({"_id": ObjectId(listing_id)},
-                        {"%inc": {"views": 1}})
-    added_by = users.find_one({"_id": ObjectId(listing.get("item_added_by_username"))})["user"]
-
-    return render_template("listing.html", listings=listings, added_by=added_by)
-
-
-@app.route('/profile/<username>/update_email', methods=["POST"])
-def update_email(username):
-
-    user = session["user"].lower()
-    username = find_user(session["user"])
-    existing_email = request.form.get("existing_email")
-    changed_email = request.form.get("changed_email")
-
-    # If stored email matches the entry, the email will be changed
-    if existing_email(username["email"], existing_email):
-        flash(Markup("Thanks " + user.capitalize() + "your password has successfully been changed!"))
-        users.update_one(
-            {"email": user},
-            {"$set": {"email": changed_email}})
-    # If stored password doesn't match the entry, display generic flash message
-    else:
-        flash(Markup("Sorry" +
-                     user.capitalize() + ", your existing email doesn't match what we have! Please try again."))
-
-    return redirect(url_for('index', username=username))
-
-
 @app.route('/edit_profile/<user_id>')
 def edit_profile(user_id):
     the_user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
