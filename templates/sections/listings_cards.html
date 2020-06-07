@@ -1,3 +1,32 @@
+ 
+ <div class="col s12 m3 recipe-preview-card">
+    <div class="card hoverable results-card z-depth-1">
+        <a href="{{ url_for('get_listings') }}" >
+            
+            <div class="card-image">
+               
+            </div>
+          
+            <div class="card-title center-align">
+                {{ listings.item_title | title }}
+            </div>
+        </a>
+       
+        </div>
+    </div>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  {% for list in listings %}
   <div class="col s12">
     <div class="col s4 m6">

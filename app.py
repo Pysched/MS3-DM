@@ -29,6 +29,13 @@ def find_user(username):
     return users.find_one({"username": username})
 
 
+def find_listings(listings_id):
+    '''
+    Find listing details based on the listing_id
+    '''
+    return listings.find_one({"_id": ObjectId(listings_id)})
+
+
 # Home Page route
 @app.route('/')
 @app.route('/index')
@@ -213,6 +220,7 @@ def insert_item():
             "item_read_time": request.form.get("item_read_time"),
             "item_category": request.form.get("item_category"),
             "item_rating": request.form.get("item_rating"),
+            "item_comment": request.form.get("item_comment"),
             "item_added_by": user_id,
             "item_added_by_username": user,
             "item_added_date": curr_date,
@@ -233,16 +241,38 @@ def insert_item():
         return redirect(url_for('browse'))
 
 
-@app.route('/get_listings', methods=["GET, POST"])
-def get_listings():
+@app.route('/listing/<listing_id>')
+def listing(listing_id):
+    listings = find_listings(listing_id)
+    listings.update_one({"_id": ObjectId(listing_id)},
+                        {"%inc": {"views": 1}})
+    added_by = users.find_one({"_id": ObjectId(listing.get("item_added_by_username"))})["username"]
 
-    if request.method == 'POST':
-        user_submit = request.form.to_dict()
-        listings = listings.find({"item_removed": False})
+    return render_template("listings_cards.html", listings=listings, added_by=added_by)
 
-    return render_template("listings_cards.html", listings=listings.find())
+
+@app.route('/profile/<username>/update_password', methods=["POST"])
+def update_password(username):
+
+    user = session["user"].lower()
+    username = find_user(session["user"])
+    existing_password = request.form.get("existing_password")
+    changed_password = request.form.get("changed_password")
+
+    # If stored password matches the entry, the password will be changed
+    if check_password_hash(username["password"], existing_password):
+        flash(Markup("Thanks " + user.capitalize() + "your password has successfully been changed!"))
+        users.update_one(
+            {"username": user},
+            {"$set": {"password": generate_password_hash(changed_password)}})
+    # If stored password doesn't match the entry, display generic flash message
+    else:
+        flash(Markup("Sorry" +
+                     user.capitalize() + ", your existing password doesn't match what we have! Please try again."))
+
+    return redirect(url_for('index', username=username))
 
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
-    app.run(host=os.environ.get('IP', '0.0.0.0'), port=int(os.environ.get("PORT", "5000")), debug=True)
+    app.run(host=os.environ.get('IP', '0.0.0.0'), port=int(os.environ.get("PORT", "5000")), debug=False)

@@ -5,19 +5,61 @@
         <!-- Account Page -->
         <form>
             <div class="form-group">
-                <label for="username">Name</label> 
+           
                 <p>{{ user.username }}</p>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Edit</a>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Delete</a>
             </div>
             <div class="form-group">
-                <label for="email">{{ user.email }}</label> 
+             
+                <p>{{ user.email }}</p>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Edit</a>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>Delete</a>
             </div>
             <div class="form-group">
-                <label for="tagline">{{ user.password }}</label> 
+               
+                <p>{{ user.password }}</p>
             </div>
                 <div class="form-group">
-                <label for="tagline">{{ user.tagline }}</label> 
+                
+                <p>{{ user.add_item  }}</p>
             </div>  
         </form>
         <!-- Account Page -->
+<!--Account Management Buttons-->
+<div class="row recipe-card card z-depth-1 center-align">
+    <div class="col s12">
+        <h4 class="card-title">Account Management</h4>
+    </div>
+    <div class="col s12 m5 offset-m1 acc-management-wrapper">
+        <!--Change Password Modal Button-->
+        <a href="#change_password_modal" class="waves-effect waves-light btn modal-trigger change-pwd-btn large-btn icon-left"  aria-label="Change password modal">
+            <i class="fas fa-user-lock" aria-hidden="true"></i>
+            Change Password
+        </a>
+    </div>
+    <div class="col s12 m5 acc-management-wrapper">
+        <!--Delete Account Modal Button-->
+        <a href="#delete_account_modal" class="waves-effect waves-light btn modal-trigger delete-acc-btn large-btn icon-left" aria-label="Delete account modal">
+            <i class="fas fa-user-slash" aria-hidden="true"></i>
+            Delete Account
+        </a>
+    </div>
+</div>
+
+<!--Change Password Modal-->
+<div id="change_password_modal" class="modal">
+    
+    {% include "sections/change_password_modal.html" %}
+    
+</div>
+
+<!--Delete Modal-->
+<div id="delete_account_modal" class="modal">
+    
+    {% include "sections/delete_account_modal.html" %}
+    
+</div>
+
 </div>
 {% endblock %}

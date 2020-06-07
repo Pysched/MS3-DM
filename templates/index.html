@@ -79,7 +79,50 @@
     <h4 class="section-title">Everyone's talking About...</h4>
       
         <div class="carousel">
-            <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+            <a class="carousel-item" href="#one!">
+            {% for list in listings %}
+
+  <div class="row ">
+    <div class="col s4 m4">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ list.item_category }}</span>
+          <p>
+           Title: {{ list.item_title  }}
+          </p>
+          <br>
+          <p>
+          Author: {{ list.item_author}}
+          </p>
+          <br>
+          <p>
+          User Added: {{ list.item_added_by_username | capitalize }}
+          </p>
+          <p>Read Time: {{ list.item_read_time }}</p>
+          <p>Added on: {{ list.item_added_date }}</p>
+          <p>Rating: {{ list.item_rating }}</p>
+          <br>
+          
+         
+        </div>
+         
+        <div class="card-action">
+          <a href="#">Go to Listing</a>
+          {% if session.user %}
+          <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">thumb_up</i></a>
+          <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">thumb_down</i></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+            
+            
+            
+            
+            </a>
             <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
             <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
             <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
@@ -87,6 +130,9 @@
         </div>
          
 </div>
+
+
+
 <hr>
 <div class=" col s12 ">
     <h4 class="section-title">Newest Releases</h4>
