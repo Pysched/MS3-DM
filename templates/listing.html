@@ -1,6 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3>listing Page</h3>
-    
-    {% include "sections/listings_cards.html" %}
-{% endblock %}
+<h3>listings Page</h3>
+ <!-- Display Cards of each item -->
+  <div class="row">
+  {% for list in listings %}
+    <div class="col s4 m4">
+      <div class="card center-align">
+   
+        <div class="card-image">
+          <img src="{{ list.item_url }}"  class="responsive-img center-align" style="width:284px;height:284px;object-fit:cover">
+          <span class="card-title">{{ list.item_title  }}</span>
+        </div>
+        <div class="card-content">
+            <p>Author: {{ list.item_author}}</p>
+            <p>User Added: {{ list.item_added_by_username | capitalize }}        </p>
+            <p>Read Time: {{ list.item_read_time }}</p>
+            <p>Added on: {{ list.item_added_date }}</p>
+            <p>Rating: {{ list.item_rating }}</p>
+        </div>
+        <div class="card-action">
+            
+            <br><br>
+            {% if session.user %}
+            <a class="waves-effect waves-light btn"><i class="material-icons right" href="#">cloud</i>Edit</a>
+                <a class="waves-effect waves-light btn"><i class="material-icons right" data-toggle="modal" data-target="#Modal">cloud</i>Delete</a>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+    {% endblock %}

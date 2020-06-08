@@ -29,7 +29,7 @@
             <p>Rating: {{ list.item_rating }}</p>
         </div>
         <div class="card-action">
-            <a href="#">Go to Listing</a>
+            <a href="{{ url_for('listings', listings_id=listings._id) }}">Go to Listing</a>
             <br><br>
             {% if session.user %}
             <a class="waves-effect waves-light btn"><i class="material-icons right" href="#">cloud</i>Edit</a>

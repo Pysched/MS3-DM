@@ -308,10 +308,10 @@ def remove_item(listings_id):
 
 
 # Get individual listing
-@app.route('/listing/<listing_id>', methods=["GET", "POST"])
-def listing(listing_id):
-    listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    return redirect(url_for('listing', listings=listing))
+@app.route('/listings/<listings_id>', methods=["GET", "POST"])
+def listings(listings_id):
+    listings = mongo.db.listings.find_one({"_id": ObjectId(listings_id)})
+    return render_template('listing.html', listings=listings)
 
 
 if __name__ == '__main__':
