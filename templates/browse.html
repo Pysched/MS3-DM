@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
+  <!-- Messages -->
+    {% include "sections/messages.html" %}
+    <!-- End Messages -->
 <section class="browse-header">
      <img class="browse_img responsive-img" src="https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="browse page image" style="width:1090px;height:350px;" />
 </section>
@@ -13,10 +15,10 @@
   <div class="row">
   {% for list in listings %}
     <div class="col s4 m4">
-      <div class="card">
+      <div class="card center-align">
    
         <div class="card-image">
-          <img src="{{ list.item_url }}" style="width:284px;height:284px;object-fit:cover">
+          <img src="{{ list.item_url }}"  class="responsive-img center-align" style="width:284px;height:284px;object-fit:cover">
           <span class="card-title">{{ list.item_title  }}</span>
         </div>
         <div class="card-content">
@@ -28,6 +30,7 @@
         </div>
         <div class="card-action">
             <a href="#">Go to Listing</a>
+            <br><br>
             {% if session.user %}
             <a class="waves-effect waves-light btn"><i class="material-icons right" href="#">cloud</i>Edit</a>
                 <a class="waves-effect waves-light btn"><i class="material-icons right" data-toggle="modal" data-target="#Modal">cloud</i>Delete</a>
@@ -37,33 +40,5 @@
     </div>
     {% endfor %}
   </div>
-   
-
-   <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Delete Item</h4>
-      <p>Click Agree to Delete Account</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-
     
-        
-
-
-
-
- 
-
-
-
-
-
-   
 {% endblock %}

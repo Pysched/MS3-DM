@@ -227,12 +227,14 @@ def edit_profile(user_id):
 @app.route('/update_profile/<user_id>', methods=["GET", "POST"])
 def update_profile(user_id):
     users = mongo.db.users
-    
+    new_pass = request.form.get('new_pass')
     users.update({'_id': ObjectId(user_id)}, {
         'username': request.form.get('new_user'),
-        'email': request.form.get('new_email'),
+        "password": generate_password_hash(new_pass),
+        "email": request.form.get('new_email'),
+        "add_item": []
     })
-    return redirect(url_for('profile', users=username))
+    return redirect(url_for('logout'))
 
 
 # Delete Profile
@@ -278,7 +280,8 @@ def insert_item():
             "item_added_by_username": user,
             "item_added_date": curr_date,
             "item_likes": 0,
-            "item_removed": False
+            "item_removed": False,
+            "item_url": request.form.get("item_url")
         }
 
         new_listing = listings.insert_one(insert)
@@ -302,6 +305,13 @@ def remove_item(listings_id):
     flash(Markup("Thanks " + user.capitalize() + " this listings has been successfully deleted!"))
 
     return redirect(url_for('index'))
+
+
+# Get individual listing
+@app.route('/listing/<listing_id>', methods=["GET", "POST"])
+def listing(listing_id):
+    listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
+    return redirect(url_for('listing', listings=listing))
 
 
 if __name__ == '__main__':
