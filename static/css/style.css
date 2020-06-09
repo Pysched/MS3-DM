@@ -176,12 +176,18 @@ main {
 }
 
 .image-size{
-    width:236.85px!important;
-    height:236.85px!important;
-    object-fit:cover;
+     /* width:236.85px!important;
+    height:236.85px!important; */
+    object-fit:cover; 
+    
+    overflow:hidden;
 }
+
 
 .title-top{
     font-size: 1.4rem;
-    
+}
+
+.top{
+    margin-top:15px;
 }

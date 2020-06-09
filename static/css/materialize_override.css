@@ -9,6 +9,11 @@
     }
 }
 
-/* .carousel{
-    height:480px;
-} */
+.card{
+    max-width:300px!important;
+}
+
+.image-size{
+    height:305px!important;
+    object-fit:cover!important;
+}
