@@ -144,7 +144,7 @@ main {
   /* -- Footer -- */
   .page-footer{
       bottom:0;
-      background-color:#4D5061    ;
+      background-color:#4D5061!important    ;
   }
 
 

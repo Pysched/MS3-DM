@@ -3,6 +3,8 @@ $(document).ready(function () {
     flashed_messages();
     $('.sidenav').sidenav();
     $('.slider').slider({fullwidth: true});
+   $('.carousel').carousel();
+   
 });
 
 
@@ -30,9 +32,9 @@ function flashed_messages() {
 }
 
 /* -- Carousel activation -- */
-  $(document).ready(function(){
-    $('.carousel').carousel();
-  });
+//   $(document).ready(function(){
+//     $('.carousel').carousel();
+//   });
 
 /* -- Date Picker Activation -- */
   $(document).ready(function(){

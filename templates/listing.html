@@ -3,20 +3,20 @@
 <h3>listings Page</h3>
  <!-- Display Cards of each item -->
   <div class="row">
-  {% for list in listings %}
+  
     <div class="col s4 m4">
       <div class="card center-align">
    
         <div class="card-image">
-          <img src="{{ list.item_url }}"  class="responsive-img center-align" style="width:284px;height:284px;object-fit:cover">
-          <span class="card-title">{{ list.item_title  }}</span>
+          <img src="{{listings.item_url }}"  class="responsive-img center-align" style="width:284px;height:284px;object-fit:cover">
+          <span class="card-title">{{ listings.item_title  }}</span>
         </div>
         <div class="card-content">
-            <p>Author: {{ list.item_author}}</p>
-            <p>User Added: {{ list.item_added_by_username | capitalize }}        </p>
-            <p>Read Time: {{ list.item_read_time }}</p>
-            <p>Added on: {{ list.item_added_date }}</p>
-            <p>Rating: {{ list.item_rating }}</p>
+            <p>Author: {{listings.item_author}}</p>
+            <p>User Added: {{ listings.item_added_by_username | capitalize }}        </p>
+            <p>Read Time: {{ listings.item_read_time }}</p>
+            <p>Added on: {{ listings.item_added_date }}</p>
+            <p>Rating: {{listings.item_rating }}</p>
         </div>
         <div class="card-action">
             
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    {% endfor %}
+  
   </div>
 
 

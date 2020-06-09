@@ -41,7 +41,12 @@ def find_meetings(meetings_id):
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template("index.html", listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find())
+    sci_books = mongo.db.listings.find({'item_category': 'Sci-Fiction"'})
+    fic_books = mongo.db.listings.find({'item_category': 'Fiction'})
+    crime_books = mongo.db.listings.find({'item_category': 'Crime'})
+    drama_books = mongo.db.listings.find({'item_category': 'Drama'})
+
+    return render_template("index.html", sci_books=sci_books, fic_books=fic_books, crime_books=crime_books, drama_books=drama_books)
 
 
 # Book Club Page
@@ -119,16 +124,21 @@ def update_meetings(meeting_id):
         "meeting_category": request.form.get("meeting_category"),
         "meeting_book_category": request.form.get("meeting_category")
         })
-        
     return redirect(url_for('index'))
 
 
 # Browse Page
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
-    return render_template("browse.html", listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find())
+
+    return render_template("browse.html", cards=mongo.db.listings.find())
 
 
+# Get individual listing
+@app.route('/listings/<listings_id>', methods=["GET", "POST"])
+def listings(listings_id):
+    listings =  mongo.db.listings.find_one({"_id": ObjectId(listings_id)})
+    return render_template('listing.html', listings=listings)
 
 
 # Login Page
@@ -142,7 +152,7 @@ def login():
         reg_user = find_user(username)
         '''check if the reg_user which is the call to the users db and assigned to the varible taken from the login form and check the hashed password vs the stored password'''
         if reg_user and check_password_hash(reg_user["password"], password):
-            '''# if they match then login and greet user with message including their name from the database, capitlizing their name, and redirect them to the home page'''
+            ''' if they match then login and greet user with message including their name from the database, capitlizing their name, and redirect them to the home page'''
             flash(Markup("Hey, Welcome " 
             + username.capitalize() + 
             ", you are logged in"))
@@ -240,8 +250,11 @@ def update_profile(user_id):
 # Delete Profile
 @app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
-    mongo.db.user_id.remove({'_id': ObjectId(user_id)})
-    return redirect(url_for('register'))
+    user = session['user']
+    mongo.db.user_id.delete_one({'_id': ObjectId(user_id)})
+    session.clear()
+    flash(Markup("Sorry to see you go.." "Good Bye"))
+    return redirect(url_for('index'))
 
 
 # Add Item Page
@@ -305,13 +318,6 @@ def remove_item(listings_id):
     flash(Markup("Thanks " + user.capitalize() + " this listings has been successfully deleted!"))
 
     return redirect(url_for('index'))
-
-
-# Get individual listing
-@app.route('/listings/<listings_id>', methods=["GET", "POST"])
-def listings(listings_id):
-    listings = mongo.db.listings.find_one({"_id": ObjectId(listings_id)})
-    return render_template('listing.html', listings=listings)
 
 
 if __name__ == '__main__':
