@@ -153,3 +153,35 @@ main {
 .books-car{
     margin-bottom:50px;
 }
+
+.card.small{
+    width:200px!important;
+}
+
+.card-space{
+    margin-top:15px;
+}
+.index-card{
+    width:200px!important;
+    height:auto;
+    object-fit: cover;
+}
+
+.card-title{
+    height:75px!important;
+}
+
+.aff-link{
+    color:rgb(39, 59, 239);    
+}
+
+.image-size{
+    width:236.85px!important;
+    height:236.85px!important;
+    object-fit:cover;
+}
+
+.title-top{
+    font-size: 1.4rem;
+    
+}

@@ -41,12 +41,14 @@ def find_meetings(meetings_id):
 @app.route('/')
 @app.route('/index')
 def index():
-    sci_books = mongo.db.listings.find({'item_category': 'Sci-Fiction"'})
+    sci_books = mongo.db.listings.find({'item_category': 'Sci-Fiction'})
     fic_books = mongo.db.listings.find({'item_category': 'Fiction'})
     crime_books = mongo.db.listings.find({'item_category': 'Crime'})
     drama_books = mongo.db.listings.find({'item_category': 'Drama'})
+    bio_books = mongo.db.listings.find({'item_category': 'Biography'})
+  
 
-    return render_template("index.html", sci_books=sci_books, fic_books=fic_books, crime_books=crime_books, drama_books=drama_books)
+    return render_template("index.html", sci_books=sci_books, fic_books=fic_books, crime_books=crime_books, drama_books=drama_books, bio_books=bio_books)
 
 
 # Book Club Page

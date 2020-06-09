@@ -3,24 +3,10 @@ $(document).ready(function () {
     flashed_messages();
     $('.sidenav').sidenav();
     $('.slider').slider({fullwidth: true});
-   $('.carousel').carousel();
+    $('.carousel').carousel();
    
 });
 
-
-
-/* -- Js for Materialize init -- */
-function materializeInit() {
-    $('.sidenav').sidenav();
-    $('.tabs').tabs();
-    $('select').formSelect();
-    $('.modal').modal();
-    $('.collapsible').collapsible();
-    $('.tooltipped').tooltip();
-    $('.datepicker').datepicker();
-    $('.timepicker').timepicker();
-}
-materializeInit();
 
 
 /* -- Flash Messages -- */
@@ -32,9 +18,9 @@ function flashed_messages() {
 }
 
 /* -- Carousel activation -- */
-//   $(document).ready(function(){
-//     $('.carousel').carousel();
-//   });
+   $(document).ready(function(){
+     $('.carousel').carousel();
+   });
 
 /* -- Date Picker Activation -- */
   $(document).ready(function(){
