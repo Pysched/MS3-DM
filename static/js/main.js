@@ -4,7 +4,8 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.slider').slider({fullwidth: true});
     $('.carousel').carousel();
-   
+    $('.collapsible').collapsible();
+    $('.modal').modal();
 });
 
 

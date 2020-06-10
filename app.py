@@ -69,7 +69,7 @@ def add_meeting():
 def insert_meeting():
    
     if request.method == 'POST':
-    
+        
         user = session['user'].lower()
         user_id = find_user(user)["_id"]
         today_date = date.today()
@@ -96,7 +96,7 @@ def insert_meeting():
                     " + user + ", \
                     your listing has been added!"))
 
-        return redirect(url_for('book_club'))
+        return redirect(url_for('book_club'),  meetings_category=mongo.db.meetings_category.find(), book_category=mongo.db.book_categories.find())
 
 
 # Get Meetings
