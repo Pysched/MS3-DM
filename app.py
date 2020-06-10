@@ -108,35 +108,29 @@ def get_meetings():
 
 
 # Update Meetings
-@app.route('/edit_meetings/<meeting_id>')
-def edit_meetings(meeting_id):
-    the_meeting = mongo.db.meetings.find_one({"_id": ObjectId(meeting_id)})
-    return render_template("edit_meetings.html", meetings=the_meeting)
-
-
-# Update Meetings
-@app.route('/update_meetings/<meeting_id>', methods=["POST"])
+@app.route('/update_meetings/<meeting_id>', methods=["GET", "POST"])
 def update_meetings(meeting_id):
-    meetings = mongo.db.meetings
-    meetings.update({'_id': ObjectId(meeting_id)}, {
-        "meeting_name": request.form.get("meeting_name"),
-        "meeting_date": request.form.get("meeting_date"),
-        "meeting_time": request.form.get("meeting_time"),
-        "meeting_description": request.form.get("meeting_description"),
-        "meeting_category": request.form.get("meeting_category"),
-        "meeting_book_category": request.form.get("meeting_category")
+    meeting = mongo.db.meetings
+    meeting.update({'_id': ObjectId(meeting_id)}, {
+        "meeting_name": request.form.get("edit_meeting_name"),
+        "meeting_date": request.form.get("edit_meeting_date"),
+        "meeting_time": request.form.get("edit_meeting_time"),
+        "meeting_description": request.form.get("edit_meeting_description"),
+        "meeting_category": request.form.get("edit_meeting_category"),
+        "meeting_book_category": request.form.get("edit_meeting_category")
         })
-    return redirect(url_for('index'))
+    return redirect(url_for('get_meetings'), meeting=meeting)
+    
 
 
 # Delete Meetings
-@app.route('/delete_meeting/<meething_id>', methods=["GET", "POST"])
+@app.route('/delete_meeting/<meeting_id>', methods=["GET", "POST"])
 def delete_meeting(meeting_id):
     meetings = mongo.db.meetings
     meetings.remove({'_id': ObjectId(meeting_id)})
     flash(Markup("Oh Well " + user.capitalize() + ", There'll be no escape for the princess this time!!"))
 
-    return redirect(url_for('get-meetings'))
+    return redirect(url_for('get_meetings'))
 
 
 # Browse Page
@@ -149,7 +143,7 @@ def browse():
 # Get individual listing
 @app.route('/listings/<listings_id>', methods=["GET", "POST"])
 def listings(listings_id):
-    listings =  mongo.db.listings.find_one({"_id": ObjectId(listings_id)})
+    listings = mongo.db.listings.find_one({"_id": ObjectId(listings_id)})
     return render_template('listing.html', listings=listings)
 
 
