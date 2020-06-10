@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+                    <form class="col s12" action="{{ url_for('update_meetings', meeting_id=meeting._id) }}" method="POST">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Placeholder" id="edit_meeting_name"  name="edit_meeting_name" type="text" class="validate">
+                                <label for="edit_meeting_name">Meeting Name</label>
+                            </div>
+                           
+
+                            <!-- Add a date from date picker -->
+                            <div class="input-field col s12">
+                                <input type="text" class="datepicker" id="edit_meeting_date" name="edit_meeting_date" placeholder="Click to select date"> Add a date
+                            </div>
+                            <div class="input-field col s12">
+                            <!-- Add a time from time picker -->
+                            <input type="text" class="timepicker" id="edit_meeting_time" name="edit_meeting_time" placeholder="Click to select time"> Add a time </div>
+                            <!-- Add comments about your meeting -->
+                            <div class="input-field col s6">
+                                <input id="edit_meeting_description" name="edit_meeting_description" type="text" minlength="1" maxlength="500" placeholder="Add your comments" class="form-control " required>
+                                <label for="edit_meeting_description">
+                                Comments
+                                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-500 characters" aria-hidden="true"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Edit your  meeting-->
+                        <div class="col s6">
+                            <button class="btn waves-effect waves-light" type="submit" >Submit Edit
+                            <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                {% endblock %}

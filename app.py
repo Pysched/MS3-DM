@@ -107,6 +107,12 @@ def get_meetings():
     meetings=mongo.db.meetings_category.find())
 
 
+# Get updatepage
+@app.route('/get_update_page/<meeting_id>', methods=["GET", "POST"])
+def get_update_page(meeting_id):
+    meeting = mongo.db.meetings.find_one({'_id': ObjectId(meeting_id)})
+    return render_template("sections/edit_meeting.html", meeting=meeting)
+
 # Update Meetings
 @app.route('/update_meetings/<meeting_id>', methods=["GET", "POST"])
 def update_meetings(meeting_id):
@@ -115,22 +121,20 @@ def update_meetings(meeting_id):
         "meeting_name": request.form.get("edit_meeting_name"),
         "meeting_date": request.form.get("edit_meeting_date"),
         "meeting_time": request.form.get("edit_meeting_time"),
-        "meeting_description": request.form.get("edit_meeting_description"),
-        "meeting_category": request.form.get("edit_meeting_category"),
-        "meeting_book_category": request.form.get("edit_meeting_category")
+        "meeting_description": request.form.get("edit_meeting_description")
         })
-    return redirect(url_for('get_meetings'), meeting=meeting)
-    
+    return redirect(url_for('book_club'))
 
 
 # Delete Meetings
 @app.route('/delete_meeting/<meeting_id>', methods=["GET", "POST"])
 def delete_meeting(meeting_id):
+    user = session['user']
     meetings = mongo.db.meetings
     meetings.remove({'_id': ObjectId(meeting_id)})
     flash(Markup("Oh Well " + user.capitalize() + ", There'll be no escape for the princess this time!!"))
 
-    return redirect(url_for('get_meetings'))
+    return redirect(url_for('book_club'))
 
 
 # Browse Page
@@ -244,7 +248,7 @@ def edit_profile(user_id):
 def update_profile(user_id):
     users = mongo.db.users
     new_pass = request.form.get('new_pass')
-    users.update({'_id': ObjectId(user_id)}, {
+    users.update_many({'_id': ObjectId(user_id)}, {
         'username': request.form.get('new_user'),
         "password": generate_password_hash(new_pass),
         "email": request.form.get('new_email'),
