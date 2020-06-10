@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col s12 book_club top-club ">
+     <img class="responsive-img" src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg" alt="book club image" >
+</div> 
+
+<div class=" meetings top">
+    <h4 class="title"> Add Meeting</h4>
+        <hr class="sml-bottom">
+</div>
+
+<br>  
+                <!-- Give your meeting a name-->
+                <div class="row">
+                    <form class="col s12" action="/insert_meeting" method="POST">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Placeholder" id="meeting_name"  name="meeting_name" type="text" class="validate">
+                                <label for="meeting_name">Meeting Name</label>
+                            </div>
+
+                            <!-- <div class="input-field col s12">
+                                <select id="item_category" name="item_category" class="form-control validate" required>
+                                    <option value="" disabled selected>Genre</option>
+                                    {% for book in books %}
+                                    <option value="{{ book.item_category }}">{{ book.item_category }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="item_category">Item Category</label>
+                            </div> -->
+                            <div class="input-field col s12">
+                                <select id="item_category" name="item_category" class="form-control validate" required>
+                                <option value="" disabled selected>Category</option>
+                               {% for book in books %}
+                                    <option value="{{ book.item_category }}">{{ book.item_category }}</option>
+                                    {% endfor %}
+                               
+                                </select>
+                                <label for="item_category">Item Category</label>
+                            </div>
+
+                            <!-- Add a date from date picker -->
+                            <div class="input-field col s12">
+                            <input type="text" class="datepicker" id="meeting_date" name="meeting_date" placeholder="Click to select date"> Add a date
+                            </div>
+                            <div class="input-field col s12">
+                            <!-- Add a time from time picker -->
+                            <input type="text" class="timepicker" id="meeting_time" name="meeting_time" placeholder="Click to select time"> Add a time </div>
+                            <!-- Add comments about your meeting -->
+                            <div class="input-field col s6">
+                                <input id="meeting_description" name="meeting_description" type="text" minlength="1" maxlength="500" placeholder="Add your comments" class="form-control " required>
+                                <label for="meeting_description">
+                                Comments
+                                <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-500 characters" aria-hidden="true"></i>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Submit your new meeting-->
+                        <div class="col s6">
+                            <button class="btn waves-effect waves-light" type="submit" >Add Meeting
+                            <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+
+{% endblock %}

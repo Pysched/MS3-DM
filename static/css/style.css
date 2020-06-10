@@ -252,13 +252,18 @@ a.ft-nav:hover{
 }
 
 .image-size{
-     /* width:236.85px!important;
-    height:236.85px!important; */
     object-fit:cover; 
-    
     overflow:hidden;
 }
 
+/* .card-back{
+    background-color:#cdd1c4!important;
+}
+
+.crd-title{
+    font-weight:bold!important;
+    
+} */
 
 .title-top{
     font-size: 1.4rem;
@@ -282,10 +287,47 @@ a.ft-nav:hover{
 
 
 /* -- Book Club Page -- */
-.book_club{
-    
+.meetings-btn{
+    margin-right:35px;
+}
+
+.meet-btn{
+    margin-left:33px;
+    margin-right:33px;
+    margin-top:25px;
 }
 
 .edit-spc{
     margin-top:15px;
+}
+
+.col-head{
+    background-color:#4D5061;
+    color:white;
+}
+
+.col-col{
+    background-color:#cdd1c4;
+}
+
+.add-meet-btn{
+    background-color:#e8c547!important;
+}
+
+/* -- Edit page -- */
+.edit{
+    border:2px solid #035e7b;
+    
+}
+
+.title-head{
+    background-color:#035e7b; 
+    padding:15px;
+    color:#fff;
+    margin-top:0!important;
+}
+
+.edit-form{
+    padding-left:25px;
+    padding-right:25px;
 }

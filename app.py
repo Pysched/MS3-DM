@@ -61,7 +61,8 @@ def book_club():
 # Add Meetings
 @app.route('/add_meeting', methods=['GET', 'POST'])
 def add_meeting():
-    return render_template('add_meeting.html')
+    return render_template('add_meeting.html', meetings=mongo.db.meetings.find(), meetings_category=mongo.db.meetings_category.find(),
+    book_category=mongo.db.book_categories.find())
 
 
 # Add Meetings
@@ -103,7 +104,8 @@ def insert_meeting():
 @app.route('/get_meetings', methods=['GET', 'POST'])
 def get_meetings():
     return render_template("get_meetings.html",
-    listings=mongo.db.listings.find(), book_categories=mongo.db.book_categories.find(),
+    listings=mongo.db.listings.find(),
+    books=mongo.db.book_categories.find(),
     meetings=mongo.db.meetings_category.find())
 
 
@@ -111,17 +113,25 @@ def get_meetings():
 @app.route('/get_update_page/<meeting_id>', methods=["GET", "POST"])
 def get_update_page(meeting_id):
     meeting = mongo.db.meetings.find_one({'_id': ObjectId(meeting_id)})
-    return render_template("sections/edit_meeting.html", meeting=meeting)
+    return render_template("edit_meeting.html", meeting=meeting)
 
 # Update Meetings
 @app.route('/update_meetings/<meeting_id>', methods=["GET", "POST"])
 def update_meetings(meeting_id):
+    user = session['user'].lower()
+    user_id = find_user(user)["_id"]
+    today_date = date.today()
+    curr_date = today_date.strftime("%d %B %Y")
     meeting = mongo.db.meetings
     meeting.update({'_id': ObjectId(meeting_id)}, {
         "meeting_name": request.form.get("edit_meeting_name"),
         "meeting_date": request.form.get("edit_meeting_date"),
         "meeting_time": request.form.get("edit_meeting_time"),
-        "meeting_description": request.form.get("edit_meeting_description")
+        "meeting_description": request.form.get("edit_meeting_description"),
+        "meeting_added_by": user_id,
+        "meeting_added_by_username": user,
+        "meeting_added_date": curr_date
+        
         })
     return redirect(url_for('book_club'))
 

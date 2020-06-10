@@ -37,28 +37,31 @@
                             <div class="input-field col s12">
                                 <input placeholder="Placeholder" id="meeting_name"  name="meeting_name" type="text" class="validate">
                                 <label for="meeting_name">Meeting Name</label>
-                            </div>
-                            
+                            </div>                    
 
                             <!-- Add a date from date picker -->
-                            <div class="input-field col s12">
-                                <input type="text" class="datepicker" id="meeting_date" name="meeting_date" placeholder="Click to select date"> Add a date
-                            </div>
-                            <div class="input-field col s12">
-                            <!-- Add a time from time picker -->
-                            <input type="text" class="timepicker" id="meeting_time" name="meeting_time" placeholder="Click to select time"> Add a time </div>
-                            <!-- Add comments about your meeting -->
+                         
                             <div class="input-field col s6">
-                                <input id="meeting_description" name="meeting_description" type="text" minlength="1" maxlength="500" placeholder="Add your comments" class="form-control " required>
+                            <input type="text" class="datepicker" id="meeting_date" name="meeting_date" placeholder="Click to select date"> Add a date
+                            </div>
+
+                            <!-- Add a time from time picker -->
+                            <div class="input-field col s6">
+                            <input type="text" class="timepicker" id="meeting_time" name="meeting_time" placeholder="Click to select time"> Add a time 
+                            </div>
+                          
+                            <!-- Add comments about your meeting -->
+                            <div class="input-field col s12 top">
+                                <input id="meeting_description" name="meeting_description" type="text" minlength="1" maxlength="500" placeholder="Provide Meeting Context" class="form-control" required>
                                 <label for="meeting_description">
-                                Comments
+                                Meeting Description
                                 <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-500 characters" aria-hidden="true"></i>
                                 </label>
                             </div>
                         </div>
                         <!-- Submit your new meeting-->
                         <div class="col s6">
-                            <button class="btn waves-effect waves-light" type="submit" >Submit Meeting
+                            <button class="btn waves-effect waves-light add-meet-btn" type="submit" >Add Meeting
                             <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -70,38 +73,26 @@
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
             </div>
        </div>  
-    </div>
-
-
-    
-   
-        
-            
-                <hr><br>  
-                <!-- Give your meeting a name-->
-                
-       </div>  
-    
-
-    
-          
-    {% endif %}   
+<hr><br>  
+{% endif %}   
 <div class="container bg-top bottom">
 
     {% for meeting in meetings %}
 
     <ul class="collapsible">
     <li>
-      <div class="collapsible-header"><i class="material-icons">assignment</i>{{meeting.meeting_name}} -  {{meeting.meeting_date}} - {{meeting.meeting_time}}</div>
-      <div class="collapsible-body"><span>Meeting Description: {{meeting.meeting_description}}
+      <div class="collapsible-header col-head"><i class="material-icons">assignment</i>{{meeting.meeting_name}} -  {{meeting.meeting_date}} - {{meeting.meeting_time}}</div>
+      <div class="collapsible-body  col-col"><span>Meeting Description: {{meeting.meeting_description}}
       </span>
       <p>Meeting Added By: {{meeting.meeting_added_by_username|capitalize}}</p>
       <p>Meeting add on: {{meeting.meeting_added_date}}</p>
      
       {% if session.user %}
-     
-        <a class="" href="{{ url_for('get_update_page', meeting_id=meeting._id)}}">Edit Meeting</a>
-        <a class="" href="{{ url_for('delete_meeting', meeting_id=meeting._id)}}">Delete Meeting</a>
+        <div class="meet-btn">
+        <a class="waves-effect waves-light btn-small meetings-btn" href="{{ url_for('get_update_page', meeting_id=meeting._id)}}"><i class="material-icons right">cloud</i>Edit Meeting</a>
+
+        <a class="waves-effect waves-light btn-small" href="{{ url_for('delete_meeting', meeting_id=meeting._id)}}"><i class="material-icons right">cloud</i>Delete Meeting</a>
+        </div>
       {% endif %}
       </div>
     </li>
@@ -110,3 +101,5 @@
     {% endfor %}
    
 </div>
+
+

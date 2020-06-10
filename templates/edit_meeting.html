@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col s12 book_club top-club ">
+     <img class="responsive-img" src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg" alt="book club image" >
+</div> 
+
+
+ <h4 class="title">Edit Your Book Club Meeting</h4>
+        <hr class="bottom">
+
+<div class="meetings edit top bottom">
+    <h4 class="title-head"> Edit Form</h4>
+        
+
+
+    <div class="row edit-form ">
+        <form class="col s12" action="{{ url_for('update_meetings', meeting_id=meeting._id) }}" method="POST">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Placeholder" id="edit_meeting_name"  name="edit_meeting_name" type="text" class="validate">
+                    <label for="edit_meeting_name">Meeting Name</label>
+                </div>
+                
+
+                <!-- Add a date from date picker -->
+                <div class="input-field col s12">
+                    <input type="text" class="datepicker" id="edit_meeting_date" name="edit_meeting_date" placeholder="Click to select date"> Add a date
+                </div>
+                <div class="input-field col s12">
+                <!-- Add a time from time picker -->
+                <input type="text" class="timepicker" id="edit_meeting_time" name="edit_meeting_time" placeholder="Click to select time"> Add a time </div>
+                <!-- Add comments about your meeting -->
+                <div class="input-field col s12 top-club">
+                    <input id="edit_meeting_description" name="edit_meeting_description" type="text" minlength="1" maxlength="500" placeholder="Provide Meeting Context" class="form-control " required>
+                    <label for="edit_meeting_description">
+                    Meeting Description
+                    <i class="far fa-question-circle tooltipped" data-position="right" data-tooltip="1-500 characters" aria-hidden="true"></i>
+                    </label>
+                </div>
+            </div>
+            <!-- Edit your  meeting-->
+            <div class="col s6">
+                <button class="btn waves-effect waves-light" type="submit" >Submit Edit
+                <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+ <!-- Custom JavaScript -->
+    <script type="text/javascript">
+
+/* -- Date Picker Activation -- */
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems);
+  });
+
+   document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.timepicker');
+    var instances = M.Timepicker.init(elems);
+  });
+    </script>
+{% endblock %}
