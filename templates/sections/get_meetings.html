@@ -6,7 +6,7 @@
     <p class="top">How this works; so you can either find an upcoming book club meetin gthat you would like to take part in, these are held over whichever video conferencing call software is flavour of the month at the times specified. Click the date and time and meeting type to reveal further information and join the meeting.</p>
     <p class="top bottom">You can also create and edit your own Book Club meeting. Simply, sign up or be an existing member and the options will be there for you to add a Book club meeting. We do advise that you give people enough time to either re-read the book you wish to talk about or to plan time into their busy calenders. Either way you are in control of your own book Club meeting. The meetings below are due to take place in the coming weeks days and months.</p>
 
-    
+</div>  
         
 <div class=" meetings top">
     <h4 class="title"> Meetings</h4>
@@ -39,7 +39,7 @@
                                 <label for="meeting_name">Meeting Name</label>
                             </div>
                             <!-- Select which category your book meeting is about -->
-                            <div class="input-field col s12">
+                            <!-- <div class="input-field col s12">
                                 <select id="meeting_book_category" name="meeting_book_category" class="form-control validate" required>
                                     <option value="" disabled selected>Choose Category</option>
                                     {% for book in book_category %}
@@ -47,18 +47,18 @@
                                     {% endfor %}
                                 </select>
                                 <label for="meeting_book_category">Select Book Category</label>
-                            </div>
+                            </div> -->
 
 
-                             <div class="input-field col s8">
+                             <!-- <div class="input-field col s8">
                                 <select id="item_type" name="item_type" class="form-control validate" required>
                                     <option value="" disabled selected>Type of item</option>
                                     {% for item in items %}
                                     <option value="{{ item.item_type }}">{{ item.item_type }}</option>
                                     {% endfor %}
                                 </select>
-                                <label for="item_type">Item type</label>
-                                </div>
+                                <label for="item_type">Item types</label>
+                                </div> -->
 
 
                             <!-- Add a date from date picker -->
@@ -94,7 +94,7 @@
     </div>
           
     {% endif %}   
-    <div class="container bg-top bottom">
+<div class="container bg-top bottom">
 
         {% for meeting in meetings %}
 
@@ -114,6 +114,4 @@
   </ul>
         {% endfor %}
    
-</div>
-    </div>
 </div>

@@ -96,7 +96,7 @@ def insert_meeting():
                     " + user + ", \
                     your listing has been added!"))
 
-        return redirect(url_for('book_club'),  meetings_category=mongo.db.meetings_category.find(), book_category=mongo.db.book_categories.find())
+        return redirect(url_for('book_club'))
 
 
 # Get Meetings
@@ -127,6 +127,16 @@ def update_meetings(meeting_id):
         "meeting_book_category": request.form.get("meeting_category")
         })
     return redirect(url_for('index'))
+
+
+# Delete Meetings
+@app.route('/delete_meeting/<meething_id>', methods=["GET", "POST"])
+def delete_meeting(meeting_id):
+    meetings = mongo.db.meetings
+    meetings.remove({'_id': ObjectId(meeting_id)})
+    flash(Markup("Oh Well " + user.capitalize() + ", There'll be no escape for the princess this time!!"))
+
+    return redirect(url_for('get-meetings'))
 
 
 # Browse Page
