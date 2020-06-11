@@ -1,35 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3>listings Page</h3>
- <!-- Display Cards of each item -->
-  <div class="row">
-  
-    <div class="col s4 m4">
-      <div class="card center-align">
-   
-        <div class="card-image">
-          <img src="{{listings.item_url }}"  class="responsive-img center-align" style="width:284px;height:284px;object-fit:cover">
-          <span class="card-title">{{ listings.item_title  }}</span>
+<section class="browse-header top-club">
+     <img class="browse_img responsive-img" src="https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="browse page image" style="width:1150px;height:350px;" />
+</section>
+
+<section>
+    <h4 class="title">Listing Details:  {{ listings.item_title  }}</h4>
+    <hr>
+</section>
+ 
+
+<div class="container crd-cont z-depth-2 top-club bottom">
+    <div class="card-img bottom">
+        <img src="{{listings.item_url }}">
+    </div>  
+
+    <div class="content ">
+    <hr class="bottom">
+        <p > <span class="sml">User Added:</span> {{ listings.item_added_by_username | capitalize }}</p>
+        <p > <span class="sml">Read Time:</span> {{ listings.item_read_time }}</p>
+        <p> <span class="sml">Added on:</span> {{ listings.item_added_date }}</p>
+        <p > <span class="sml">Rating:</span> {{listings.item_rating }}</p>
+        <p class="last"> <span class="sml">Description: </span>{{listings.item_comment}}</p>
+        <div class="container">
+         {% if session.user %}
+        <div class="meet-btn">
+        <a class="waves-effect waves-light btn meetings-btn" href="{{ url_for('get_update_listing', listings_id=listings._id) }}"><i class="material-icons right">send</i>Edit Listing</a>
+
+        <a class="waves-effect waves-light btn" href="#"><i class="material-icons right">send</i>Delete Listing</a>
         </div>
-        <div class="card-content">
-            <p>Author: {{listings.item_author}}</p>
-            <p>User Added: {{ listings.item_added_by_username | capitalize }}        </p>
-            <p>Read Time: {{ listings.item_read_time }}</p>
-            <p>Added on: {{ listings.item_added_date }}</p>
-            <p>Rating: {{listings.item_rating }}</p>
-        </div>
-        <div class="card-action">
-            
-            <br><br>
-            {% if session.user %}
-            <a class="waves-effect waves-light btn"><i class="material-icons right" href="#">cloud</i>Edit</a>
-                <a class="waves-effect waves-light btn"><i class="material-icons right" data-toggle="modal" data-target="#Modal">cloud</i>Delete</a>
-            {% endif %}
-        </div>
-      </div>
+      {% endif %}
+    
     </div>
-  
-  </div>
+
+</div>
+
+
+
+</div>
+
 
 
     {% endblock %}

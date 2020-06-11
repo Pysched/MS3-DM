@@ -46,7 +46,7 @@ def index():
     crime_books = mongo.db.listings.find({'item_category': 'Crime'})
     drama_books = mongo.db.listings.find({'item_category': 'Drama'})
     bio_books = mongo.db.listings.find({'item_category': 'Biography'})
-  
+   
 
     return render_template("index.html", sci_books=sci_books, fic_books=fic_books, crime_books=crime_books, drama_books=drama_books, bio_books=bio_books)
 
@@ -329,6 +329,45 @@ def insert_item():
 
         return redirect(url_for('browse'))
 
+# Get updatepage
+@app.route('/get_update_listing/<listings_id>', methods=["GET", "POST"])
+def get_update_listing(listings_id):
+    listing = mongo.db.listings
+    listing = mongo.db.listings.find_one({'_id': ObjectId(listings_id)})
+    return render_template("edit_listing.html", listing=listing,  items=mongo.db.items.find(), 
+    reading=mongo.db.item_read_time.find(),
+    book_cat=mongo.db.book_categories.find(), 
+    rating=mongo.db.item_rating.find())
+
+
+# Update Listings
+@app.route('/update_listing/<listings_id>', methods=["GET", "POST"])
+def update_listing(listings_id):
+    if request.method == 'POST':
+        user = session['user'].lower()
+        user_id = find_user(user)["_id"]
+        today_date = date.today()
+        curr_date = today_date.strftime("%d %B %Y")
+        listings = mongo.db.listings
+       
+        listings.update.many({'_id': ObjectId(listings_id)}, {
+            "item_type": request.form.get("item_type"),
+                "item_title": request.form.get("edit_item_title"),
+                "item_author": request.form.get("edit_item_author"),
+                "item_read_time": request.form.get("edit_item_read_time"),
+                "item_category": request.form.get("edit_item_category"),
+                "item_rating": request.form.get("edit_item_rating"),
+                "item_comment": request.form.get("edit_item_comment"),
+                "item_added_by": user_id,
+                "item_added_by_username": user,
+                "item_added_date": curr_date,
+                "item_likes": 0,
+                "item_removed": False,
+                "item_url": request.form.get("edit_item_url"),
+                "item_purchase": request.form.get("edit_item_purchase"),
+            
+            })
+    return redirect(url_for('browse'))
 
 # Delete Item
 @app.route('/remove_listing/<listings_id>')
@@ -337,7 +376,10 @@ def remove_item(listings_id):
     mongo.db.listings.remove({'_id': ObjectId(listings_id)})
     flash(Markup("Thanks " + user.capitalize() + " this listings has been successfully deleted!"))
 
-    return redirect(url_for('index'))
+    return redirect(url_for('browse'), listing=listing, items=mongo.db.items.find(), 
+    reading=mongo.db.item_read_time.find(),
+    book_cat=mongo.db.book_categories.find(), 
+    rating=mongo.db.item_rating.find())
 
 
 if __name__ == '__main__':

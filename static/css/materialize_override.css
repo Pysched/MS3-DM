@@ -11,9 +11,14 @@
 
 .card{
     max-width:300px!important;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .image-size{
     height:305px!important;
     object-fit:cover!important;
 }
+
+.large{
+    height:800px;}
