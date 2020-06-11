@@ -44,12 +44,20 @@ def index():
     crime_books = mongo.db.listings.find({'item_category': 'Crime'})
     drama_books = mongo.db.listings.find({'item_category': 'Drama'})
     bio_books = mongo.db.listings.find({'item_category': 'Biography'})
+    real_books = mongo.db.listings.find({'item_category': 'Real Life'})
+    doc_books = mongo.db.listings.find({'item_category': 'Documents'})
+    non_books = mongo.db.listings.find({'item_category': 'Non-Fiction'})
+    col_books = mongo.db.listings.find({'item_category': 'Collections'})
     return render_template("index.html",
         sci_books=sci_books,
         fic_books=fic_books,
         crime_books=crime_books,
         drama_books=drama_books,
-        bio_books=bio_books)
+        bio_books=bio_books,
+        real_books=real_books,
+        doc_books=doc_books,
+        non_books=non_books,
+        col_books=col_books)
 
 
 # Book Club Page
@@ -109,13 +117,13 @@ def get_meetings():
         meetings=mongo.db.meetings_category.find())
 
 
-# Get updatepage
+# Get updatepage for meetings
 @app.route('/get_update_page/<meeting_id>', methods=["GET", "POST"])
 def get_update_page(meeting_id):
     meeting = mongo.db.meetings.find_one({'_id': ObjectId(meeting_id)})
     return render_template("edit_meeting.html", meeting=meeting)
 
-# Update Meetings
+# Update Meetings function
 @app.route('/update_meetings/<meeting_id>', methods=["GET", "POST"])
 def update_meetings(meeting_id):
     user = session['user'].lower()
@@ -296,6 +304,7 @@ def insert_item():
         user_id = find_user(user)["_id"]
         today_date = date.today()
         curr_date = today_date.strftime("%d %B %Y")
+        listing = mongo.db.listings
         insert = {
             "item_type": request.form.get("item_type"),
             "item_title": request.form.get("item_title"),
@@ -312,12 +321,11 @@ def insert_item():
             "item_url": request.form.get("item_url"),
             "item_purchase": request.form.get("item_purchase")
         }
-
-        new_listing = listings.insert_one(insert)
+        new_item = listing.insert_one(insert)
         # add user id to insert item
         users.update_one(
             {"_id": ObjectId(user_id)},
-            {"$push": {"add_item": new_listing.inserted_id}}
+            {"$push": {"add_item": new_item.inserted_id}}
         )
         flash(Markup("Success \
                     " + user + ", \

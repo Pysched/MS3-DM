@@ -118,6 +118,9 @@
         </div>
       </div>
     </div>
+    {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
     {% endfor %}
   </div>
 </div>
@@ -153,6 +156,9 @@
         </div>
       </div>
     </div>
+    {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
     {% endfor %}
   </div>
 </div>   
@@ -189,6 +195,9 @@
         </div>
       </div>
     </div>
+    {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
     {% endfor %}
   </div>
 </div>
@@ -226,6 +235,9 @@
             </div>
         </div>
         </div>
+        {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
         {% endfor %}
     </div>
 </div>
@@ -262,6 +274,164 @@
             </div>
         </div>
         </div>
+        {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
+        {% endfor %}
+    </div>
+</div>
+
+<h4 class="section-title">Blogs<span class="title-top">(Top Listings)</span></h4>
+<hr>
+<div class="container index">
+    <div class="row top">
+        {% for book in real_books %}  
+        <div class="col s12 m6 l4 ">
+            <div class="card z-depth-2">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator image-size" src="{{ book.item_url }}">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{book.item_title}}<i class="material-icons right">expand_less</i></span>
+                <hr>
+                <div class="card-space">
+                <p>Author: {{ book.item_author}}</p>
+                <p>User Rating: {{ book.item_rating}}</p>
+                <hr class="top sml-bottom">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                </div>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
+                <p>{{book.item_comment}}</p>
+                <hr class="bg-top">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                
+            </div>
+        </div>
+        </div>
+        {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
+        {% endfor %}
+    </div>
+</div>
+
+<h4 class="section-title">Documents <span class="title-top">(Top Listings)</span></h4>
+<hr>
+<div class="container index">
+    <div class="row top">
+        {% for book in doc_books %}  
+        <div class="col s12 m6 l4 ">
+            <div class="card z-depth-2">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator image-size" src="{{ book.item_url }}">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{book.item_title}}<i class="material-icons right">expand_less</i></span>
+                <hr>
+                <div class="card-space">
+                <p>Author: {{ book.item_author}}</p>
+                <p>User Rating: {{ book.item_rating}}</p>
+                <hr class="top sml-bottom">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                </div>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
+                <p>{{book.item_comment}}</p>
+                <hr class="bg-top">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                
+            </div>
+        </div>
+        </div>
+
+        {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
+        {% endfor %}
+    </div>
+</div>
+
+<h4 class="section-title">Non-Fiction <span class="title-top">(Top Listings)</span></h4>
+<hr>
+<div class="container index">
+    <div class="row top">
+        {% for book in non_books %}  
+        <div class="col s12 m6 l4 ">
+            <div class="card z-depth-2">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator image-size" src="{{ book.item_url }}">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{book.item_title}}<i class="material-icons right">expand_less</i></span>
+                <hr>
+                <div class="card-space">
+                <p>Author: {{ book.item_author}}</p>
+                <p>User Rating: {{ book.item_rating}}</p>
+                <hr class="top sml-bottom">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                </div>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
+                <p>{{book.item_comment}}</p>
+                <hr class="bg-top">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                
+            </div>
+        </div>
+        </div>
+
+        {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
+        {% endfor %}
+    </div>
+</div>
+
+<h4 class="section-title">Collections <span class="title-top">(Top Listings)</span></h4>
+<hr>
+<div class="container index">
+    <div class="row top">
+        {% for book in col_books %}  
+        <div class="col s12 m6 l4 ">
+            <div class="card z-depth-2">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator image-size" src="{{ book.item_url }}">
+                </div>
+                <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{book.item_title}}<i class="material-icons right">expand_less</i></span>
+                <hr>
+                <div class="card-space">
+                <p>Author: {{ book.item_author}}</p>
+                <p>User Rating: {{ book.item_rating}}</p>
+                <hr class="top sml-bottom">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                </div>
+                </div>
+                <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
+                <p>{{book.item_comment}}</p>
+                <hr class="bg-top">
+               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
+                <p class="top ">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                
+            </div>
+        </div>
+        </div>
+
+        {% else %}
+        <h5>There are currently no listings in this category</h5>
+        <p class="top bg-bottom">Add a listing and it will appear here</p>
         {% endfor %}
     </div>
 </div>
