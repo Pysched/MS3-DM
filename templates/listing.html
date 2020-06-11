@@ -27,7 +27,10 @@
         <div class="meet-btn">
         <a class="waves-effect waves-light btn meetings-btn" href="{{ url_for('get_update_listing', listings_id=listings._id) }}"><i class="material-icons right">send</i>Edit Listing</a>
 
-        <a class="waves-effect waves-light btn" href="#"><i class="material-icons right">send</i>Delete Listing</a>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete Listing</a>
+
+        
         </div>
       {% endif %}
     
@@ -39,6 +42,29 @@
 
 </div>
 
-
+<!-- Modal Structure -->
+        <div id="modal1" class="modal s12">
+            <div class="modal-content">
+            <h4>Confirm Deletion</h4>
+            
+                <hr><br>  
+                <!-- Give your meeting a name-->
+                <div class="row">
+                    <form class="col s12"  >
+                        <div class="row">
+                         <p> Please Confirm you wish to delete the selected listing: {{ listings.item_title  }}</p>
+                        <!-- Delete meeting-->
+                            <div class="col s6">
+                                <a class="waves-effect waves-light btn-small" href="{{ url_for('remove_listing', listings_id=listings._id)}}"><i class="material-icons right">cloud</i>Delete Meeting</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                    
+            </div>
+            <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+       </div>  
 
     {% endblock %}

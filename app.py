@@ -4,11 +4,9 @@ from flask_pymongo import PyMongo
 from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-import bcrypt
 
 
 app = Flask(__name__)
-
 app.config["MONGO_DBNAME"] = 'bookshelf'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@myfirstcluster-46ezx.mongodb.net/bookshelf?retryWrites=true&w=majority'
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
@@ -46,9 +44,12 @@ def index():
     crime_books = mongo.db.listings.find({'item_category': 'Crime'})
     drama_books = mongo.db.listings.find({'item_category': 'Drama'})
     bio_books = mongo.db.listings.find({'item_category': 'Biography'})
-   
-
-    return render_template("index.html", sci_books=sci_books, fic_books=fic_books, crime_books=crime_books, drama_books=drama_books, bio_books=bio_books)
+    return render_template("index.html",
+        sci_books=sci_books,
+        fic_books=fic_books,
+        crime_books=crime_books,
+        drama_books=drama_books,
+        bio_books=bio_books)
 
 
 # Book Club Page
@@ -61,16 +62,15 @@ def book_club():
 # Add Meetings
 @app.route('/add_meeting', methods=['GET', 'POST'])
 def add_meeting():
-    return render_template('add_meeting.html', meetings=mongo.db.meetings.find(), meetings_category=mongo.db.meetings_category.find(),
+    return render_template('add_meeting.html',
+    meetings=mongo.db.meetings.find(), meetings_category=mongo.db.meetings_category.find(),
     book_category=mongo.db.book_categories.find())
 
 
 # Add Meetings
 @app.route('/insert_meeting', methods=['GET', 'POST'])
 def insert_meeting():
-   
     if request.method == 'POST':
-        
         user = session['user'].lower()
         user_id = find_user(user)["_id"]
         today_date = date.today()
@@ -104,9 +104,9 @@ def insert_meeting():
 @app.route('/get_meetings', methods=['GET', 'POST'])
 def get_meetings():
     return render_template("get_meetings.html",
-    listings=mongo.db.listings.find(),
-    books=mongo.db.book_categories.find(),
-    meetings=mongo.db.meetings_category.find())
+        listings=mongo.db.listings.find(),
+        books=mongo.db.book_categories.find(),
+        meetings=mongo.db.meetings_category.find())
 
 
 # Get updatepage
@@ -131,7 +131,6 @@ def update_meetings(meeting_id):
         "meeting_added_by": user_id,
         "meeting_added_by_username": user,
         "meeting_added_date": curr_date
-        
         })
     return redirect(url_for('book_club'))
 
@@ -150,7 +149,6 @@ def delete_meeting(meeting_id):
 # Browse Page
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
-
     return render_template("browse.html", cards=mongo.db.listings.find())
 
 
@@ -166,21 +164,21 @@ def listings(listings_id):
 def login():
     # if the request method is post then return then login.html
     if request.method == "POST":
-        ''' get the inserted values from the login form and assign them ids of username, password, reg_user'''
+        # Get form elemnts
         username = request.form.get('username')
         password = request.form.get("user_password")
         reg_user = find_user(username)
-        '''check if the reg_user which is the call to the users db and assigned to the varible taken from the login form and check the hashed password vs the stored password'''
+        # User and password check
         if reg_user and check_password_hash(reg_user["password"], password):
-            ''' if they match then login and greet user with message including their name from the database, capitlizing their name, and redirect them to the home page'''
-            flash(Markup("Hey, Welcome " 
-            + username.capitalize() + 
-            ", you are logged in"))
+            # Confirmation message
+            flash(Markup("Hey, Welcome "
+                            + username.capitalize() +
+                            ", you are logged in"))
             session["user"] = username
             return redirect(url_for('index', username=session["user"]))
 
         else:
-            ''' else, they details did not match, prompt the user to try again or go and register'''
+            # Login validation
             flash(Markup("Those details do not match our records, either try again or register for an account."))
         return redirect(url_for('login'))
 
@@ -191,23 +189,21 @@ def login():
 def register():
     if request.method == 'POST':
 
-        '''
-        If the method is POST, then take the values from the form and assign them to new_nuser, new_pass and new_email, .lower() function is to prevent issues with case sensitive logins later on
-        '''
+        # Add new user, lower case the name for access logic
 
         new_user = request.form.get('new_user').lower()
         new_pass = request.form.get('new_pass')
         new_email = request.form.get('new_email')
         reg_user = find_user(new_user)
 
-        '''# Error handling for the case where a user name is already taken, rediret the form back to register'''
+        # Error handling
 
         if reg_user:
-            flash(Markup("The username " + new_user + " is already in taken, please try another name"))
+            flash(Markup("The username " + new_user +
+            " is already taken, please try another name"))
             return redirect(url_for('register'))
 
-        '''# If the new_user is not in the database then insert into the user collection in the db the following keys and values from the form, run hash password on the password first and create varibles for arrays to be added to by the user down the road.'''
-
+        # insert items to the database
         users.insert_one({
             "username": new_user,
             "password": generate_password_hash(new_pass),
@@ -216,9 +212,12 @@ def register():
             "liked_listings": []
         })
 
-        '''# Add new_user to the session variable user and display a welcome message, redirect the user to the home page/ index page with the session variable being equal to user'''
+        # Add new_user to session and display message
         session["user"] = new_user
-        flash(Markup("Welcome aboard, " + new_user.capitalize() + "<br>" + "You're now part of the team, and logged in!"))
+        flash(Markup("Welcome aboard, "
+                     + new_user.capitalize() +
+                     "<br>" +
+                     "You're now part of the team, and logged in!"))
 
         return redirect(url_for('index', username=session["user"]))
 
@@ -280,27 +279,23 @@ def delete_account(user_id):
 # Add Item Page
 @app.route('/add_item')
 def add_item():
-    # Return the add_item page and call the items from the following collections to populate the dropdown fields
-    return render_template("add_item.html", 
-    items=mongo.db.items.find(), 
-    reading=mongo.db.item_read_time.find(),
-    book_cat=mongo.db.book_categories.find(), 
-    rating=mongo.db.item_rating.find())
+    # add item and ref db categories for select items
+    return render_template("add_item.html",
+            items=mongo.db.items.find(),
+            reading=mongo.db.item_read_time.find(), book_cat=mongo.db.book_categories.find(),
+            rating=mongo.db.item_rating.find())
 
 
 # Insert Item
 @app.route('/insert_item', methods=["GET", "POST"])
 def insert_item():
-    '''
-    From the add_item page take the selected inputs for a new item and insert it into the database referencing the user that added it
-    '''
+    # Add item to db
     if request.method == 'POST':
-        '''# Get the current users session, and date from today function and display it as date number, month name and year '''
+        # Get user, date, time and form items insert to db
         user = session['user'].lower()
         user_id = find_user(user)["_id"]
         today_date = date.today()
         curr_date = today_date.strftime("%d %B %Y")
-        '''# Insert the values from the form with the key values on the left into the listings collection, to be able to select items from the db add a boolean of false to item_removed, this will be used further fown the script to call all items with a False value'''
         insert = {
             "item_type": request.form.get("item_type"),
             "item_title": request.form.get("item_title"),
@@ -314,11 +309,12 @@ def insert_item():
             "item_added_date": curr_date,
             "item_likes": 0,
             "item_removed": False,
-            "item_url": request.form.get("item_url")
+            "item_url": request.form.get("item_url"),
+            "item_purchase": request.form.get("item_purchase")
         }
 
         new_listing = listings.insert_one(insert)
-
+        # add user id to insert item
         users.update_one(
             {"_id": ObjectId(user_id)},
             {"$push": {"add_item": new_listing.inserted_id}}
@@ -332,56 +328,56 @@ def insert_item():
 # Get updatepage
 @app.route('/get_update_listing/<listings_id>', methods=["GET", "POST"])
 def get_update_listing(listings_id):
-    listing = mongo.db.listings
-    listing = mongo.db.listings.find_one({'_id': ObjectId(listings_id)})
-    return render_template("edit_listing.html", listing=listing,  items=mongo.db.items.find(), 
-    reading=mongo.db.item_read_time.find(),
-    book_cat=mongo.db.book_categories.find(), 
-    rating=mongo.db.item_rating.find())
+    listings = mongo.db.listings
+    listings = mongo.db.listings.find_one({'_id': ObjectId(listings_id)})
+    return render_template("edit_listing.html",
+                            listings=listings,
+                            items=mongo.db.items.find(),
+                            reading=mongo.db.item_read_time.find(), book_cat=mongo.db.book_categories.find(),
+                            rating=mongo.db.item_rating.find())
 
 
 # Update Listings
-@app.route('/update_listing/<listings_id>', methods=["GET", "POST"])
+@app.route('/update_listing/<listings_id>', methods=["POST"])
 def update_listing(listings_id):
-    if request.method == 'POST':
-        user = session['user'].lower()
-        user_id = find_user(user)["_id"]
-        today_date = date.today()
-        curr_date = today_date.strftime("%d %B %Y")
-        listings = mongo.db.listings
-       
-        listings.update.many({'_id': ObjectId(listings_id)}, {
-            "item_type": request.form.get("item_type"),
-                "item_title": request.form.get("edit_item_title"),
-                "item_author": request.form.get("edit_item_author"),
-                "item_read_time": request.form.get("edit_item_read_time"),
-                "item_category": request.form.get("edit_item_category"),
-                "item_rating": request.form.get("edit_item_rating"),
-                "item_comment": request.form.get("edit_item_comment"),
-                "item_added_by": user_id,
-                "item_added_by_username": user,
-                "item_added_date": curr_date,
-                "item_likes": 0,
-                "item_removed": False,
-                "item_url": request.form.get("edit_item_url"),
-                "item_purchase": request.form.get("edit_item_purchase"),
-            
-            })
+    user = session['user'].lower()
+    user_id = find_user(user)["_id"]
+    today_date = date.today()
+    curr_date = today_date.strftime("%d %B %Y")
+    listings = mongo.db.listings
+    listings.update({'_id': ObjectId(listings_id)}, {
+        "item_type": request.form.get("edit_item_type"),
+        "item_title": request.form.get("edit_item_title"),
+        "item_author": request.form.get("edit_item_author"),
+        "item_read_time": request.form.get("edit_item_read_time"),
+        "item_category": request.form.get("edit_item_category"),
+        "item_rating": request.form.get("edit_item_rating"),
+        "item_comment": request.form.get("edit_item_comment"),
+        "item_added_by": user_id,
+        "item_added_by_username": user,
+        "item_added_date": curr_date,
+        "item_likes": 0,
+        "item_removed": False,
+        "item_url": request.form.get("edit_item_url"),
+        "item_purchase": request.form.get("edit_item_purchase"),
+        })
     return redirect(url_for('browse'))
 
 # Delete Item
 @app.route('/remove_listing/<listings_id>')
-def remove_item(listings_id):
+def remove_listing(listings_id):
     user = session['user'].lower()
+    listing = mongo.db.listings
     mongo.db.listings.remove({'_id': ObjectId(listings_id)})
-    flash(Markup("Thanks " + user.capitalize() + " this listings has been successfully deleted!"))
+    flash(Markup("Thanks "
+                 + user.capitalize() +
+                 " this listings has been successfully deleted!"))
 
-    return redirect(url_for('browse'), listing=listing, items=mongo.db.items.find(), 
-    reading=mongo.db.item_read_time.find(),
-    book_cat=mongo.db.book_categories.find(), 
-    rating=mongo.db.item_rating.find())
+    return redirect(url_for('browse'))
 
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
-    app.run(host=os.environ.get('IP', '0.0.0.0'), port=int(os.environ.get("PORT", "5000")), debug=True)
+    app.run(host=os.environ.get('IP', '0.0.0.0'),
+            port=int(os.environ.get("PORT", "5000")),
+            debug=True)
