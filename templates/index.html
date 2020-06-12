@@ -3,7 +3,7 @@
 
 
 <section class="myslider">
-    <div class="slider">
+    <div class="slider "id="top">
         <ul class="slides">
             <li>
                 <img src="https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="book shop image">
@@ -89,8 +89,9 @@
             <span class="card-title activator grey-text text-darken-4">{{book.item_title}}<i class="material-icons right">expand_less</i></span>
             <hr>
             <div class="card-space">
-            <p>Author: {{ book.item_author}}</p>
-            <p>User Rating: {{ book.item_rating}}</p>
+            <p>Author: {{ book.item_author }}</p>
+            <p>User Rating: {{ book.item_rating }}</p>
+            <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
             <hr class="top sml-bottom">
                 <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -129,6 +130,7 @@
             <div class="card-space">
             <p>Author: {{ book.item_author}}</p>
             <p>User Rating: {{ book.item_rating}}</p>
+            <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
             <hr class="top sml-bottom">
                 <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -168,6 +170,7 @@
             <div class="card-space">
             <p>Author: {{ book.item_author}}</p>
             <p>User Rating: {{ book.item_rating}}</p>
+            <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
             <hr class="top sml-bottom">
                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -207,6 +210,7 @@
                 <div class="card-space">
                 <p>Author: {{ book.item_author}}</p>
                 <p>User Rating: {{ book.item_rating}}</p>
+                <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
                 <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -247,6 +251,7 @@
                 <div class="card-space">
                 <p>Author: {{ book.item_author}}</p>
                 <p>User Rating: {{ book.item_rating}}</p>
+                <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -285,6 +290,7 @@
                 <div class="card-space">
                 <p>Author: {{ book.item_author}}</p>
                 <p>User Rating: {{ book.item_rating}}</p>
+                <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -323,6 +329,7 @@
                 <div class="card-space">
                 <p>Author: {{ book.item_author}}</p>
                 <p>User Rating: {{ book.item_rating}}</p>
+                <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -362,6 +369,7 @@
                 <div class="card-space">
                 <p>Author: {{ book.item_author}}</p>
                 <p>User Rating: {{ book.item_rating}}</p>
+                <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -401,6 +409,7 @@
                 <div class="card-space">
                 <p>Author: {{ book.item_author}}</p>
                 <p>User Rating: {{ book.item_rating}}</p>
+                <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
                 <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
@@ -424,7 +433,21 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col s12 m9 l10">
+      <div id="introduction" class="section scrollspy">
+        
+      </div>
+
+    <div class="col hide-on-small-only m3 l2">
+      <a href="#top"><i class="material-icons  btt center-align">navigation</i></a>
+    </div>
+    
+  </div>
+
 
 {% endblock %}
  
+navigation
 
+<a class="waves-effect waves-light btn" href="#top"><i class="material-icons ">navigation</i>Top</a>

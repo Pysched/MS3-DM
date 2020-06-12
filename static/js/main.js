@@ -6,7 +6,7 @@ $(document).ready(function () {
     $('.carousel').carousel();
     $('.collapsible').collapsible();
     $('.modal').modal();
-   
+    $('.scrollspy').scrollSpy();
     $('select').formSelect();
     
 });
