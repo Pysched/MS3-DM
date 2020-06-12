@@ -21,10 +21,14 @@
           <label for="user_password">Password</label>
           </div>
         </div>
-        <div class="container">
+        <div class="">
         <button class="btn waves-effect waves-light btn-spc" type="submit" >Log In
         <i class="material-icons right">send</i>
         </button>
+         <a class="btn waves-effect waves-light standard-btn icon-right btn-spc" href="{{ url_for('index') }}" aria-label="Cancel button">
+                Home
+                <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
 
         <a class="btn waves-effect waves-light standard-btn icon-right btn-spc" href="{{ url_for('register') }}" aria-label="Cancel button">
                 Register
