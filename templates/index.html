@@ -1,21 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <!-- Messages -->
-    {% include "sections/messages.html" %}
-    <!-- End Messages -->
-<!-- Breadcrumbs -->
 
-  <nav>
-    <div class="nav-wrapper">
-      <div class="col s12">
-        <a href="#!" class="breadcrumb">First</a>
-        <a href="#!" class="breadcrumb">Second</a>
-        <a href="#!" class="breadcrumb">Third</a>
-      </div>
-    </div>
-  </nav>
-<!-- End Breadcurmbs -->
 <section class="myslider">
     <div class="slider">
         <ul class="slides">
@@ -68,7 +54,9 @@
         </ul>
     </div>
 </section>
-
+ <!-- Messages -->
+    {% include "sections/messages.html" %}
+    <!-- End Messages -->
 
 <div class="col s12 bottom ">
     <h4 class="page-title">Welcome{% if session.user %} {{ session['user']|capitalize }}{% endif %}, to Book Shelf</h4>

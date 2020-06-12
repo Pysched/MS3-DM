@@ -341,6 +341,34 @@ a.ft-nav:hover{
     padding-right:25px;
 }
 
+/* -- Add Listing -- */
+.add{
+    border:2px solid #035e7b;
+    
+}
+
+.add-form{
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:25px;
+    padding-bottom:25px;
+    margin-left:65px!important;
+    
+}
+
+.btn-spc{
+    padding-right:20px!important;
+}
+
+.add-item-page{
+    max-width:1150px;
+    height:350px;
+    object-fit: cover;
+}
+
+.top-list{
+    margin-top:75px;
+}
 
 /* -- Listing Page -- */
 .col-list{
@@ -400,4 +428,23 @@ a.ft-nav:hover{
 
 .content{
     padding-left:25px;
+}
+
+/* -- Bradcrumbs -- */
+.bread{
+    background-color: #035e7b;
+}
+
+.bread-in{
+    padding:15px;
+}
+
+.brd-link{
+    font-size:1.2rem;
+
+}
+
+/* -- Profile -- */
+.profile-img{
+    object-fit:contain;
 }

@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<h3>Account Page</h3>
-    <div class="container account">
+<div class="browse-header top-club">
+     <img class="profile-img responsive-img container" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fd2c4zcito95dfk.cloudfront.net%2Fassets%2Fdefault_profile_image_large-e61b362fc14b3206204a64e603d7ad80.png&f=1&nofb=1" alt="browse page image" style="width:1150px;height:350px;" />
+</div>
+<h4 class="title top-list">{{ user.username | capitalize }}'s Profile</h4>
+        <hr class="bottom">
         <!-- Account Page -->
-
+<div class="meetings add top bottom  ">
+    <h4 class="title-head"> Listing Form</h4>
       <table>
         <thead>
           <tr>
