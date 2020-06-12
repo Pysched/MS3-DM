@@ -277,11 +277,15 @@ def update_profile(user_id):
 # Delete Profile
 @app.route('/delete_account/<user_id>', methods=["GET", "POST"])
 def delete_account(user_id):
-    user = session['user']
-    mongo.db.user_id.delete_one({'_id': ObjectId(user_id)})
+    user = session['user'].lower()
+    byeuser = mongo.db.users
+    byeuser.remove({'_id': ObjectId(user_id)})
     session.clear()
-    flash(Markup("Sorry to see you go.." "Good Bye"))
+    flash(Markup( user.capitalize() + " Has left the building ... Good Bye"))
     return redirect(url_for('index'))
+
+
+
 
 
 # Add Item Page

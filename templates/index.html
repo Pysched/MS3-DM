@@ -19,7 +19,7 @@
                     <h5 class="light text-lighten-3">Join our Book Club</h5>
                     <br>
                     <form  action="/book_club">
-                        <button class="btn waves-effect waves-light" type="submit" >Meet up and join in the lively discussion! <br> Join or Create a new Book Club Meeting
+                        <button class="btn waves-effect waves-light ind-btn" type="submit" >Meet up and join in the lively discussion! <br> Join or Create a new Book Club Meeting
                         <i class="material-icons right">send</i>
                         </button>
                     </form>
@@ -32,7 +32,7 @@
                     <h5 class="light text-lighten-3">Browse our user added collections</h5>
                     <br>
                     <form method="POST" action="/browse">
-                        <button class="btn waves-effect waves-light" type="submit" >Browse the Listings 
+                        <button class="btn waves-effect waves-light ind-btn" type="submit" >Browse the Listings 
                         <i class="material-icons right">send</i>
                         </button>
                     </form>
@@ -45,7 +45,7 @@
                     <h5 class="light text-lighten-3">Add your own reviews and book listings</h5>
                     <br>
                     <form action="/register">
-                        <button class="btn waves-effect waves-light" type="submit" >Register
+                        <button class="btn waves-effect waves-light ind-btn" type="submit" >Register
                         <i class="material-icons right">send</i>
                         </button>
                     </form>
@@ -57,7 +57,7 @@
  <!-- Messages -->
     {% include "sections/messages.html" %}
     <!-- End Messages -->
-
+ <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="material-icons  btt center-align">navigation</i></button> 
 <div class="col s12 bottom ">
     <h4 class="page-title">Welcome{% if session.user %} {{ session['user']|capitalize }}{% endif %}, to Book Shelf</h4>
     <hr>
@@ -433,21 +433,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col s12 m9 l10">
-      <div id="introduction" class="section scrollspy">
-        
-      </div>
 
-    <div class="col hide-on-small-only m3 l2">
-      <a href="#top"><i class="material-icons  btt center-align">navigation</i></a>
-    </div>
-    
-  </div>
 
 
 {% endblock %}
  
-navigation
-
-<a class="waves-effect waves-light btn" href="#top"><i class="material-icons ">navigation</i>Top</a>

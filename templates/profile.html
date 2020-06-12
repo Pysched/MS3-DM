@@ -3,6 +3,7 @@
 <div class="slides top-club">
      <img class="profile-img responsive-img container" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fd2c4zcito95dfk.cloudfront.net%2Fassets%2Fdefault_profile_image_large-e61b362fc14b3206204a64e603d7ad80.png&f=1&nofb=1" alt="profile page image" style="width:1280px;height:350px;" />
 </div>
+{% include "sections/messages.html" %}
 <h4 class="title">{{ user.username | capitalize }}'s Profile</h4>
         <hr class="bottom">
         <!-- Account Page -->
@@ -29,7 +30,7 @@
       </table>
       <hr>
       <br>
-        <a class="waves-effect waves-light btn" href="{{ url_for('edit_profile', user_id=user._id) }}">Edit<i class="fa fa-pencil-square-o"></i></a>
+        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-color" href="{{ url_for('edit_profile', user_id=user._id) }}">Edit &nbsp;<i class="fa fa-users"></i></a>
 
        
 
@@ -37,7 +38,7 @@
        
 
         <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Delete Account</a>
+  <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red" href="#modal1">Delete Account &nbsp;<i class="fa fa-times-circle"></i></a>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
@@ -49,16 +50,6 @@
       <a href="{{ url_for('delete_account', user_id=user._id) }}" class="modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
+</div>
 </div>
 {% endblock %}

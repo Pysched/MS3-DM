@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* -- Materialize styling for features -- */
  body {
     display: flex;
@@ -61,11 +65,6 @@ main {
       animation: showMessages 0.5s, hideMessages 0.5s 3.5s;
   }
 
-  /* #message.hide{
-      visibility: visible;
-      animation: showMessages 0.5s, hideMessages 0.5s 3.5s;
-  } */
-
   /* -- Nav -- */
   .nav-wrapper{
       background-color:#30323D  ;
@@ -74,6 +73,21 @@ main {
   .mynav{
       position:relative;
       z-index: 500;
+  }
+
+  .pad{
+      margin-right:125px;
+  }
+
+  a.brand-logo{
+      margin-left:75px;
+  }
+
+  @media (max-width:992px)
+  {
+      a.brand-logo{
+          margin:0;
+      }
   }
 
  
@@ -130,7 +144,11 @@ main {
 }
 }
 
-
+/* -- index btns -- */
+.ind-btn{
+    background-color:#e8c547!important;
+    color:#fff!important;
+}
 
 
 /* -- Items -- */
@@ -456,3 +474,61 @@ a.ft-nav:hover{
 .left-spc{
     margin-right:25px;
 }
+
+
+/* -- Back to top button -- */
+#myBtn {
+  display: none; 
+  position: fixed;
+  bottom: 20px; 
+  right: 30px; 
+  z-index: 99; 
+  border: none; 
+  outline: none; 
+  background-color: #035e7b; 
+  color: white; 
+  cursor: pointer;
+  padding: 15px; 
+  border-radius: 50%; 
+  font-size: 18px;
+}
+
+.btt{
+    font-size:35px;
+    color:#E8C547;
+}
+
+#myBtn:hover {
+  background-color: #5c80bc; 
+}
+  /* -- buttons -- */
+  .btn-color{
+      background-color:#035e7b;
+  }
+  .btn-color:hover{
+      background-color:#0d3a49;
+  }
+
+  .home{
+      background-color:#006168;
+  }
+
+  .home:hover{
+      background-color:#083b3f;
+  }
+
+  .login-btn{
+      background-color:#e8c547;
+  }
+
+  .login-btn:hover{
+      background-color:rgb(148, 118, 12);
+  }
+
+  .btn-red{
+      background-color:rgb(187, 43, 43);
+  }
+
+   .btn-red:hover{
+      background-color:rgb(132, 13, 13);
+  }
