@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h3>Register Page</h3>
+    
 
 
 {% include "sections/messages.html" %}
 <!-- Register Form -->
-<div class="container register-form">
-  <div class="row">
+<div class="meetings edit top-bg bottom">
+    <h4 class="title-head"> Register</h4>
+  <div class="row add-form">
     <form class="col s12"  method="POST" action="/register">
       <div class="row">
         <div class="input-field col s6">
@@ -33,7 +34,14 @@
           </div>
         </div>
         <!-- Submit Button -->
-        <button class="btn btn-outline-success btn-lg btn-block" type="submit">Register</button>
+        <div class=" ">
+        <button class="btn btn-outline-success btn-spc left-spc" type="submit">Register<i class="material-icons right">send</i></button>
+
+        <a class="btn waves-effect waves-light standard-btn icon-right  btn-spc" href="{{ url_for('index') }}" aria-label="Home button">
+                Home
+                <i class="fa fa-home" aria-hidden="true"></i>
+            </a>
+            </div>
         <!-- Submit Button -->
     </form>
   </div>

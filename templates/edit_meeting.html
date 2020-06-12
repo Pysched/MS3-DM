@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="col s12 book_club top-club ">
-     <img class="responsive-img" src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg" alt="book club image" >
+<div class="slides top-club ">
+     <img class="responsive-img browse_img" src="https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg" alt="book club image" style="width:1280px;height:350px;" >
 </div> 
 
 
@@ -44,6 +44,10 @@
                 <button class="btn waves-effect waves-light" type="submit" >Submit Edit
                 <i class="material-icons right">send</i>
                 </button>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc" href="{{ url_for('book_club') }}" aria-label="Cancel button">
+                Cancel
+                <i class="fas fa-times-circle" aria-hidden="true"></i>
+            </a>
             </div>
         </form>
     </div>

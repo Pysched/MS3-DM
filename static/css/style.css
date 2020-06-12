@@ -283,7 +283,7 @@ a.ft-nav:hover{
 }
 
 .top-crd{
-    margin-top: 70px;
+    margin-top: 35px;
 }
 
 .sml-bottom{
@@ -447,4 +447,12 @@ a.ft-nav:hover{
 /* -- Profile -- */
 .profile-img{
     object-fit:contain;
+}
+
+.top-bg{
+    margin-top:75px;
+}
+
+.left-spc{
+    margin-right:25px;
 }

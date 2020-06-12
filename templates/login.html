@@ -2,11 +2,12 @@
 {% block content %}
 
 
-    <h3>Login Page</h3>
+    
 
 <!-- Login Form -->
-<div class="container login-form">
-  <div class="row">
+<div class="meetings add top-bg bottom  ">
+    <h4 class="title-head"> Login</h4>
+  <div class="row add-form">
     <form class="col s12" method="POST" action="/login">
       <div class="row">
         <div class="input-field col s6">
@@ -20,9 +21,16 @@
           <label for="user_password">Password</label>
           </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" >Log In
+        <div class="container">
+        <button class="btn waves-effect waves-light btn-spc" type="submit" >Log In
         <i class="material-icons right">send</i>
         </button>
+
+        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc" href="{{ url_for('register') }}" aria-label="Cancel button">
+                Register
+                <i class="fas fa-times-circle" aria-hidden="true"></i>
+            </a>
+        </div>
     </form>
   </div>
 </div>
