@@ -506,7 +506,7 @@ a.ft-nav:hover{
       background-color:#035e7b;
   }
   .btn-color:hover{
-      background-color:#0d3a49;
+      background-color:#4e9db8;
   }
 
   .home{
@@ -514,15 +514,15 @@ a.ft-nav:hover{
   }
 
   .home:hover{
-      background-color:#083b3f;
+      background-color:rgb(27, 163, 173);
   }
 
   .login-btn{
-      background-color:#e8c547;
+      background-color:#cfac2b;
   }
 
   .login-btn:hover{
-      background-color:rgb(148, 118, 12);
+      background-color:rgb(236, 190, 20);
   }
 
   .btn-red{
@@ -531,4 +531,28 @@ a.ft-nav:hover{
 
    .btn-red:hover{
       background-color:rgb(132, 13, 13);
+  }
+
+  .btn-goto{
+      background-color:#5c80bc;
+  }
+
+   .btn-goto:hover{
+      background-color:#1a53b6;
+  }
+
+  .btn-pur{
+      background-color:#e8c547;
+  }
+
+   .btn-pur:hover{
+      background-color:#e4b50d;
+  }
+
+  .meet-btn{
+      display:flex;
+  }
+
+  .spacer{
+      margin-right:25px;
   }

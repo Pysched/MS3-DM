@@ -93,16 +93,22 @@
             <p>User Rating: {{ book.item_rating }}</p>
             <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
             <hr class="top sml-bottom">
-                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
             </div>
+
+
             </div>
             <div class="card-reveal card-back">
             <span class="card-title grey-text text-darken-4 crd-title"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
             <p class="top">{{book.item_comment}}</p>
-            <hr class="bg-top">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+            <hr class="top sml-bottom">
+               <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
             
         </div>
       </div>
@@ -132,17 +138,20 @@
             <p>User Rating: {{ book.item_rating}}</p>
             <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
             <hr class="top sml-bottom">
-                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
             </div>
             </div>
             <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
             <p>{{book.item_comment}}</p>
-            <hr class="bg-top">
-                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
-            
+            <hr class="top sml-bottom">
+                <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
         </div>
       </div>
     </div>
@@ -172,16 +181,20 @@
             <p>User Rating: {{ book.item_rating}}</p>
             <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
             <hr class="top sml-bottom">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+              <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
             </div>
             </div>
             <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
             <p>{{book.item_comment}}</p>
-            <hr class="bg-top">
-                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+            <hr class="top sml-bottom">
+                <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
             
         </div>
       </div>
@@ -212,17 +225,21 @@
                 <p>User Rating: {{ book.item_rating}}</p>
                 <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
-                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 </div>
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
                 <p>{{book.item_comment}}</p>
 
-                <hr class="bg-top">
-                <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <hr class="top sml-bottom">
+                <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 
             </div>
         </div>
@@ -253,17 +270,20 @@
                 <p>User Rating: {{ book.item_rating}}</p>
                 <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+               <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 </div>
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
                 <p>{{book.item_comment}}</p>
-                <hr class="bg-top">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
-                
+                <hr class="top sml-bottom">
+              <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
             </div>
         </div>
         </div>
@@ -292,16 +312,20 @@
                 <p>User Rating: {{ book.item_rating}}</p>
                 <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+               <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 </div>
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
                 <p>{{book.item_comment}}</p>
-                <hr class="bg-top">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <hr class="top sml-bottom">
+               <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 
             </div>
         </div>
@@ -331,16 +355,20 @@
                 <p>User Rating: {{ book.item_rating}}</p>
                 <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+              <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 </div>
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
                 <p>{{book.item_comment}}</p>
-                <hr class="bg-top">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <hr class="top sml-bottom">
+              <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 
             </div>
         </div>
@@ -371,16 +399,20 @@
                 <p>User Rating: {{ book.item_rating}}</p>
                 <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+               <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 </div>
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
                 <p>{{book.item_comment}}</p>
-                <hr class="bg-top">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <hr class="top sml-bottom">
+              <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small " href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 
             </div>
         </div>
@@ -411,16 +443,20 @@
                 <p>User Rating: {{ book.item_rating}}</p>
                 <p>Added By: {{ book.item_added_by_username | capitalize }}</p>
                 <hr class="top sml-bottom">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p>Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+               <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small" href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 </div>
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">expand_more</i>{{book.item_title}}</span>
                 <p>{{book.item_comment}}</p>
-                <hr class="bg-top">
-               <p>View in Browse: <span class="aff-link"><a href="{{ url_for('browse')}}" >Go to Listings</a></span></p>
-                <p class="top ">Buy it here: <span class="aff-link"><a href="{{book.item_purchase}}" >Go to Store</a></span></p>
+                <hr class="top sml-bottom">
+               <div class="">
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-goto btn-small" href="{{ url_for('browse')}}">Listings <i class="fa fa-book"></i></a>
+                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-pur btn-small " href="{{book.item_purchase}}">Purchase <i class="fa fa-cart-plus"></i></a>
+                </div>
                 
             </div>
         </div>

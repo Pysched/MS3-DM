@@ -17,7 +17,7 @@
         <hr class="sml-bottom">
         <p class="sml-bottom">You need to be logged in to add a new Book club meeting</p>
         <form action="/login">
-        <button class="btn waves-effect waves-light" type="submit" >Login
+        <button class="btn waves-effect waves-light home" type="submit" >Login
         <i class="material-icons right">send</i>
         </button>
         </form>
@@ -25,7 +25,7 @@
     <div class="buttons">
         <p class="sml-bottom top">Click the button below to add your own meeting! </p>
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger sml-bottom" href="#modal1">Add a Meeting</a>
+        <a class="waves-effect waves-light btn modal-trigger sml-bottom login-btn" href="#modal1">Add a Meeting &nbsp;<i class="fa fa-upload" aria-hidden="true"></i></a>
     </div>
 </div>
         <!-- Modal Structure -->
@@ -93,9 +93,9 @@
      
       {% if session.user %}
         <div class="meet-btn">
-        <a class="waves-effect waves-light btn-small meetings-btn" href="{{ url_for('get_update_page', meeting_id=meeting._id)}}"><i class="material-icons right">cloud</i>Edit Meeting</a>
+        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-color" href="{{ url_for('get_update_page', meeting_id=meeting._id)}}">Edit Meeting &nbsp;<i class="fa fa-users"></i></a>
 
-        <a class="waves-effect waves-light btn-small" href="{{ url_for('delete_meeting', meeting_id=meeting._id)}}"><i class="material-icons right">cloud</i>Delete Meeting</a>
+        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red" href="{{ url_for('delete_meeting', meeting_id=meeting._id)}}">Delete Meeting &nbsp;<i class="fa fa-times-circle"></i></a>
         </div>
       {% endif %}
       </div>

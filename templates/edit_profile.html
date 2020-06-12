@@ -27,16 +27,11 @@
           <label for="new_pass">Password</label>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s6">
-          <input placeholder="Please confirm your password" name="new_pass1" id="new_pass1" type="password" class="validate">
-          <label for="new_password1">Password Confirm</label>
-          </div>
-        </div>
+       
         
         <!-- Submit Button -->
         <div class="">
-        <button class="btn btn-outline-success btn-spc left-spc" type="submit">Update <i class="fa fa-upload" aria-hidden="true"></i></button>
+        <button class="btn btn-outline-success btn-spc left-spc" type="submit">Update &nbsp;<i class="fa fa-upload" aria-hidden="true"></i></button>
         <a class="btn waves-effect waves-light standard-btn icon-right  btn-spc" href="{{ url_for('profile', username=session['user']) }}" aria-label="Home button">
                 Back
                 <i class="fa fa-home" aria-hidden="true"></i>

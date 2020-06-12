@@ -265,7 +265,7 @@ def edit_profile(user_id):
 def update_profile(user_id):
     users = mongo.db.users
     new_pass = request.form.get('new_pass')
-    users.update_many({'_id': ObjectId(user_id)}, {
+    users.update({'_id': ObjectId(user_id)}, {
         'username': request.form.get('new_user'),
         "password": generate_password_hash(new_pass),
         "email": request.form.get('new_email'),

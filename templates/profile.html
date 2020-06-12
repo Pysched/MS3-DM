@@ -32,18 +32,15 @@
       <br>
         <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-color" href="{{ url_for('edit_profile', user_id=user._id) }}">Edit &nbsp;<i class="fa fa-users"></i></a>
 
-       
-
-        
-       
-
+    
         <!-- Modal Trigger -->
-  <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red" href="#modal1">Delete Account &nbsp;<i class="fa fa-times-circle"></i></a>
+  <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red modal-trigger" href="#modal1">Delete Account &nbsp;<i class="fa fa-times-circle"></i></a>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Edit Account</h4>
+      <h4>Delete Account</h4>
+      <p>We'll be sorry to see you go.. but if you must go..</p>
       <p>Click Agree to Delete Account</p>
     </div>
     <div class="modal-footer">
