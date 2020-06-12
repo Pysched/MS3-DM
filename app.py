@@ -9,7 +9,7 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'bookshelf'
-app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@myfirstcluster-46ezx.mongodb.net/bookshelf?retryWrites=true&w=majority'
+app.MONGO_URI = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
@@ -418,6 +418,6 @@ def remove_listing(listings_id):
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
-    app.run(host=os.environ.get('IP', '0.0.0.0'),
-            port=int(os.environ.get("PORT", "5000")),
-            debug=True)
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get("PORT")),
+            debug=500)
