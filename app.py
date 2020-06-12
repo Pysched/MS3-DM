@@ -4,12 +4,13 @@ from flask_pymongo import PyMongo
 from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-
+if os.path.exists("env.py"):
+    import env
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'bookshelf'
 app.config["MONGO_URI"] = 'mongodb+srv://root:r00tUser@myfirstcluster-46ezx.mongodb.net/bookshelf?retryWrites=true&w=majority'
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -48,7 +49,8 @@ def index():
     doc_books = mongo.db.listings.find({'item_category': 'Documents'})
     non_books = mongo.db.listings.find({'item_category': 'Non-Fiction'})
     col_books = mongo.db.listings.find({'item_category': 'Collections'})
-    return render_template("index.html",
+    return render_template(
+        "index.html",
         sci_books=sci_books,
         fic_books=fic_books,
         crime_books=crime_books,
@@ -63,16 +65,27 @@ def index():
 # Book Club Page
 @app.route('/book_club', methods=['GET', 'POST'])
 def book_club():
-    return render_template("book_club.html", meetings=mongo.db.meetings.find(), meetings_category=mongo.db.meetings_category.find(),
-    book_category=mongo.db.book_categories.find())
+    meetings = mongo.db.meetings.find()
+    meetings_category = mongo.db.meetings_category.find()
+    book_category = mongo.db.book_categories.find()
+    return render_template(
+        "book_club.html",
+        meetings=meetings,
+        meetings_category=meetings_category,
+        book_category=book_category)
 
 
 # Add Meetings
 @app.route('/add_meeting', methods=['GET', 'POST'])
 def add_meeting():
-    return render_template('add_meeting.html',
-    meetings=mongo.db.meetings.find(), meetings_category=mongo.db.meetings_category.find(),
-    book_category=mongo.db.book_categories.find())
+    meetings = mongo.db.meetings.find()
+    meetings_category = mongo.db.meetings_category.find()
+    book_category = mongo.db.book_categories.find()
+    return render_template(
+        'add_meeting.html',
+        meetings=meetings,
+        meetings_category=meetings_category,
+        book_category=book_category)
 
 
 # Add Meetings
@@ -111,7 +124,8 @@ def insert_meeting():
 # Get Meetings
 @app.route('/get_meetings', methods=['GET', 'POST'])
 def get_meetings():
-    return render_template("get_meetings.html",
+    return render_template(
+        "get_meetings.html",
         listings=mongo.db.listings.find(),
         books=mongo.db.book_categories.find(),
         meetings=mongo.db.meetings_category.find())
@@ -149,7 +163,9 @@ def delete_meeting(meeting_id):
     user = session['user']
     meetings = mongo.db.meetings
     meetings.remove({'_id': ObjectId(meeting_id)})
-    flash(Markup("Oh Well " + user.capitalize() + ", There'll be no escape for the princess this time!!"))
+    flash(Markup(
+        "Oh Well " + user.capitalize() +
+        ", There'll be no escape for the princess this time!!"))
 
     return redirect(url_for('book_club'))
 
@@ -179,15 +195,18 @@ def login():
         # User and password check
         if reg_user and check_password_hash(reg_user["password"], password):
             # Confirmation message
-            flash(Markup("Hey, Welcome "
-                            + username.capitalize() +
-                            ", you are logged in"))
+            flash(Markup(
+                "Hey, Welcome "
+                + username.capitalize() +
+                ", you are logged in"))
             session["user"] = username
             return redirect(url_for('index', username=session["user"]))
 
         else:
             # Login validation
-            flash(Markup("Those details do not match our records, either try again or register for an account."))
+            flash(Markup(
+                "Those details do not match our records," +
+                "either try again or register for an account."))
         return redirect(url_for('login'))
 
     return render_template('login.html')
@@ -207,8 +226,9 @@ def register():
         # Error handling
 
         if reg_user:
-            flash(Markup("The username " + new_user +
-            " is already taken, please try another name"))
+            flash(Markup(
+                "The username " + new_user +
+                " is already taken, please try another name"))
             return redirect(url_for('register'))
 
         # insert items to the database
@@ -281,22 +301,24 @@ def delete_account(user_id):
     byeuser = mongo.db.users
     byeuser.remove({'_id': ObjectId(user_id)})
     session.clear()
-    flash(Markup( user.capitalize() + " Has left the building ... Good Bye"))
+    flash(Markup(
+        user.capitalize() + " Has left the building ... Good Bye"))
     return redirect(url_for('index'))
-
-
-
-
 
 # Add Item Page
 @app.route('/add_item')
 def add_item():
     # add item and ref db categories for select items
-    return render_template("add_item.html",
-            items=mongo.db.items.find(),
-            reading=mongo.db.item_read_time.find(), book_cat=mongo.db.book_categories.find(),
-            rating=mongo.db.item_rating.find())
-
+    items = mongo.db.items.find()
+    reading = mongo.db.item_read_time.find()
+    book_cat = mongo.db.book_categories.find()
+    rating = mongo.db.item_rating.find()
+    return render_template(
+        "add_item.html",
+        items=items,
+        reading=reading,
+        book_cat=book_cat,
+        rating=rating)
 
 # Insert Item
 @app.route('/insert_item', methods=["GET", "POST"])
@@ -341,12 +363,18 @@ def insert_item():
 @app.route('/get_update_listing/<listings_id>', methods=["GET", "POST"])
 def get_update_listing(listings_id):
     listings = mongo.db.listings
+    items = mongo.db.items.find()
+    reading = mongo.db.item_read_time.find()
+    book_cat = mongo.db.book_categories.find()
+    rating = mongo.db.item_rating.find()
     listings = mongo.db.listings.find_one({'_id': ObjectId(listings_id)})
-    return render_template("edit_listing.html",
-                            listings=listings,
-                            items=mongo.db.items.find(),
-                            reading=mongo.db.item_read_time.find(), book_cat=mongo.db.book_categories.find(),
-                            rating=mongo.db.item_rating.find())
+    return render_template(
+        "edit_listing.html",
+        listings=listings,
+        items=items,
+        reading=reading,
+        book_cat=book_cat,
+        rating=rating)
 
 
 # Update Listings
