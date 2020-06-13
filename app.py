@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash, Markup
+from flask
+import Flask, render_template, redirect, request, url_for, session, flash, Markup
 from flask_pymongo import PyMongo
 from datetime import date
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -9,7 +10,7 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'bookshelf'
-app.MONGO_URI = os.environ.get("MONGO_URI")
+app.mongo_uri = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
@@ -417,7 +418,7 @@ def remove_listing(listings_id):
 
 
 if __name__ == '__main__':
-    app.secret_key = 'mysecret'
-    app.run(host=os.environ.get('IP'),
+    
+    app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
