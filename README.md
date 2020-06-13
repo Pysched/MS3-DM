@@ -26,7 +26,6 @@
   - [Responsive and Functional Testing](#Responsive-and-Functional-Testing)
   - [Additional Testing](#Additional-Testing)
   - [Code Validation](#Code-Validation)
-  (#Partially-Resolved-or-Unresolved-Bugs)
 - [**Deployment**](#Deployment)
   - [Live App Link](#Live-App-Link)
   - [Repository Link](#Repository-Link)
@@ -432,6 +431,8 @@ The listing item images are added by users from the various sites or locations t
 Major thank you to the tutoring team for their invaluable support in guiding me through issues I had. Their method of support is great as they describe the issue and guide you to undersstanding how to resolve issues yourself. fantastic team.
 
 A thank you to my mentor, Rahul Patil, for his review of my project scope and layout.
+
+A very special thank you to my Partner for feeding me, waking me and being an all round star while I was in coding mode!!!
 
 ### Disclaimer
 
