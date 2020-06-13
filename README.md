@@ -94,7 +94,7 @@ Wireframes where developed by hand. A personal chocice as I find it a rapid and 
 
 The links to these images are available at the following links:
 
-![Wireframe1](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_1_ddk1pj.jpg)
+![Wireframe1](https://res.cloudinary.com/pysched/image/upload/c_scale,w_500/v1592055981/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg)
 
 ![Wireframe2](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg)
 
