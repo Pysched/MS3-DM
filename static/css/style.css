@@ -552,5 +552,15 @@ a.ft-nav:hover{
   }
 
   .spacer{
+      
       margin-right:25px;
   }
+
+@media(max-width:600px){
+    .spacer{
+        margin-top:15px;
+    }
+    .btn-size{
+        display:block;
+    }
+}

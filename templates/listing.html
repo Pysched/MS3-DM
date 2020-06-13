@@ -26,16 +26,16 @@
         <p class="last"> <span class="sml">Description: </span>{{listings.item_comment}}</p>
         <div class="">
          {% if session.user %}
-        <div class="meet-btn">
-        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-color spacer" href="{{ url_for('get_update_listing', listings_id=listings._id) }}"><i class="material-icons right">send</i>Edit Listing</a>
+        <div class="meet-btn btn-size">
+        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-color spacer" href="{{ url_for('get_update_listing', listings_id=listings._id) }}"><i class="material-icons right">send</i>Edit </a>
 
         <!-- Modal Trigger -->
-        <div class="">
-        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red modal-trigger spacer" href="#modal1">Delete Listing&nbsp;<i class="fa fa-times-circle"></i></a>
+       
+        <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red modal-trigger spacer" href="#modal1">Delete &nbsp;<i class="fa fa-times-circle"></i></a>
 
-         <a class="btn waves-effect waves-light standard-btn icon-right btn-spc home" href="{{ url_for('browse') }}"><i class="material-icons right">send</i>Back to Listing</a>
+         <a class="btn waves-effect waves-light standard-btn icon-right btn-spc home spacer" href="{{ url_for('browse') }}"><i class="material-icons right">send</i>Back </a>
 
-        </div>
+       
         </div>
       {% endif %}
     
