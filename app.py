@@ -116,7 +116,7 @@ def insert_meeting():
         )
         flash(Markup("Success \
                     " + user + ", \
-                    your listing has been added!"))
+                    your meeting has been added!"))
 
         return redirect(url_for('book_club'))
 
