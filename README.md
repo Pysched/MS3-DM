@@ -65,8 +65,8 @@ This was developed as both a front-end and backend project. The technologies use
 - As a busy person I want to find a site where I can find reading listings that are not related to a marketing stragey and are based on person opinions
 - As a new reader I want to search books in an easy to navigate manner where I can link to the seller site 
 - As a community member I want a place where I can view recommendations from other users
-- As a reader I want to leave a rating and or a review of books I've read without taking part in anything else
-- As a blogger, I want to be able to rate listings that I find so that I can let others know how good/bad they are
+- As a reader I want to leave a rating and or a review of books I've read without taking part in anything else - this was not achieved and is in the to be implemented section
+- As a blogger, I want to be able to rate listings that I find so that I can let others know how good/bad they are - this feature was not completed and is part of the future implementation section.
 - As a consumer, I want to be able to use a site that is not a direct seller and is not bias towards any one book, publisher or author, in particular
 
 
@@ -108,10 +108,10 @@ My Final Project design and layout differs from my initial wireframes. This occu
 ### Database Schema
 
 I designed a database schema before starting my project, the layout for these are available here: 
-[**_Database Schema Page 1_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_1_lymylj.jpg)
-[**_Database Schema Page 2_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_2_jc29mu.jpg)
-[**_Database Schema Page 3_**](https://res.cloudinary.com/pysched/image/upload/v1592062759/Bookshelf%20images/Database_Schema_Page_3_ny5au8.jpg)
-[**_Database Schema Page 4_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_4_ivpzxu.jpg)
+- [**_Database Schema Page 1_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_1_lymylj.jpg)
+- [**_Database Schema Page 2_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_2_jc29mu.jpg)
+ -[**_Database Schema Page 3_**](https://res.cloudinary.com/pysched/image/upload/v1592062759/Bookshelf%20images/Database_Schema_Page_3_ny5au8.jpg)
+- [**_Database Schema Page 4_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_4_ivpzxu.jpg)
 
 ## Features
 
@@ -251,20 +251,78 @@ The following are the nav bar links when a user is logged in:
 ## Testing
 
 ### Testing User Stories
+The testing of users Stories consisted of:
 
+1. Creating a new account - Register functionality
+2. Logging out - can the user log out - Logout functionality
+3. Log in - can the user log back in - Login functionality
+4. Create - Add a listing - can the user add a new listing - Add item Functionality
+5. Read - Can a user read their newly added listing - Read functionality 
+6. Update - Edit a listing  - can a user edit a listing - Edit listing functionality
+7. Delete a listing - can a user delete a listing - Delete listing functionality
+8. Feed back - does the user get the flashed messages to provide feedback
+9. Create a book club meeting - can a user cerate a book club meeting - Create meeting functionality
+10. Read - Can a user read a created book club meeting - Read Meeting Functionality
+11. Update - Can a user edit a book club meeting - Edit Meeting Functionality
+12. Delete - can a user delete a book CLub meeting - Delete meeting Functionality
+13. Read - Can a user read their account information - Read Functionality
+14. Update - can a user update their account information - Edit functionality
+15. Delete - Can a user delete their account - Delete functionality
+16. Navigation Navbar - can a user naviagate the site through full screen navigation at the navbar
+17. Naviagtion Footer - can a user navigate the site through the footer
 
 ### Responsive and Functional Testing
+- I tested my apps responiveness on different size sizes; Mobile, tablet and Desktop to ensure that the responiveness worked and the site is funcitonal at all sizes.
+- Tested on Desktop (My Pc)
+- Tested on Tablet (Responive desinger in Chrome and Firefox)
+- Tested on Mobile (Samsun s10)
 
+### Functionality
+
+For testing of functionality I have tested it myself trying each of the dyna,ic elements on all sizes.
+
+Tesing included:
+- Navbar Links
+- Logo link
+- Cards arrow click for reverse card information
+- All buttons on all elements
+- Accordian for meetings
+- Flashed messages for user feedback
+- Footer navigation
 
 ### Additional Testing
+- I used the developer tools with both Firefox and Chrome to check each of my styling, responiveness and erros with. This ensured that I identified and I was able to modify errors and bugs quickly and on the fly, and bring those edits back into gitpod.
+
+- I created several users and when through each of the available functionality steps, these where:
+    - Registering
+    - Login
+    - Signing out
+    - Editing account information
+    - Deleting an account
+    - Adding a listing
+    - Editing a listing
+    - Deleting a listing
+    - Creating a meeting
+    - Editing a meeting
+    - Deleting a meeting
+    - Navigation links
+    - Dropdown Accordians
+    - Buttons
+    - Links
+    - Modals
+    - Sidenav for mobile screens
+    - Flashed messages for user feedback
+    - Footer Navigation
+
+I also asked several family memebers and friends to do the same along the way to capture any issues and debug them as well as providing feedback.
 
 
 ### Code Validation
 
-- I will use the [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) to validate my HTML code.
-- I will use the [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my CSS code.
-- I will use the [Esprima Syntax Validator tool](http://esprima.org/demo/validate.html) to validate my JavaScript syntax.
-- I will use the [Pep8 Online tool](http://pep8online.com/) to validate my Python syntax.
+- I used the [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) to validate my HTML code.
+- I used the [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my CSS code.
+- I used the [Esprima Syntax Validator tool](http://esprima.org/demo/validate.html) to validate my JavaScript syntax.
+- I used the [Pep8 Online tool](http://pep8online.com/) to validate my Python syntax.
 
 ## Deployment
 
@@ -299,13 +357,13 @@ The app was successfully deployed to Heroku at this stage.
 
 Click the link below to run my project in the live environment:
 
-[Book Shelf] (https://bookshelf-dm.herokuapp.com/)
+[Book Shelf](https://bookshelf-dm.herokuapp.com/)
 
 ### Repository Link
 
 Click the link below to visit my project's GitHub repository:
 
-[Book Shelf] (https://github.com/Pysched/MS3-DM)
+[Book Shelf](https://github.com/Pysched/MS3-DM)
 
 ### Running Code Locally
 
