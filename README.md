@@ -2,7 +2,7 @@
 
 # [Book Shelf](https://bookshelf-dm.herokuapp.com/) - Milestone Project Three
 
-
+![Book Shelf - Desktop](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592054964/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.27.53_xykdcy.png)
 
 
 ## Table of Contents
@@ -94,13 +94,17 @@ Wireframes where developed by hand. A personal chocice as I find it a rapid and 
 
 The links to these images are available at the following links:
 
-![Wireframe1](https://res.cloudinary.com/pysched/image/upload/c_scale,w_500/v1592055981/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg)
+![Wireframe1](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056245/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_1_ddk1pj.jpg)
 
-![Wireframe2](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg)
+![Wireframe2](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592055981/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg)
 
-![Wireframe3](https://res.cloudinary.com/pysched/image/upload/v1592054961/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_3_yujc27.jpg)
+![Wireframe3](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056298/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_3_yujc27.jpg)
 
-![Wireframe4](https://res.cloudinary.com/pysched/image/upload/v1592054959/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg)
+![Wireframe4](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056377/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg)
+
+
+My Final Project design and layout differs from my initial wireframes. This occured as part of my development iteration process. As the site evloved and technoical challenges either become too much or overocme, the design changed to reflect that, the initial wireframes gave me a great base from which to start and develop from and are an essential part of the process. 
+
 ### Database Schema
 
 I designed a database schema before starting my project, the layout for these are available below:
