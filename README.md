@@ -107,7 +107,7 @@ My Final Project design and layout differs from my initial wireframes. This occu
 
 ### Database Schema
 
-I designed a database schema before starting my project, the layout for these are available here: ![**_Database Schema _**](https://res.cloudinary.com/pysched/raw/upload/v1592062545/Bookshelf%20images/Database_Schema_hf8qhk.docx)
+I designed a database schema before starting my project, the layout for these are available here: ![**_Database Schema_**](https://res.cloudinary.com/pysched/image/upload/v1592062650/Bookshelf%20images/Database_Schema_xpieyo.pdf)
 
 ## Features
 
