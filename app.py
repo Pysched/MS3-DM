@@ -154,6 +154,9 @@ def update_meetings(meeting_id):
         "meeting_added_by_username": user,
         "meeting_added_date": curr_date
         })
+    flash(Markup("Thanks "
+                 + user.capitalize() +
+                 " this meeting has been successfully updated!"))
     return redirect(url_for('book_club'))
 
 
@@ -309,7 +312,6 @@ def delete_account(user_id):
 @app.route('/add_item')
 def add_item():
     # add item and ref db categories for select items
-    
     items = mongo.db.items.find()
     reading = mongo.db.item_read_time.find()
     book_cat = mongo.db.book_categories.find()
@@ -392,7 +394,8 @@ def update_listing(listings_id):
         "item_read_time": request.form.get("edit_item_read_time"),
         "item_category": request.form.get("edit_item_category"),
         "item_rating": request.form.get("edit_item_rating"),
-        "item_comment": request.form.get("edit_item_comment"), "item_added_by_username": user,
+        "item_comment": request.form.get("edit_item_comment"),
+        "item_added_by_username": user,
         "item_added_date": curr_date,
         "item_likes": 0,
         "item_removed": False,
@@ -421,4 +424,4 @@ def remove_listing(listings_id):
 if __name__ == '__main__':
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
