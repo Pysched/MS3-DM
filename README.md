@@ -94,13 +94,13 @@ Wireframes where developed by hand. A personal chocice as I find it a rapid and 
 
 The links to these images are available at the following links:
 
-- [**_Wireframe 1_**] https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056245/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_1_ddk1pj.jpg
+- [**_Wireframe 1_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056245/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_1_ddk1pj.jpg)
 
-- Wireframe 2 https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592055981/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg
+- [**_Wireframe 2_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592055981/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg)
 
-- Wireframe3 https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056298/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_3_yujc27.jpg
+- [**_Wireframe 3_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056298/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_3_yujc27.jpg)
 
-- Wireframe4 https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056377/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg
+- [**_Wireframe4_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056377/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg)
 
 
 My Final Project design and layout differs from my initial wireframes. This occured as part of my development iteration process. As the site evloved and technoical challenges either become too much or overocme, the design changed to reflect that, the initial wireframes gave me a great base from which to start and develop from and are an essential part of the process. 
