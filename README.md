@@ -96,7 +96,11 @@ The links to these images are available at the following links:
 
 ![Wireframe1](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_1_ddk1pj.jpg)
 
+![Wireframe2](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_2_rckxsg.jpg)
 
+![Wireframe3](https://res.cloudinary.com/pysched/image/upload/v1592054961/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_3_yujc27.jpg)
+
+![Wireframe4](https://res.cloudinary.com/pysched/image/upload/v1592054959/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg)
 ### Database Schema
 
 I designed a database schema before starting my project, the layout for these are available below:
