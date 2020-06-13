@@ -109,7 +109,9 @@ The links to these images are available at the following links:
 - [**_Wireframe 4_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056377/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg)
 
 
-My Final Project design and layout differs from my initial wireframes. This occured as part of my development iteration process. As the site evloved and technoical challenges either become too much or overocme, the design changed to reflect that, the initial wireframes gave me a great base from which to start and develop from and are an essential part of the process. 
+My Final Project design and layout differs from my initial wireframes. This occured as part of my development iteration process. As the site evolved and technical challenges either become too much or overcome, the design changed to reflect this. 
+
+The initial wireframes gave me a great base from which to start and develop from and are an essential part of the process. 
 
 ### Database Schema
 
