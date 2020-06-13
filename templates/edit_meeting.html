@@ -12,7 +12,9 @@
 <div class="meetings edit top bottom">
     <h4 class="title-head"> Edit Form</h4>
         
-
+<!-- Messages -->
+    {% include "sections/messages.html" %}
+    <!-- End Messages -->
 
     <div class="row edit-form ">
         <form class="col s12" action="{{ url_for('update_meetings', meeting_id=meeting._id) }}" method="POST">
