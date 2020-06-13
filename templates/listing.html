@@ -10,7 +10,9 @@
     <h4 class="title">Listing Details:  {{ listings.item_title  }}</h4>
     <hr>
 </section>
- 
+ <!-- Messages -->
+    {% include "sections/messages.html" %}
+    <!-- End Messages -->
 
 <div class="container crd-cont z-depth-2 top-club bottom">
     <div class="card-img bottom">
@@ -60,7 +62,7 @@
                          <p> Please Confirm you wish to delete the selected listing: {{ listings.item_title  }}</p>
                         <!-- Delete meeting-->
                             <div class="col s6">
-                                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red" href="{{ url_for('remove_listing', listings_id=listings._id)}}">Delete Meeting&nbsp;<i class="fa fa-times-circle"></i></a>
+                                <a class="btn waves-effect waves-light standard-btn icon-right btn-spc btn-red" href="{{ url_for('remove_listing', listings_id=listings._id)}}">Delete Listing&nbsp;<i class="fa fa-times-circle"></i></a>
                             </div>
                         </div>
                     </form>
