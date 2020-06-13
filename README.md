@@ -2,8 +2,6 @@
 
 # [Book Shelf](https://bookshelf-dm.herokuapp.com/) - Milestone Project Three
 ![BookShelf - Desktop](https://res.cloudinary.com/pysched/image/upload/v1592054964/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.27.53_xykdcy.png)
-![BookShelf - Tablet](https://res.cloudinary.com/pysched/image/upload/v1592054961/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.28.33_e7uzws.png)
-![BookShelf - Mobile](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.28.38_fnndbu.png)
 
 ## Table of Contents
 
