@@ -42,7 +42,7 @@
 
 Book Shelf is a web application that contains information about books and other reading material. It is a place that users can come to to find book listings as added by other users, search for book club meetings that have been user added, and become part of a community. 
 
-USers themselves will also be albe, once registered and logged in, to add edit and delte book listings, meeting listings and account details, thus providing them with a fully funcational application that they can interact with.
+Users themselves will also be able, once registered and logged in, to add edit and delte book listings, meeting listings and account details, thus providing them with a fully funcational application that they can interact with.
 
 The aims of the site are to be a central location for people who want to read reviews by fellow book enthusists, join a bookclub group, arrange online meeting times for healthy discussion and as a place where they can link to buy the books they want.
 
