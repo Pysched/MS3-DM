@@ -108,10 +108,10 @@ My Final Project design and layout differs from my initial wireframes. This occu
 ### Database Schema
 
 I designed a database schema before starting my project, the layout for these are available here: 
-![**_Database Schema Page 1_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_1_lymylj.jpg)
-![**_Database Schema Page 2_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_2_jc29mu.jpg)
-![**_Database Schema Page 3_**](https://res.cloudinary.com/pysched/image/upload/v1592062759/Bookshelf%20images/Database_Schema_Page_3_ny5au8.jpg)
-![**_Database Schema Page 4_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_4_ivpzxu.jpg)
+[**_Database Schema Page 1_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_1_lymylj.jpg)
+[**_Database Schema Page 2_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_2_jc29mu.jpg)
+[**_Database Schema Page 3_**](https://res.cloudinary.com/pysched/image/upload/v1592062759/Bookshelf%20images/Database_Schema_Page_3_ny5au8.jpg)
+[**_Database Schema Page 4_**](https://res.cloudinary.com/pysched/image/upload/v1592062758/Bookshelf%20images/Database_Schema_Page_4_ivpzxu.jpg)
 
 ## Features
 
