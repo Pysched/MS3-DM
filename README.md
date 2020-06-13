@@ -131,7 +131,6 @@ The CRUD features that are available through using Python and Mongodb allow user
 - Create book listing
 - Create a book club meeting
 - Create a user account
-- Read their book listings
 - Read book listings
 - Read/view book listings by all users
 - Read Book Club meetings 
@@ -145,29 +144,30 @@ The CRUD features that are available through using Python and Mongodb allow user
 
 ### Existing Features
 
--**Navbar Links** 
+**Navbar Links** 
 The navbar contains the following links to all users:
 
--- Branding Icon( Also home button )
--- Home Button
--- Book Club button
--- Browse Categories dropdown( Genre, Reviews, Releases, Book of the month ) 
--- Login
--- Register
+- Branding Icon( Also home button )
+- Home Button
+- Book Club button
+- Browse Categories dropdown( Genre, Reviews, Releases, Book of the month ) 
+- Login
+- Register
 
 When the user is registered and logged in, the navbar will add buttons for:
 Account, Add Item and log out to the navbar and remove login and register buttons from the UI.
 
-- **Navbar Links logged in**
+**Navbar Links logged in**
+
 The following are the nav bar links when a user is logged in:
 
--- branding Icon (Also a home button)
--- Home Button
--- Book Club button
--- Browse button
--- Account Button (to take the user to their specific account page)
--- Add Item Button ( this feature is only available to registered users to be able to add listings)
--- Log
+- Branding Icon (Also a home button)
+- Home Button
+- Book Club button
+- Browse button
+- Account Button (to take the user to their specific account page)
+- Add Item Button ( this feature is only available to registered users to be able to add listings)
+- Log
 
 
 - **Login** - Facility for previously registered users to login to their account. Authorization checks are used to check that the username and password ( password is hashed ) with the details checked against the stored values in the database before users are logged in.
@@ -205,6 +205,8 @@ The following are the nav bar links when a user is logged in:
 - **Remove Book Meeting** - This feature allows users to  and delete the book club meeting that they have selected. If deleting, the user, who must be registered and logged in, can delete the book club meeting. 
 
 - **Cancel Remove** - This feature allows the user to change their mind and return to the meeting page of the specific book club meeting that they had selected.
+
+- **Flashed Messages** - This feature provides feedback to the user as they interacte with the features of the site and thus provides the user with system state information.
 
 
 ### Features Left to Implement
