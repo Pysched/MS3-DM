@@ -40,7 +40,9 @@
 
 ## About
 
-Book Shelf is an web application, designed as a great place for avid book lovers, page turners, friendly discussion and a facility to aid users to buy books. The aims of the site are to be a central location for people who want to read reviews by fellow book enthusists, join a bookclub group, arrange online meeting times for healthy discussion and as a place where they can link to buy the books they want.
+Book Shelf is a web application that contains information about books and other reading material. It is a place that users can come to to find book listings as added by other users, search for book club meetings that have been user added, and become part of a community. 
+
+The aims of the site are to be a central location for people who want to read reviews by fellow book enthusists, join a bookclub group, arrange online meeting times for healthy discussion and as a place where they can link to buy the books they want.
 
 Users will be able to perform CRUD (Create, Read, Update and Delete) profiles, book listings and book club meetings. Users will be able to update all listings and meetings once they are signed up and logged in.
 
@@ -72,7 +74,9 @@ This was developed as both a front-end and backend project. The technologies use
 
 ### Style Development
 
-The direction I took for the styling of the site was that of a minimal design theme. The content show do the talking, with the aim of not having too many flashing lights and dominate colours or overtly dynamic elements confusing users as to were to go or how to get around the site. To that end i selected a colour palette that is light and complimentary in colour and based around a pastel style scheme.
+The direction taken when deciding on the styling theme of the site was that of minimal design. The content should do the talking and provide the user with an easy and enjoyable experience building on the common UI and UX patterns and not requiring a new learning experience for the user that could lead to confusion. 
+
+To that end I selected a colour palette that is easy on the eye and complimentary in colour and based around a pastel style scheme.
 
 The below colour palette are the base from which I selected colours from the site. 
 
