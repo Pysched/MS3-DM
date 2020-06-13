@@ -309,6 +309,7 @@ def delete_account(user_id):
 @app.route('/add_item')
 def add_item():
     # add item and ref db categories for select items
+    
     items = mongo.db.items.find()
     reading = mongo.db.item_read_time.find()
     book_cat = mongo.db.book_categories.find()
@@ -381,7 +382,6 @@ def get_update_listing(listings_id):
 @app.route('/update_listing/<listings_id>', methods=["POST"])
 def update_listing(listings_id):
     user = session['user'].lower()
-    user_id = find_user(user)["_id"]
     today_date = date.today()
     curr_date = today_date.strftime("%d %B %Y")
     listings = mongo.db.listings
@@ -392,15 +392,17 @@ def update_listing(listings_id):
         "item_read_time": request.form.get("edit_item_read_time"),
         "item_category": request.form.get("edit_item_category"),
         "item_rating": request.form.get("edit_item_rating"),
-        "item_comment": request.form.get("edit_item_comment"),
-        "item_added_by": user_id,
-        "item_added_by_username": user,
+        "item_comment": request.form.get("edit_item_comment"), "item_added_by_username": user,
         "item_added_date": curr_date,
         "item_likes": 0,
         "item_removed": False,
         "item_url": request.form.get("edit_item_url"),
         "item_purchase": request.form.get("edit_item_purchase"),
         })
+    flash(Markup("Thanks "
+                 + user.capitalize() +
+                 " this listing has been successfully updated!"))
+
     return redirect(url_for('browse'))
 
 # Delete Item
