@@ -2,7 +2,7 @@
 
 # [Book Shelf](https://bookshelf-dm.herokuapp.com/) - Milestone Project Three
 
-![BookShelf Desktop](https://res.cloudinary.com/pysched/image/upload/v1592054964/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.27.53_xykdcy.png)
+
 
 
 ## Table of Contents
@@ -92,7 +92,9 @@ Secondary Colour Palette:
 
 Wireframes where developed by hand. A personal chocice as I find it a rapid and iterative process for me to develop wireframes where I can quickly modify and change features as I please.  
 
-The links to these iamges are available at the following links:
+The links to these images are available at the following links:
+
+![Wireframe1](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_1_ddk1pj.jpg)
 
 
 ### Database Schema
