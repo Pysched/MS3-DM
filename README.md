@@ -1,6 +1,9 @@
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 # [Book Shelf](https://bookshelf-dm.herokuapp.com/) - Milestone Project Three
+![BookShelf - Desktop](https://res.cloudinary.com/pysched/image/upload/v1592054964/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.27.53_xykdcy.png)
+![BookShelf - Tablet](https://res.cloudinary.com/pysched/image/upload/v1592054961/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.28.33_e7uzws.png)
+![BookShelf - Mobile](https://res.cloudinary.com/pysched/image/upload/v1592054963/Bookshelf%20images/Screen_Shot_2020-06-13_at_14.28.38_fnndbu.png)
 
 ## Table of Contents
 
@@ -43,7 +46,7 @@ Users will be able to perform CRUD (Create, Read, Update and Delete) profiles, b
 
 A free to join site that brings people together and allows them to share their passion and buy books
 
-### Project Rational?
+### Project Rational
 
 This app was created for the Data Centric Development project of [**_Code Institute's_**](https://codeinstitute.net/) Full Stack Software Development course. The project scope was to create a web app using Python and a no-SQL database (MongoDB), which uses **CRUD** operations to allow users to easily create, read, update and delete data from a database viewed through a web application
 
