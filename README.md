@@ -107,7 +107,7 @@ My Final Project design and layout differs from my initial wireframes. This occu
 
 ### Database Schema
 
-I designed a database schema before starting my project, the layout for these are available below:
+I designed a database schema before starting my project, the layout for these are available here: ![**_Database Schema _**](https://res.cloudinary.com/pysched/raw/upload/v1592062545/Bookshelf%20images/Database_Schema_hf8qhk.docx)
 
 ## Features
 
@@ -329,7 +329,7 @@ To run my code locally, users can download a local copy of my code to their desk
 ## Credits
 
 - All of the code for my project was written by me.
-- I learned and developed my knowledge and understanding of how to implement a user login with encrypted password through reviewing and learning from the following student projects: [**_Student Cook Book Project_**](https://github.com/hebs87/cookbook-milestone-project-three), [**_Student Fitness Pot Project _**](https://github.com/tomciosegal/fitness_pot)
+- I learned and developed my knowledge and understanding of how to implement a user login with encrypted password through reviewing and learning from the following student projects: [**_Student Cook Book Project_**](https://github.com/hebs87/cookbook-milestone-project-three), [**_Student Fitness Pot Project_**](https://github.com/tomciosegal/fitness_pot)
 - Using these resources as a reference I was able to craft my own code to perform the desired functionality. 
 - I also want to acknowledge the amazing support I recieved from tutor support. They were fantastic in helping me identify issues and teaching me how to resolve them. They are a fantastic resource.
 - I got a general idea of how to create a register and login system by watching this [Login Video](https://www.youtube.com/watch?list=PLXmMXHVSvS-Db9KK1LA7lifcyZm4c-rwj&v=vVx1737auSE&app=desktop) and pairing it to the above reference user login methods
