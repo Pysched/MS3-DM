@@ -75,12 +75,12 @@ The below colour palette are the base from which I selected colours from the sit
 
 Primary Colour Palette: 
 
-(https://res.cloudinary.com/pysched/image/upload/v1592048872/Bookshelf%20images/colour_palette_2_xzmk1p.jpg)
+![Primary Colour Palette](https://res.cloudinary.com/pysched/image/upload/v1592048872/Bookshelf%20images/colour_palette_2_xzmk1p.jpg)
 
 
 Secondary Colour Palette:
 
-(https://res.cloudinary.com/pysched/image/upload/v1592048872/Bookshelf%20images/colour_palette1_x6ykem.jpg)
+![Secondary Colour Palette](https://res.cloudinary.com/pysched/image/upload/v1592048872/Bookshelf%20images/colour_palette1_x6ykem.jpg)
 
 
 
