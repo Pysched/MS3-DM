@@ -137,6 +137,7 @@ def get_update_page(meeting_id):
     meeting = mongo.db.meetings.find_one({'_id': ObjectId(meeting_id)})
     return render_template("edit_meeting.html", meeting=meeting)
 
+
 # Update Meetings function
 @app.route('/update_meetings/<meeting_id>', methods=["GET", "POST"])
 def update_meetings(meeting_id):
@@ -213,6 +214,7 @@ def login():
         return redirect(url_for('login'))
 
     return render_template('login.html')
+
 
 # Register Page
 @app.route('/register', methods=['GET', 'POST'])
@@ -308,6 +310,7 @@ def delete_account(user_id):
         user.capitalize() + " Has left the building ... Good Bye"))
     return redirect(url_for('index'))
 
+
 # Add Item Page
 @app.route('/add_item')
 def add_item():
@@ -322,6 +325,7 @@ def add_item():
         reading=reading,
         book_cat=book_cat,
         rating=rating)
+
 
 # Insert Item
 @app.route('/insert_item', methods=["GET", "POST"])
@@ -361,6 +365,7 @@ def insert_item():
                     your listing has been added!"))
 
         return redirect(url_for('browse'))
+
 
 # Get updatepage
 @app.route('/get_update_listing/<listings_id>', methods=["GET", "POST"])
@@ -407,6 +412,7 @@ def update_listing(listings_id):
                  " this listing has been successfully updated!"))
 
     return redirect(url_for('browse'))
+
 
 # Delete Item
 @app.route('/remove_listing/<listings_id>')
