@@ -419,9 +419,6 @@ a.ft-nav:hover{
     border-radius:2px;
 }
 
-/* .card-content{
-    height:750px;
-} */
 
 .last{
     padding-bottom:50px;
@@ -435,8 +432,8 @@ a.ft-nav:hover{
     margin-left:auto;
     margin-right: auto;
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .sml{
@@ -446,7 +443,7 @@ a.ft-nav:hover{
 
 
 
-/* -- Bradcrumbs -- */
+/* -- Breadcrumbs -- */
 .bread{
     background-color: #035e7b;
 }
