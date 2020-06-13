@@ -36,16 +36,15 @@
 
 ## About
 
-Book Shelf is an web application, designed as a great place for avid book lovers, page turners, friendly discussion and a facility to aid users to buy books. The aims of the site are to be a central location for people who want to read reviews by fellow book enthusists, join a bookclub group, arrange online meeting times for healthy discussion and as a place where they can link to buy the books they want. 
+Book Shelf is an web application, designed as a great place for avid book lovers, page turners, friendly discussion and a facility to aid users to buy books. The aims of the site are to be a central location for people who want to read reviews by fellow book enthusists, join a bookclub group, arrange online meeting times for healthy discussion and as a place where they can link to buy the books they want.
 
-Users will be able to perform CRUD (Create, Read, Update and Delete) profiles, book listings and book club meetings.
-Users will be able to update all listings and meetings once they are signed up and logged in.
+Users will be able to perform CRUD (Create, Read, Update and Delete) profiles, book listings and book club meetings. Users will be able to update all listings and meetings once they are signed up and logged in.
 
-A free to join site that brings people together and allows them to share their passion and buy books.
+A free to join site that brings people together and allows them to share their passion and buy books
 
 ### Why This Project?
 
-This app was created for the Data Centric Development project of [**_Code Institute's_**](https://codeinstitute.net/) Full Stack Software Development course. The project scope was to create a web app using Python and a no-SQL database (MongoDB), which uses **CRUD** operations to allow users to easily create, read, update and delete data from a databse viewed through a web application
+This app was created for the Data Centric Development project of [**_Code Institute's_**](https://codeinstitute.net/) Full Stack Software Development course. The project scope was to create a web app using Python and a no-SQL database (MongoDB), which uses **CRUD** operations to allow users to easily create, read, update and delete data from a database viewed through a web application
 
 This was developed as both a front-end and backend project. The technologies used for each are:
 - Frontend: HTML, CSS, JavaScript
@@ -57,18 +56,31 @@ This was developed as both a front-end and backend project. The technologies use
 
 ### User Stories
 
-- As an avid reader of books, I often find myself on the look out for my enxt book and would like a place that can provide reviews on books not based from a seller site
-- As a reader of books who enjoys discussing books i read, i would like to find a community that I can join to talk about books online and where I can organise meetings
-- As a busy person I want to find a site where I can find reviews that are not related to a marketing stragey and are based on person opinions
-- As a new reader I want to search books in an easy to navigate manner where I can link to a seller site 
-- As a community member I want a place where I can store recommendations from other users
+- As an avid reader of books, I often find myself on the look out for my next book and would like a place that can provide reviews on books not based from a seller site
+- As a reader of books who enjoys discussing the books that I read, I would like to find a community that I can join to talk about books online and where I can organise meetings
+- As a busy person I want to find a site where I can find reading listings that are not related to a marketing stragey and are based on person opinions
+- As a new reader I want to search books in an easy to navigate manner where I can link to the seller site 
+- As a community member I want a place where I can view recommendations from other users
 - As a reader I want to leave a rating and or a review of books I've read without taking part in anything else
-- As a blogger, I want to be able to rate recipes that I try out so that I can let others know how good/bad they are
-- As a consumer, I want to be able to search for a particular genre by category, release date, reviews and ratings
+- As a blogger, I want to be able to rate listings that I find so that I can let others know how good/bad they are
 - As a consumer, I want to be able to use a site that is not a direct seller and is not bias towards any one book, publisher or author, in particular
-- As a consumer, I want to see a summary list of books based on the most liked, so that I can quickly see the most popular ones
+
 
 ### Style Development
+
+The direction I took for the styling of the site was that of a minimal design theme. The content show do the talking, with the aim of not having too many flashing lights and dominate colours or overtly dynamic elements confusing users as to were to go or how to get around the site. To that end i selected a colour palette that is light and complimentary in colour and based around a pastel style scheme.
+
+The below colour palette are the base from which I selected colours from the site. 
+
+Primary Colour Palette: 
+
+(https://res.cloudinary.com/pysched/image/upload/v1592048872/Bookshelf%20images/colour_palette_2_xzmk1p.jpg)
+
+
+Secondary Colour Palette:
+
+(https://res.cloudinary.com/pysched/image/upload/v1592048872/Bookshelf%20images/colour_palette1_x6ykem.jpg)
+
 
 
 
@@ -244,8 +256,8 @@ The form's username field only accepts alphanumeric values. Authorization checks
 I used GitHub for my version control and Heroku to host the live version of my project. To deploy my website to Heroku, I used the following steps:
 
 1. Created the app in Heroku.
-2. Ran the `sudo snap install --classic heroku` command in the terminal window to instal heroku in my local workspace.
-3. Ran the `heroku login --interactive` command in the terminal window and entered my credentials to login to Heroku.
+2. Run the `snap install --classic heroku` command in the terminal window to instal heroku in my local workspace.
+3. Ran the `heroku login` command in the terminal window and entered my credentials to login to Heroku.
 4. Added and committed the files to Git using the `git add .` and `git commit -m ""` commands in the terminal window.
 5. Linked the Heroku app as the remote master branch using the following command in the terminal window:
 
@@ -272,13 +284,13 @@ The app was successfully deployed to Heroku at this stage.
 
 Click the link below to run my project in the live environment:
 
-[Book Shelf]
+[Book Shelf] (https://bookshelf-dm.herokuapp.com/)
 
 ### Repository Link
 
 Click the link below to visit my project's GitHub repository:
 
-[Book Shelf]
+[Book Shelf] (https://github.com/Pysched/MS3-DM)
 
 ### Running Code Locally
 
@@ -313,7 +325,7 @@ To run my code locally, users can download a local copy of my code to their desk
 
 Images used in this project where sourced from royality free locations
 
-main site image - https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/
+main site image - (https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)
 
 book club image - https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg
 
