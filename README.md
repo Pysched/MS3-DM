@@ -100,7 +100,7 @@ The links to these images are available at the following links:
 
 - [**_Wireframe 3_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056298/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_3_yujc27.jpg)
 
-- [**_Wireframe4_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056377/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg)
+- [**_Wireframe 4_**](https://res.cloudinary.com/pysched/image/upload/c_scale,w_898/v1592056377/Bookshelf%20images/CamScanner_05-26-2020_02.05.46_Page_4_texd8j.jpg)
 
 
 My Final Project design and layout differs from my initial wireframes. This occured as part of my development iteration process. As the site evloved and technoical challenges either become too much or overocme, the design changed to reflect that, the initial wireframes gave me a great base from which to start and develop from and are an essential part of the process. 
@@ -328,27 +328,38 @@ To run my code locally, users can download a local copy of my code to their desk
 
 ## Credits
 
+- All of the code for my project was written by me.
+- I learned and developed my knowledge and understanding of how to implement a user login with encrypted password through reviewing and learning from the following student projects: [**_Student Cook Book Project_**](https://github.com/hebs87/cookbook-milestone-project-three), [**_Student Fitness Pot Project _**](https://github.com/tomciosegal/fitness_pot)
+- Using these resources as a reference I was able to craft my own code to perform the desired functionality. 
+- I also want to acknowledge the amazing support I recieved from tutor support. They were fantastic in helping me identify issues and teaching me how to resolve them. They are a fantastic resource.
+- I got a general idea of how to create a register and login system by watching this [Login Video](https://www.youtube.com/watch?list=PLXmMXHVSvS-Db9KK1LA7lifcyZm4c-rwj&v=vVx1737auSE&app=desktop) and pairing it to the above reference user login methods
+- Flash Messages Article [Flash Messages Article](https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/) This article help me is understand and deploy the flashed messages in the app.
+
 
 ### Content
 
+- The content for the game was created by myself.
 
 ### Media
 
 Images used in this project where sourced from royality free locations
 
-Main Site Image - (https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)
+[**_Main Site Image_**](https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)
 
-Book Club Image - https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg
+[**_Book Club Image_**](https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg)
 
-Browse Image -https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260
+[**_Browse Image_**](https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)
 
-Register Image - https://image.freepik.com/free-photo/girl-holding-book-front-face_23-2147690566.jpg
+[**_Register Image_**](https://image.freepik.com/free-photo/girl-holding-book-front-face_23-2147690566.jpg)
 
 The listing item images are added by users from the various sites or locations that the users find images for.
 
 
 ### Acknowledgements
 
+Major thank you to the tutoring team for their invaluable support in guiding me through issues I had. Their method of support is great as they describe the issue and guide you to undersstanding how to resolve issues yourself. fantastic team.
+
+A thank you to my mentor, Rahul Patil, for his review of my project scope and layout.
 
 ### Disclaimer
 
