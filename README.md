@@ -277,6 +277,12 @@ The testing of users Stories consisted of:
 15. Delete - Can a user delete their account - Delete functionality
 16. Navigation Navbar - can a user naviagate the site through full screen navigation at the navbar
 17. Naviagtion Footer - can a user navigate the site through the footer
+18. A user can signup, edit their account details, then edit a listing - previously a bug but now resolved.
+
+The testing of the site was extensive.
+As described above, I worked through all of those points and tried to break the system where possible, through this expereience I came across a number of bugs, however i have now resolved them.
+
+For the functionality that is present there are as far as myself testing each case in multible different appraiches no bugs. I also got 4 people to test the site using the above criteria and the testing revealed erros that have been resolved.
 
 ### Responsive and Functional Testing
 - I tested my apps responiveness on different size sizes; Mobile, tablet and Desktop to ensure that the responiveness worked and the site is funcitonal at all sizes.
@@ -432,7 +438,7 @@ Major thank you to the tutoring team for their invaluable support in guiding me 
 
 A thank you to my mentor, Rahul Patil, for his review of my project scope and layout.
 
-A very special thank you to my Partner for feeding me, waking me and being an all round star while I was in coding mode!!!
+A very special thank you to my Partner for feeding me, waking me and being an all round star while I was in coding mode!!!!
 
 ### Disclaimer
 
