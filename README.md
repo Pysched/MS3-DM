@@ -38,8 +38,8 @@
 
 Book Shelf is an web application, designed as a great place for avid book lovers, page turners, friendly discussion and a facility to aid users to buy books. The aims of the site are to be a central location for people who want to read reviews by fellow book enthusists, join a bookclub group, arrange online meeting times for healthy discussion and as a place where they can link to buy the books they want. 
 
-Users will be able to create reviews about their favourite books, like and vote on other books reviewed by other people.
-Users can also create their own free account and add reviews that they can share with other users and visitors.
+Users will be able to perform CRUD (Create, Read, Update and Delete) profiles, book listings and book club meetings.
+Users will be able to update all listings and meetings once they are signed up and logged in.
 
 A free to join site that brings people together and allows them to share their passion and buy books.
 
