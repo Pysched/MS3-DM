@@ -232,7 +232,7 @@ a.ft-nav:hover{
 
 @media(max-width:600px){
   .col.foot-spc{
-      margin-left:83px!important;
+      margin-left:58px!important;
   }
   .nav, .soc {
       margin-top:55px;
@@ -444,9 +444,9 @@ a.ft-nav:hover{
     font-size:1.2rem;    
 }
 
-.content{
+/* .content{
     padding-left:25px;
-}
+} */
 
 /* -- Bradcrumbs -- */
 .bread{
