@@ -1,5 +1,5 @@
 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
-# [Book Shelf]() - Milestone Project Three
+# [Book Shelf](https://bookshelf-dm.herokuapp.com/) - Milestone Project Three
 
 ## Table of Contents
 
@@ -42,7 +42,7 @@ Users will be able to perform CRUD (Create, Read, Update and Delete) profiles, b
 
 A free to join site that brings people together and allows them to share their passion and buy books
 
-### Why This Project?
+### Project Rational?
 
 This app was created for the Data Centric Development project of [**_Code Institute's_**](https://codeinstitute.net/) Full Stack Software Development course. The project scope was to create a web app using Python and a no-SQL database (MongoDB), which uses **CRUD** operations to allow users to easily create, read, update and delete data from a database viewed through a web application
 
@@ -86,15 +86,14 @@ Secondary Colour Palette:
 
 ### Wireframes
 
-Wireframes where developed using Balsamiq. These have been developed from a mobile first perspective so that every feature is designed from the smallest up, rather than desigined to fit everything in afterwards.
-The site is designed to be responsive. 
+Wireframes where developed by hand. A personal chocice as I find it a rapid and iterative process for me to develop wireframes where I can quickly modify and change features as I please.  
 
-The links to the files are below:
+The links to these iamges are available at the following links:
 
 
 ### Database Schema
 
-I designed a databse schema before starting my project, the layout for these are available below:
+I designed a database schema before starting my project, the layout for these are available below:
 
 ## Features
 
@@ -104,33 +103,24 @@ This app makes use of Python logic to enable users to login and, or register for
 The CRUD features that are available through using Python and Mongodb allow users to create, read, update and delete records in a variety of manners:
 
 - Create book listing
-- Create a favourite list
-- Create a book review
-- Create a book rating
 - Create a book club meeting
+- Create a user account
 - Read their book listings
-- Read book reviews
-- Read their favourites list
-- Read/view book ratings by all users
-- Read reviews by other users
+- Read book listings
+- Read/view book listings by all users
 - Read Book Club meetings 
-- Read book listings by category
 - Update their listings
-- Update their reviews
-- Update their favourites list
-- Update a book rating
+- Update their account
 - Update a book club meeting
-- Delete their own book listing
-- Delete their own book review
-- Delete their own favourite listings items
+- Delete a book listing
 - Delete book Club meetings
 - Delete their user account
 
 
-### Proposed Features
+### Existing Features
 
 -**Navbar Links** 
-The navbar will contain the following links to all users:
+The navbar contains the following links to all users:
 
 -- Branding Icon( Also home button )
 -- Home Button
@@ -139,66 +129,77 @@ The navbar will contain the following links to all users:
 -- Login
 -- Register
 
-When the user is registered and logged, the navbar will add Account and log out to the navbar and remove login and register buttons from the UI
+When the user is registered and logged in, the navbar will add buttons for:
+Account, Add Item and log out to the navbar and remove login and register buttons from the UI.
 
-The account button will consist of the following options in a dropdown:
-- Peronal information
-- Add/edit/remove a new Review
-- Add/edit/remove a new book listing
+- **Navbar Links logged in**
+The following are the nav bar links when a user is logged in:
 
-- **Login** - Place for previously registered users to login to their account. 
-The form's username field only accepts alphanumeric values. Authorization checks are used to verify the username and password ( password is hashed ) with the details checked against the stored varibles in the database before users are logged in.
+-- branding Icon (Also a home button)
+-- Home Button
+-- Book Club button
+-- Browse button
+-- Account Button (to take the user to their specific account page)
+-- Add Item Button ( this feature is only available to registered users to be able to add listings)
+-- Log
 
-- **Register** - facility to allow new users to register for an account. The form's username field only accepts alphanumeric values. Checks are in place to ensure that the username doesn't already exist in the database before users are successfully registered. The passwords stored in the database are hashed for security purposes.
+
+- **Login** - Facility for previously registered users to login to their account. Authorization checks are used to check that the username and password ( password is hashed ) with the details checked against the stored values in the database before users are logged in.
+
+- **Register** - Facility to allow new users to register for an account. Checks are in place to ensure that the username doesn't already exist in the database before users are successfully registered. The passwords stored in the database are hashed for security purposes.
+
+- **Edit Account Details** - Assuming a user exists, then the user will have the facility to update their user profile account details.
+
+- **Cancel Edit** - This feature allows the user to change their mind and return to the their specific profile page.
+
+- **Delete Account** - Facility to allow user to delete their account. This will perform the aciton of removing the entire set of user details from the database, as the users have added listings, I decided to leave the previously added listings by the user, so that their listings are still available to other users
 
 - **Logout** - Allows users to logout of their account by clicking the 'Logout' link in the navbar. Upon clicking the button, the user session ends.
 
-- **Add Book Listing** 
+- **Browse** - The browse page has a list of all the added listings by all users. 
 
-- **Liked Book List** 
+- **Add Book Listing** - Feature is only available to users who are logged in. Once they are logged in they can add a book listing in this form page. This listing data is then posted to the mongodb database for retrival in the browse and index pages.
 
-- **Change Password** 
+- **Cancel Edit** - This feature allows the user to change their mind and return to the index page and continue navigating the site.
 
-- **Delete Account** 
+- **Edit Book Listing** - This feature allows registered and logged in users to edit book listings. This action removes the selected listing values from the database.
 
-- **Browse** 
+- **Cancel Edit** - This feature allows the user to change their mind and return to the listing page of the specific book listing that they had selected.
 
-- **Search**
+- **Remove Book Listing** - This feature allows registered and logged in users to delete book listings. This action removes the selected listing values from the database and returns users to the browse page.
 
-- **Filter** 
+- **Cancel Remove** - This feature allows the user to change their mind and return to the listing page of the specific book listing that they had selected.
 
-- **Reset Button** 
+- **Add New Book Club Meeting** - A facility for registered and logged in users to add a book club meeting. This information is stored in the databse and consists of user_id, date and time pickers and when the meeting was added. 
 
-- **Pagination** 
+- **Edit Book Meeting** - This feature allows users to update the book club meetings. If editing, the user, who must be registered and logged in, can ammend the book club meeting. 
 
-- **Add Review** 
+- **Cancel Edit** - This feature allows the user to change their mind and return to the meetings page of all the listed book club meetings.
 
-- **Add New Book Club Meeting** 
+- **Remove Book Meeting** - This feature allows users to  and delete the book club meeting that they have selected. If deleting, the user, who must be registered and logged in, can delete the book club meeting. 
 
-- **Remove Book Listing** 
+- **Cancel Remove** - This feature allows the user to change their mind and return to the meeting page of the specific book club meeting that they had selected.
 
-- **Remove Book Review** 
-
-- **Cancel Button (Add Book, Review, Listing Page)** - Cancels the form submission when clicked and redirects the user to the Home page.
-
-- **Rate Book** - The Rate It button is only available if the user is logged in. Clicking the Rate It button triggers the Rate It modal. The modal has a dropdown menu from which the user can select their rating. The user can't submit the form without selecting an option. Upon form submission, the rating value is converted to an integer and is added to the recipe record's 'rating_values' list in the database, and the new average rating value and rating count are calculated and displayed on the webpage.
-
-- **Like Book** - The Like button is only available if the user is logged in. Clicking the Like button adds the recipe's ObjectID to the user's liked recipes list in the database, the button icon is filled in and the text changes to 'Liked'.
-
-- **Unlike Book** - The Liked button is only available if the user is logged in and has already liked the recipe. Clicking the button removes the recipe's ObjectID from the user's liked recipes list in the database, the button icon is no longer filled in and the text changes back to 'Like'. The user can do this from the recipe page, or from their liked list in their Profile page.
-
-- **Custom Error Messages**
 
 ### Features Left to Implement
 
+- **Like Listing** - It was invisioned at the start of the project to add a feature for users to like book listings. To that end I began the profile setup python code with a 'liked listings' array that is created for each user,  with the intention of adding each listing id that the user liked to that array for call back on the profile page. This is a feature I would add in the future.
+
+- **Rate Listing** - It was invisioned at the start of the project to add a feature for users to rate book listings. To that end I began the profile setup python code with a 'rate listings' array that is created for each user,  with the intention of adding each listing id that the user rated to that array for call back on the profile page. Later I would like to develop out the rating feature to give an average rating based on all likes against a listing id and display that average as a number or star icons on each listing.
+
+- **Filter/ Browse By Listing Feature**  - It was invisioned at the start of the project to add a filter/browse by feature for users to search book listings by. 
+
+- **Add Reviews**  - It was invisioned at the start of the project to add a filter/browse by feature for users to search book listings by. I would like to implement this feature in the future.
+
+- **Pagination** - I had hoped to develop a pagination system for all the lisitngs to be more easily browsed and viewed, however time constraints at the end ment this feature is left in the features left to implement section.
+
+- **Blueprints** - Having reviewed other students projects, I came to learn of blueprints and how that package can be used to seperate out various sections of code and reference then in a master py file, while I feel this would have helped greatly in terms of keeping my coding logic together in chunks of features I was unable to dedicate the time to learning how to implement this properly as such it is someting to be learned and added at a later date, or for future proejcts.
 
 
 ## Technologies Used
 
-- [**Balsamiq**](https://balsamiq.com/)
-    - I've used **Balsamiq** to create wireframes of my website/app before building it.
 - [**HTML**](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-    - The project uses **HTML** to create the basic elements and content of my app.
+    - This project makes use of **HTML** as the main structural element of the app.
 - [**Materialize**](https://materializecss.com/)
     - The project uses the **Materialize** framework to add a responsive grid system, prebuilt components, plugins built on jQuery, and Materialize styles to my app, before adding my custom styles.
 - [**jQuery**](https://jquery.com)
@@ -209,23 +210,19 @@ The form's username field only accepts alphanumeric values. Authorization checks
     - The project uses **PyMongo** as the Python API for MongoDB. This API enables linking the data from the back-end database to the front-end app.
 - [**Flask**](https://flask.palletsprojects.com/en/1.0.x/)
     - The project uses **Flask**, which is a Python microframework.
-- [**Flask Blueprint**](https://flask.palletsprojects.com/en/1.0.x/blueprints/)
-    - The project user **Flask Blueprint** to compartmentalise my Python code and make it more modular and easier to navigate.
 - [**Jinja**](https://jinja.palletsprojects.com/en/2.10.x/)
     - The project uses **Jinja** for templating with Flask in the HTML code. I used **Jinja** to simplify my HTML code, avoid repetition, and allow simpler linking of the back-end to the front-end.
 - [**MongoDB**](https://cloud.mongodb.com/)
     - The project uses **MongoDB** to store the database in the cloud. The information displayed in the front-end app is pulled from the database store.
-- [**Google Fonts**](https://fonts.google.com/)
-    - The project uses **Google Fonts** to style the text and suit my chosen theme. The brand logo uses the *_Dancing Script_* font and the rest of the site uses the *_Roboto_* font.
 - [**Font Awesome**](https://fontawesome.com/)
     - The project uses **Font Awesome** for the various icons in my app.
-- [**AWS Educate Cloud9**](https://aws.amazon.com/education/awseducate/)
-    - I've used **AWS Educate Cloud9** as the development environment to write the code for my website.
+- [**Gitpod**](https://gitpod.com)
+    - The project has been developed in the gitpod IDE.
 
 ### Version Control
 
 - [**Git**](https://git-scm.com/)
-    - I've used **Git** as a version control system to regularly add and commit changes made to project in AWS Educate Cloud9, before pushing them to GitHub.
+    - I've used **Git** as a version control system to regularly add and commit changes made to project and pushing them to GitHub.
 - [**GitHub**](https://github.com/)
     - I've used **GitHub** as a remote repository to push and store the committed changes to my project from Git.
 
@@ -325,13 +322,15 @@ To run my code locally, users can download a local copy of my code to their desk
 
 Images used in this project where sourced from royality free locations
 
-main site image - (https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)
+Main Site Image - (https://www.pexels.com/photo/blur-book-stack-books-bookshelves-590493/)
 
-book club image - https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg
+Book Club Image - https://media.edutopia.org/styles/responsive_2880px_16x9/s3/masters/2018-08/iStock-487922329_master.jpg
 
-browse image -https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260
+Browse Image -https://images.pexels.com/photos/3769697/pexels-photo-3769697.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260
 
-join - https://image.freepik.com/free-photo/girl-holding-book-front-face_23-2147690566.jpg
+Register Image - https://image.freepik.com/free-photo/girl-holding-book-front-face_23-2147690566.jpg
+
+The listing item images are added by users from the various sites or locations that the users find images for.
 
 
 ### Acknowledgements
