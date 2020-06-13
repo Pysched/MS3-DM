@@ -26,9 +26,7 @@
   - [Responsive and Functional Testing](#Responsive-and-Functional-Testing)
   - [Additional Testing](#Additional-Testing)
   - [Code Validation](#Code-Validation)
-  - [Interesting Bugs Or Problems](#Interesting-Bugs-Or-Problems)
-    - [Resolved Bugs](#Resolved-Bugs)
-    - [Partially Resolved or Unresolved Bugs](#Partially-Resolved-or-Unresolved-Bugs)
+  (#Partially-Resolved-or-Unresolved-Bugs)
 - [**Deployment**](#Deployment)
   - [Live App Link](#Live-App-Link)
   - [Repository Link](#Repository-Link)
@@ -291,7 +289,7 @@ The testing of users Stories consisted of:
 
 For testing of functionality I have tested it myself trying each of the dyna,ic elements on all sizes.
 
-Tesing included:
+#### Tesing included:
 - Navbar Links
 - Logo link
 - Cards arrow click for reverse card information
@@ -401,7 +399,9 @@ To run my code locally, users can download a local copy of my code to their desk
 ## Credits
 
 - All of the code for my project was written by me.
-- I learned and developed my knowledge and understanding of how to implement a user login with encrypted password through reviewing and learning from the following student projects: [**_Student Cook Book Project_**](https://github.com/hebs87/cookbook-milestone-project-three), [**_Student Fitness Pot Project_**](https://github.com/tomciosegal/fitness_pot)
+- By reviewing the below student projects, I developed my knowledge and understanding of how to implement a user login system and password encryption method:
+    - [**_Student Cook Book Project_**](https://github.com/hebs87/cookbook-milestone-project-three)
+    - [**_Student Fitness Pot Project_**](https://github.com/tomciosegal/fitness_pot)
 - Using these resources as a reference I was able to craft my own code to perform the desired functionality. 
 - I also want to acknowledge the amazing support I recieved from tutor support. They were fantastic in helping me identify issues and teaching me how to resolve them. They are a fantastic resource.
 - I got a general idea of how to create a register and login system by watching this [Login Video](https://www.youtube.com/watch?list=PLXmMXHVSvS-Db9KK1LA7lifcyZm4c-rwj&v=vVx1737auSE&app=desktop) and pairing it to the above reference user login methods
@@ -410,7 +410,7 @@ To run my code locally, users can download a local copy of my code to their desk
 
 ### Content
 
-- The content for the game was created by myself.
+- The content for the application was created by myself.
 
 ### Media
 
